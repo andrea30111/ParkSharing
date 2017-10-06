@@ -1,0 +1,35 @@
+input{
+    border-radius: 10px;
+    background: :#f7f7f7;
+    margin: 0 auto;
+}
+
+.container {
+	max-width: 500px;
+    margin: 0 auto;
+}
+
+.message {
+	text-align: center;
+    color: darkgray;
+}
+
+.author{
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.footer a{
+    background-color: orange;
+    color: black;
+    border-radius: 5px;
+}
+
+.footer a:first-child{
+    float:left;
+}
+
+.footer a:last-child{
+    float:right;
+}

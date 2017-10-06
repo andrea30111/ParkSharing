@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var appRoutes = require('./routes/app');
 
 var app = express();
+var mongoose = require('mongoose');
+mongoose.connect('localhost:27017/parksharing');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
