@@ -1,12 +1,20 @@
-import { Component } from "@angular/core";
+import { Component , Input , Output , EventEmitter } from "@angular/core";
+import { Message } from "./message.module";
+
 
 @Component({
     selector: 'app-message',
     templateUrl: './message.component.html',
-    styleUrls: ['./message.component.css']//
+    styleUrls: ['./message.component.css'] // importazione dello stile messaggio
 })
 
 export class MessageComponent {
+    //qui andiamo a dire che il messaggio deve essere fatto come il message definito nel module
+    // questo indica il fatto che può essere acceduto dall'esterno e scritto
+    @Input() message: Message;
+    @Output() editClicked = new EventEmitter<string>();
 
-
+    onEdit(){
+        this.editClicked.emit('A new value');
+    }
 }

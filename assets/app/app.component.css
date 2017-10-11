@@ -1,3 +1,14 @@
 message{
     color:red;
 }
+
+h2{
+    text-align: center;
+    padding: 20px;
+}
+
+body {
+    display: block;
+	width: 500px;
+    margin: 0 auto;
+}

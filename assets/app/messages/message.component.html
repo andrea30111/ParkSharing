@@ -1,15 +1,17 @@
-<input type="text" class="text" [(ngModel)]="message.content">
+<input type="text" class="text" placeholder="insert some text">
 
 <div class="container">
     <div class="message">
         {{message.content}}
     </div>
-    <div class="author">
-        {{message.author}}
-    </div>
-    <div class="footer">
-        <a href="">Edit</a>
-        <a href="">Delete</a>
+
+    <div class="footer clearfix">
+       <div class="author">
+            {{message.username}}
+        </div>
+        <!-- andiamo a chiamare il metodo definito nel component-->
+        <a href="#" (click)="onEdit()">Edit</a>
+        <a href="#" >Delete</a>
     </div>
 </div>
 

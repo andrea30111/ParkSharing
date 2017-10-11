@@ -1,29 +1,55 @@
 input{
-    border-radius: 10px;
-    background: :#f7f7f7;
-    margin: 0 auto;
+    border-radius: 20px;
+    background:#f7f7f7;
+    margin: 20px auto;
+    width: 250px;
+    display: block;
+    border: 1px solid grey;
+    padding: 8px;
+    outline: none;
 }
 
-.container {
-	max-width: 500px;
+.container{
+    border: 1px solid grey;
     margin: 0 auto;
+    display: block;
+    width: 450px;
+    border-radius: 5px;
+    padding: 0px;
 }
 
 .message {
-	text-align: center;
-    color: darkgray;
+    color:black;
+    padding: 20px;
+    display: block;
+    text-align: center;
 }
 
 .author{
     font-weight: bold;
-    text-align: center;
+    float:left;
+    vertical-align: middle;
+    line-height: 40px;
+}
 
+.footer{
+    width: 100%;
+    margin: 0 auto;
+    border-top: 1px solid black;
+    padding: 5px;
+    background-color: aliceblue;
 }
 
 .footer a{
-    background-color: orange;
+    background-color: lightslategrey;
     color: black;
     border-radius: 5px;
+    min-width: 50px;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    float: right;
+    margin: 5px;
 }
 
 .footer a:first-child{
