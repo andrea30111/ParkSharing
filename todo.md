@@ -15,3 +15,6 @@ http://brianflove.com/2016/10/18/angular-2-google-maps-places-autocomplete/
 https://angular-ui.github.io/
 
 alt + 9 = `
+
+//installazione mongoose
+npm install --save mongoose
