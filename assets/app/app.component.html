@@ -5,4 +5,10 @@ se avessi usato (click) avrei fatto il listen di tutti gli eventi, facendo invec
 
 Al click il mio message.content verrà cambiato con $event è il modo di prendere quello che viene emesso dall'altra parte
 -->
-<app-message [message]="message" (editClicked)="message.content = $event"></app-message>
+<div class="col-md-8 col-md-offset-2">
+   <app-message-input></app-message-input>
+   <hr>
+   <!-- structure directive *ngFor: looppo sulla variabile dall'altra parte messages che è un array, la chiamo message internamente e questo message viene passato a [message] del componente app-message -->
+   <app-message-list></app-message-list>
+
+</div>

@@ -1,6 +1,10 @@
 <input type="text" class="text" placeholder="insert some text">
 
-<div class="container">
+<!-- directives, se avessi voluto usare come in css avrei dovuto scrivere 'bachground-color'
+
+all'enter sull'elemento cambio il valore della variabile color
+-->
+<div class="container" [ngStyle]="{backgroundColor: color}" (mouseenter)="color = 'green'">
     <div class="message">
         {{message.content}}
     </div>
