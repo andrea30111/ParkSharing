@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
         <app-message-list></app-message-list>
     `
 })
+
 export class MessagesComponent{
 
 }
