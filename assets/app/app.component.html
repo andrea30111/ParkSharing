@@ -4,10 +4,11 @@
 se avessi usato (click) avrei fatto il listen di tutti gli eventi, facendo invece editCliked ascolto solo il mio evento che ho esposto tramite @Output altrimenti non l'avrei visto
 
 Al click il mio message.content verrà cambiato con $event è il modo di prendere quello che viene emesso dall'altra parte
+router-outlet è dove mettere il risultato del routinh
 -->
 <div class="col-md-8 col-md-offset-2">
-   <app-message-input></app-message-input>
-   <!-- structure directive *ngFor: looppo sulla variabile dall'altra parte messages che è un array, la chiamo message internamente e questo message viene passato a [message] del componente app-message -->
-   <app-message-list></app-message-list>
-
+    <app-header></app-header>
+    <hr>
+    <router-outlet></router-outlet>
 </div>
+
