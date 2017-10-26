@@ -4,7 +4,7 @@ import { LogoutComponent } from './auth/logout.component';
 import { routing } from './app.routing';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from "./app.component";
@@ -30,7 +30,7 @@ import { MessagesComponent } from './messages/messages.component';
         SigninComponent,
         SignupComponent
     ],
-    imports: [BrowserModule, FormsModule, routing],
+    imports: [BrowserModule, FormsModule, routing, ReactiveFormsModule],
     bootstrap: [AppComponent]
 })
 export class AppModule {
