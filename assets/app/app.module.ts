@@ -1,3 +1,5 @@
+import { BackofficeComponent } from './auth/backoffice.component';
+import { MapsComponent } from './maps/maps.component';
 import { SignupComponent } from './auth/signup.component';
 import { SigninComponent } from './auth/signin.component';
 import { LogoutComponent } from './auth/logout.component';
@@ -15,7 +17,7 @@ import { HeaderComponent } from './header.component';
 import { AuthenticationComponent } from './auth/authentication.component';
 import { MessagesComponent } from './messages/messages.component';
 
-
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
     declarations: [ //qui aggiungo i nuovi component, ricorati l'import
@@ -28,9 +30,20 @@ import { MessagesComponent } from './messages/messages.component';
         HeaderComponent,
         LogoutComponent,
         SigninComponent,
-        SignupComponent
+        SignupComponent,
+        MapsComponent,
+        BackofficeComponent
     ],
-    imports: [BrowserModule, FormsModule, routing, ReactiveFormsModule],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        routing,
+        ReactiveFormsModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyAWOifJlodru0LZltRSNwTfMa0IbMyDJy4',
+            libraries: ["places"]
+          })
+        ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

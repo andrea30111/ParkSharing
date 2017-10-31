@@ -1,0 +1,36 @@
+<div class="col-md-8 col-md-offset-2">
+
+        <!--Nome, Cognome, C.Fiscale, mail, pwd.
+        Posizione, Indirizzo.
+        Dimensione Box, Tipologia box, Slot temporale, Prezzo/h, Tipologia park-->
+      
+
+
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <div class="d-inline">
+                    <label for="firstName">Nome</label>
+                    <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                </div>
+                <div class="d-inline">
+                    <label for="lastName">Cognome</label>
+                    <input type="text" id="lastName" class="form-control" formControlName="lastName">
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="fiscalCode">Codice Fiscale</label>
+                    <input type="text" id="fiscalCode" class="form-control" formControlName="fiscalCode">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>                    
+                <input type="text" id="email" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" formControlName="password"> 
+            </div>
+            <hr>
+            
+            <button class="btn btn-submit btn-primary" type="submit" [disabled]=!myForm.valid>Sign Up</button>
+        </form>
+    </div>

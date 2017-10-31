@@ -18,3 +18,9 @@ alt + 9 = `
 
 //installazione mongoose
 npm install --save mongoose
+
+//creazione PWA
+1) npm install --save @angular/material @angular/cdk
+
+// autocomplete address
+npm install angular2-google-map-auto-complete
