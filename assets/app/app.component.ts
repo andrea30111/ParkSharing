@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MessageService } from './messages/message.service';
+import * as $ from 'jquery';
+
 
 
 @Component({
@@ -9,6 +11,16 @@ import { MessageService } from './messages/message.service';
     //importandolo qui creo una singola istana usabile da tutti i component
     providers: [MessageService]
 })
-export class AppComponent {
 
+
+
+export class AppComponent implements OnInit{
+
+    ngOnInit(){
+    }
+
+    ngAfterViewChecked() {
+        $(".backoffice").addClass("ugo");
+    }
+    
 }

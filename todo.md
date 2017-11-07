@@ -19,8 +19,10 @@ alt + 9 = `
 //installazione mongoose
 npm install --save mongoose
 
-//creazione PWA
-1) npm install --save @angular/material @angular/cdk
+//google maps
+npm install -g @angular/cli
 
-// autocomplete address
-npm install angular2-google-map-auto-complete
+//jQuery
+npm install --save jquery
+npm install -D @types/jquery
+vedi come è usato in app.component.ts
