@@ -1,3 +1,4 @@
+import { Maps2Component } from './maps/maps2.component';
 import { BackofficeComponent } from './auth/backoffice.component';
 import { MapsComponent } from './maps/maps.component';
 import { SignupComponent } from './auth/signup.component';
@@ -32,7 +33,8 @@ import { AgmCoreModule } from '@agm/core';
         SigninComponent,
         SignupComponent,
         MapsComponent,
-        BackofficeComponent
+        BackofficeComponent,
+        Maps2Component
     ],
     imports: [
         BrowserModule,

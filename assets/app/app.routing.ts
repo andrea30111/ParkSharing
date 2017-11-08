@@ -1,3 +1,4 @@
+import { Maps2Component } from './maps/maps2.component';
 import { BackofficeComponent } from './auth/backoffice.component';
 import { MapsComponent } from './maps/maps.component';
 import { AUTH_ROUTES } from './auth/auth.routes';
@@ -12,6 +13,7 @@ const APP_ROUTES : Routes = [
     { path: 'messages', component: MessagesComponent},
     { path: 'backoffice', component: BackofficeComponent},
     { path: 'maps', component: MapsComponent},
+    { path: 'maps2', component: Maps2Component},
     { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES}
 ];
 
