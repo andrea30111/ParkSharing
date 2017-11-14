@@ -1,3 +1,4 @@
+import { BackofficeService } from './auth/backoffice.service';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from './messages/message.service';
 import * as $ from 'jquery';
@@ -9,7 +10,7 @@ import * as $ from 'jquery';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
     //importandolo qui creo una singola istana usabile da tutti i component
-    providers: [MessageService]
+    providers: [MessageService, BackofficeService]
 })
 
 

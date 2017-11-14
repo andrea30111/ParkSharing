@@ -1,14 +1,17 @@
-import { selector } from 'rxjs/operator/publish';
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    selector:'app-messages',
-    template:`
-        <app-message-input></app-message-input>
-        <app-message-list></app-message-list>
+    selector: 'app-messages',
+    template: `
+        <div class="row">
+            <app-message-input></app-message-input>
+        </div>
+        <hr>
+        <div class="row">
+            <app-message-list></app-message-list>
+        </div>
     `
 })
-
-export class MessagesComponent{
+export class MessagesComponent {
 
 }

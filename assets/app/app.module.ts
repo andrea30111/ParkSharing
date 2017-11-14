@@ -19,6 +19,7 @@ import { AuthenticationComponent } from './auth/authentication.component';
 import { MessagesComponent } from './messages/messages.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
     declarations: [ //qui aggiungo i nuovi component, ricorati l'import
@@ -41,6 +42,7 @@ import { AgmCoreModule } from '@agm/core';
         FormsModule,
         routing,
         ReactiveFormsModule,
+        HttpModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyAWOifJlodru0LZltRSNwTfMa0IbMyDJy4',
             libraries: ["places"]
