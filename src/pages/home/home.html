@@ -7,10 +7,10 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <p *ngIf="!isLoggedIn()">Please Log In to use the app</p>
+  <p *ngIf="isLoggedIn()">Welcome X Y</p>
   <button ion-button round navPush="RegisterComponent">Sign Up</button>
-  <button ion-button round navPush="LoginComponent">Sign In</button>
+  <button ion-button round navPush="LoginComponent" *ngIf="!isLoggedIn()">Sign In</button>
+  <button ion-button round *ngIf="isLoggedIn()" (click)="onLogout()">Logout</button>
+  <button ion-button round navPush="LoginComponent">Register your box</button>
 </ion-content>

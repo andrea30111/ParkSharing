@@ -30,7 +30,6 @@ router.post('/', function (req, res, next) {
         email: req.body.email
     });
     user.save(function(err,result){
-        console.log("save" );
         if(err){
             return res.status(500).json({
                 title: 'an error occurred',
@@ -58,10 +57,10 @@ router.post('/', function (req, res, next) {
                 });
             }
             if (!bcrypt.compareSync(req.body.password, user.password)) {
-                return res.status(401).json({
-                    title: 'Login failed',
-                    error: {message: 'Invalid login credentials'}
-                });
+                    return res.status(401).json({
+                        title: 'Login failed',
+                        error: {message: 'Invalid login credentials'}
+                    });
             }
             var token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
             res.status(200).json({
