@@ -6,7 +6,7 @@ export class User {
     email: string;
     messagesId?: string[];
 
-    constructor(firstName: string, lastName: string, fiscalCode: string, password: string, email: string, messagesId?: string[]){
+    constructor(email: string, password: string, firstName?: string, lastName?: string, fiscalCode?: string, messagesId?: string[]){
         this.firstName = firstName;
         this.lastName = lastName;
         this.fiscalCode = fiscalCode;

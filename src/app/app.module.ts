@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { RegisterService } from '../providers/register.service';
+import { AuthService } from '../providers/auth.service';
 //import { RegisterComponent } from '../pages/register/register';
 
 @NgModule({
@@ -30,7 +30,7 @@ import { RegisterService } from '../providers/register.service';
   ],
   providers: [
     StatusBar,
-    RegisterService,
+    AuthService,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

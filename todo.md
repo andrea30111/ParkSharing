@@ -15,6 +15,11 @@ npm start
 
 //END IONIC
 
+//per autenticazione
+npm install --save bcryptjs
+npm install --save jsonwebtoken
+
+
 Cose da fare
 
 npm run build

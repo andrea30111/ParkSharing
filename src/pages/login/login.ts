@@ -6,23 +6,18 @@ import { NavController, IonicPage } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-    selector: 'page-register',
-    templateUrl: 'register.html'
+    selector: 'page-login',
+    templateUrl: 'login.html'
 })
 
-export class RegisterComponent implements OnInit{
+export class LoginComponent implements OnInit{
     myForm: FormGroup;
 
-    constructor(private registerService: AuthService){
-        
-     }
+    constructor(private loginService: AuthService, private navCtrl: NavController){}
  
     ngOnInit(){
 
         this.myForm = new FormGroup({
-            firstName: new FormControl('', Validators.required),
-            lastName: new FormControl('', Validators.required),
-            fiscalCode: new FormControl('', Validators.required),
             email: new FormControl(null, [
                 Validators.required,
                 Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
@@ -33,15 +28,18 @@ export class RegisterComponent implements OnInit{
     //si poteva usare il form builder
     onSubmit() {
         const user = new User(
-            this.myForm.value.email, 
-            this.myForm.value.password, 
-            this.myForm.value.firstName, 
-            this.myForm.value.lastName, 
-            this.myForm.value.fiscalCode, 
-            null);
-        this.registerService.signup(user)
+            this.myForm.value.email,
+            this.myForm.value.password 
+        );
+        this.loginService.signin(user)
             .subscribe(
-                data => console.log(data),
+                data => {
+                    localStorage.setItem('token',data.token);
+                    localStorage.setItem('userId',data.userId);
+                    this.navCtrl.popToRoot(); 
+                    //non gestire la navigazione con angular ma con ionic
+                    //this.router.navigateByUrl('/');                  
+                },
                 error => console.error(error)
             );
         this.myForm.reset;
