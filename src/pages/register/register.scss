@@ -1,7 +1,21 @@
-page-register {
-
+.page-presentation,.page-form{
+    height: 50%;
+    min-height: 50%;
+    text-align: center;
+    display: block;
 }
-.d-inline{
-    display: inline-block;
-    width: 49%;
+
+.page-presentation{
+    background: $secondary-color;
+    color:$font-color;
+}
+
+.login-form{
+    max-width: 300px;
+    margin: 10px auto;
+        button{
+            max-width: 90px;
+            margin: 0 auto;
+            background-color: $primary-color; 
+        }
 }

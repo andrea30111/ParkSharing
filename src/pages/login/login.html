@@ -1,16 +1,34 @@
-<div class="col-md-8 col-md-offset-2">
-  
-          <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-              <div class="form-group">
-                  <label for="email">Email</label>                    
-                  <input type="text" id="email" class="form-control" formControlName="email">
-              </div>
-              <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" id="password" class="form-control" formControlName="password"> 
-              </div>
-              <hr>
-              
-              <button class="btn btn-submit btn-primary" type="submit" [disabled]=!myForm.valid>Sign In</button>
-          </form>
-      </div>
+<ion-header>
+        <ion-navbar>
+          <ion-title>
+            Login
+          </ion-title>
+        </ion-navbar>
+       
+      </ion-header>
+
+<div class="page-container">
+          
+    <div class="page-presentation">
+        <div class="content">        
+            Ciao! Effettua il login ed inizia a parcheggiare
+        </div>
+    </div>      
+    <div class="page-form">
+        <div class="content">
+            <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                <ion-item>
+                        <ion-label for="email">Email</ion-label>
+                        <ion-input type="text" id="email" class="form-control" formControlName="email"></ion-input>
+                </ion-item>
+                <ion-item>
+                        <ion-label for="password">Password</ion-label>
+                        <ion-input type="password" id="password" class="form-control" formControlName="password"></ion-input>
+                </ion-item>        
+                <hr>
+                <button ion-button block class="btn btn-submit btn-primary" type="submit" [disabled]=!myForm.valid>Sign In</button>
+            </form>
+        </div>
+    </div>
+
+</div>

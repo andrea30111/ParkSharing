@@ -14,3 +14,20 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+//declaring variables
+$font-family:'Montserrat', sans-serif;
+$primary-color: #E0CA3C;
+$font-color: #2D3047;
+$secondary-color:#cdfffc;
+$third-color:#A799B7;
+
+
+
+*{
+    font-family: $font-family;    
+}
+
+body, html , .page-container{
+    height: 100%;
+}
