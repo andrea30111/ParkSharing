@@ -19,7 +19,8 @@ npm start
 npm install --save bcryptjs
 npm install --save jsonwebtoken
 
-//Google maps
+//Google maps 
+--devi fare da qui
 ionic g provider Connectivity
 ionic g provider GoogleMaps
 ionic g provider Locations
@@ -30,7 +31,13 @@ npm install @ionic-native/core --save
 ionic cordova plugin add cordova-plugin-geolocation --variable 
 GEOLOCATION_USAGE_DESCRIPTION="To locate you"
 
+ionic cordova plugin add cordova-plugin-network-information
+npm install --save @ionic-native/network
 npm install --save @ionic-native/geolocation
+
+--fino a qui---
+
+
 
 Cose da fare
 
