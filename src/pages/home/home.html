@@ -1,10 +1,16 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-toolbar>
+
+        <ion-title>HOME</ion-title>
+        <ion-buttons end>
+            <button ion-button navPush="LoginComponent">Login</button>
+            <button ion-button navPush="RegisterComponent">Register</button>
+            <button ion-button navPush="MapsComponent">Maps</button>
+            <button ion-button navPush="ExplorePage">Explore</button>
+        </ion-buttons>
+      </ion-toolbar>
 </ion-header>
+
 
 <ion-content padding>
   <p *ngIf="!isLoggedIn()">Please Log In to use the app</p>
@@ -12,9 +18,23 @@
   <button ion-button round navPush="RegisterComponent">Sign Up</button>
   <button ion-button round navPush="LoginComponent" *ngIf="!isLoggedIn()">Sign In</button>
   <button ion-button round *ngIf="isLoggedIn()" (click)="onLogout()">Logout</button>
-  <button ion-button round navPush="LoginComponent">Register your box</button>
-  <button ion-button round navPush="MapsComponent">Maps</button>
-  <button ion-button round navPush="ExplorePage">Explore</button>
   
-  
+  <ion-card>
+      <img src="../../assets/imgs/logo.png"/>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+      <ion-item>
+          <ion-icon name="logo-twitter" item-start></ion-icon>
+          Followers
+          <ion-badge item-end>260k</ion-badge>
+        </ion-item>
+    </ion-card>
 </ion-content>
+
