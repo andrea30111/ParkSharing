@@ -22,6 +22,108 @@ $font-color: #2D3047;
 $secondary-color:#cdfffc;
 $third-color:#A799B7;
 
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+// Tablets and small desktops
+$screen-lg-min: 992px;
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Small devices
+@mixin sm {
+    @media (max-width: #{$screen-sm-min}) {
+        @content;
+    }
+ }
+ // Medium devices
+ @mixin md {
+    @media (max-width: #{$screen-md-min}) {
+        @content;
+    }
+ }
+ // Large devices
+ @mixin lg {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+ // Extra large devices
+ @mixin xl {
+    @media (max-width: #{$screen-xl-min}) {
+        @content;
+    }
+ }
+
+ // Custom devices
+@mixin rwd($screen) {
+    @media (min-width: $screen+'px') {
+        @content;
+    }
+ }
+
+ @mixin center($width, $height) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: $height;
+    width: $width;
+    transform: translate( -50% , -50%);
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+    background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+  }
+  
+  // Single side border-radius
+  
+  @mixin border-top-radius($radius) {
+    -webkit-border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+     -webkit-border-top-left-radius: $radius;
+     border-top-left-radius: $radius;
+     background-clip: padding-box;
+  }
+  @mixin border-right-radius($radius) {
+    -webkit-border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+       -webkit-border-top-right-radius: $radius;
+       border-top-right-radius: $radius;
+       background-clip: padding-box;
+  }
+  @mixin border-bottom-radius($radius) {
+    -webkit-border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+     -webkit-border-bottom-left-radius: $radius;
+     border-bottom-left-radius: $radius;
+     background-clip: padding-box;
+  }
+  @mixin border-left-radius($radius) {
+    -webkit-border-bottom-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+       -webkit-border-top-left-radius: $radius;
+       border-top-left-radius: $radius;
+       background-clip: padding-box;
+  }
+
+  @mixin box_shadow ($level) {
+    
+        @if $level == 1 {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        } @else if $level == 2 {
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        } @else if $level == 3 {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        } @else if $level == 4 {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        } @else if $level == 5 {
+            box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        }
+    
+    }
 
 
 *{
@@ -30,4 +132,15 @@ $third-color:#A799B7;
 
 body, html , .page-container{
     height: 100%;
+    button{
+        max-width: 90px;
+        margin: 0 auto;
+        background-color: $font-color; 
+    }
+}
+
+
+//reset
+.item-md {
+    padding-left: 0;
 }

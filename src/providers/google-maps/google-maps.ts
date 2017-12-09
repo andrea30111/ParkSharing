@@ -92,7 +92,7 @@ export class GoogleMapsProvider {
  
         // UNCOMMENT FOR NORMAL USE
         let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
- 
+  
         let mapOptions = {
           center: latLng,
           zoom: 15,

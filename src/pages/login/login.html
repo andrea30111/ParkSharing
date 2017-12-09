@@ -7,31 +7,51 @@
                 <button ion-button round navPush="RegisterComponent">Register</button>
                 <button ion-button round navPush="MapsComponent">Maps</button>
                 <button ion-button round navPush="ExplorePage">Explore</button>
+                <button ion-button round navPush="TutorialPage">Tutorial</button>
+                
             </ion-buttons>
           </ion-toolbar>
     </ion-header>
 
 <div class="page-container">
           
-    <div class="page-presentation">
-        <div class="content">        
-            Ciao! Effettua il login ed inizia a parcheggiare
-        </div>
-    </div>      
-    <div class="page-form">
-        <div class="content">
-            <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-                <ion-item>
-                        <ion-label for="email">Email</ion-label>
-                        <ion-input type="text" id="email" class="form-control" formControlName="email"></ion-input>
-                </ion-item>
-                <ion-item>
-                        <ion-label for="password">Password</ion-label>
-                        <ion-input type="password" id="password" class="form-control" formControlName="password"></ion-input>
-                </ion-item>        
-                <hr>
-                <button ion-button block class="btn btn-submit btn-primary" type="submit" [disabled]=!myForm.valid>Sign In</button>
-            </form>
+    <div class="login-container">
+        <div class="page-presentation">
+            <div class="content">   
+                    <h1>parcheggia alla velocità della luce!</h1>                         
+                    <section class="bottom">
+                        Con sto cazzo puoi:    
+                        <ul class="my-nav">
+                            <li>List item</li>
+                            <li>List item</li>
+                        </ul>
+                    </section>                       
+            </div>
+        </div>      
+        <div class="page-form">
+            <h1>LOGIN</h1> 
+            <div class="content" #login>
+                <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                    <ion-item>
+                            <ion-label floating for="email">Email</ion-label>
+                            <ion-input floating type="text" id="email" class="form-control" formControlName="email"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                            <ion-label floating for="password">Password</ion-label>
+                            <ion-input floating type="password" id="password" class="form-control" formControlName="password"></ion-input>
+                    </ion-item>        
+                    <hr>
+                    <button ion-button block class="btn btn-submit btn-primary" type="submit" [disabled]=!myForm.valid>Sign In</button>
+                </form>
+                <button ion-button icon-only  (click)="doFacebook()">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+                <button ion-button icon-only   (click)="doGoogle()">
+                    <ion-icon name="logo-google"></ion-icon>
+                </button>
+                   
+            </div>
+            
         </div>
     </div>
 

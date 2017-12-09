@@ -44,4 +44,16 @@ export class LoginComponent implements OnInit{
             );
         this.myForm.reset;
     }
+
+    doFacebook() {
+        console.log('do FB');
+        //this.facebookAuth.login().then(() => {
+          //this.navCtrl.setRoot(HomePage);
+        //});
+    }
+
+    doGoogle() {
+        console.log('do Google');
+        
+    }
 }
