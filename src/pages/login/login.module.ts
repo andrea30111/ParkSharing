@@ -13,4 +13,4 @@ import { LoginComponent } from './login';
     LoginComponent
   ]
 })
-export class RegisterModule {}
+export class LoginModule {}
