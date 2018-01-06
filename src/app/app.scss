@@ -132,10 +132,13 @@ $screen-xl-min: 1200px;
 
 body, html , .page-container{
     height: 100%;
+}
+
+.page-container{
     button{
         max-width: 90px;
         margin: 0 auto;
-        background-color: $font-color; 
+        background: linear-gradient(to bottom right,#002f4b,#25dcd3); 
     }
 }
 
