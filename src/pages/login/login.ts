@@ -12,11 +12,13 @@ import { NavController, IonicPage } from 'ionic-angular';
 
 export class LoginComponent implements OnInit{
     myForm: FormGroup;
+    errorMessage: String;
+    name: String;
 
     constructor(private loginService: AuthService, private navCtrl: NavController){}
  
     ngOnInit(){
-
+        this.name = localStorage.userName;
         this.myForm = new FormGroup({
             email: new FormControl(null, [
                 Validators.required,
@@ -36,11 +38,16 @@ export class LoginComponent implements OnInit{
                 data => {
                     localStorage.setItem('token',data.token);
                     localStorage.setItem('userId',data.userId);
-                    this.navCtrl.popToRoot(); 
+                    localStorage.setItem('userName',data.userName);
+                    this.name = data.userName;
+                    this.navCtrl.popToRoot();
                     //non gestire la navigazione con angular ma con ionic
                     //this.router.navigateByUrl('/');                  
                 },
-                error => console.error(error)
+                error => {
+                    this.errorMessage = error.error.message;
+                    console.error(error);
+                }
             );
         this.myForm.reset;
     }
@@ -55,5 +62,9 @@ export class LoginComponent implements OnInit{
     doGoogle() {
         console.log('do Google');
         
+    }
+
+    isLoggedIn(){
+        return this.loginService.isLoggedIn();
     }
 }
