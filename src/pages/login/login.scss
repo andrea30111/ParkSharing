@@ -3,8 +3,7 @@
     @include center(100%, 100%);
     &:after{
         content: "";
-        background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-        opacity: .6;
+        background: #4A90E2;
         @include center(100%, 100%);
     }
 	
@@ -16,6 +15,7 @@
         @include border-bottom-radius(10px);
         @include border-left-radius (10px);
         z-index: 2;
+        background: white;
         .page-presentation{
             height: 100%;
             min-height: 100%;
@@ -36,11 +36,11 @@
                     font-size: 18px;
                     padding: 10px 50px;
                     text-align: center;
-                    color: white;
+                    color: $main-color;
                     text-transform: uppercase;
                 }
                 @include center(100%, 100%);
-                background: #fa6d2a url(../../assets/imgs/fiat_2.gif) no-repeat;
+                background: white url(../../assets/imgs/53.gif) no-repeat;
                 background-size: 290px;
                 background-position-x: 50%;
                 background-position-y: 50%;
@@ -56,7 +56,7 @@
                     width: 100%;
                     text-align: left;
                     padding: 0 20px; 
-                    color: white;                              
+                    color:$main-color;                              
                 }
             }
             @include sm{

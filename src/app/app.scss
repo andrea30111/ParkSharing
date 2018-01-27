@@ -21,6 +21,7 @@ $primary-color: #E0CA3C;
 $font-color: #2D3047;
 $secondary-color:#cdfffc;
 $third-color:#A799B7;
+$main-color: #4A90E2;
 
 // Small tablets and large smartphones (landscape view)
 $screen-sm-min: 576px;
@@ -138,7 +139,7 @@ body, html , .page-container{
     button{
         max-width: 90px;
         margin: 0 auto;
-        background: linear-gradient(to bottom right,#002f4b,#25dcd3); 
+        background: $main-color; 
     }
 }
 
@@ -146,4 +147,7 @@ body, html , .page-container{
 //reset
 .item-md {
     padding-left: 0;
+}
+.tabbar{
+    opacity: 1!important;
 }

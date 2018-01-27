@@ -8,7 +8,7 @@ import { Network } from '@ionic-native/network';
 import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../providers/auth.service';
 import { LocationsProvider } from '../providers/locations/locations';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
@@ -18,7 +18,7 @@ import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    TabsPage
   //  RegisterComponent
   ],
   imports: [
@@ -30,7 +30,7 @@ import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    TabsPage
 //    RegisterComponent
   ],
   providers: [
