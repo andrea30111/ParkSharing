@@ -12,7 +12,7 @@ import { IonicPage } from 'ionic-angular';
 
 export class RegisterComponent implements OnInit{
     myForm: FormGroup;
-
+    registerMessage: String;
     constructor(private registerService: AuthService){
         
      }
@@ -41,8 +41,14 @@ export class RegisterComponent implements OnInit{
             null);
         this.registerService.signup(user)
             .subscribe(
-                data => console.log(data),
-                error => console.error(error)
+                data => {
+                    console.log(data);
+                    this.registerMessage = data.message;
+                },
+                error => {
+                    console.error(error);
+                    this.registerMessage = error.title;
+                }
             );
         this.myForm.reset;
     }

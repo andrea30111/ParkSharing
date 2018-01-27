@@ -23,6 +23,7 @@ router.get('/', function (req, res, next) {
 });
 */
 router.post('/', function (req, res, next) {
+    //build new user entity
     var user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -31,6 +32,7 @@ router.post('/', function (req, res, next) {
         email: req.body.email
     });
     
+    //send verification email
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -39,14 +41,12 @@ router.post('/', function (req, res, next) {
       },
       tls: { rejectUnauthorized: false }
     });
-    
     var mailOptions = {
-      from: 'utepilssrl@gmail.com',
+      from: 'ParkSharing',
       to: req.body.email,
       subject: 'Verify your account',
       text: 'Verify your account clicking the following link'
     };
-    
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
@@ -55,15 +55,22 @@ router.post('/', function (req, res, next) {
       }
     });
 
+    //store user in DB
     user.save(function(err,result){
         if(err){
+            if(err.message.indexOf('unique') > -1){
+                return res.status(500).json({
+                    title: 'The email is already registered, please provide a different one',
+                    error: err
+                });
+            }
             return res.status(500).json({
-                title: 'an error occurred',
+                title: 'An error occurred',
                 error: err
             });
         }
         res.status(201).json({
-            message: 'saved user',
+            message: 'Registration successful',
             obj: result
         });
     });    
@@ -71,24 +78,28 @@ router.post('/', function (req, res, next) {
 
 router.post('/signin', function(req, res, next) {
     User.findOne({email: req.body.email}, function(err, user) {
+        //handle generic error
         if (err) {
             return res.status(500).json({
                 title: 'An error occurred',
                 error: err
             });
         }
+        //handle user not found
         if (!user) {
             return res.status(401).json({
                 title: 'Login failed',
                 error: {message: 'Invalid login credentials'}
             });
         }
+        //handle wrong password
         if (!bcrypt.compareSync(req.body.password, user.password)) {
                 return res.status(401).json({
                     title: 'Login failed',
                     error: {message: 'Invalid login credentials'}
                 });
         }
+        //login successful, create token
         var token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
         res.status(200).json({
             message: 'Successfully logged in',
