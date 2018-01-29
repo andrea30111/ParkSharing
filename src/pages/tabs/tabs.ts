@@ -10,8 +10,9 @@ export class TabsPage {
   tab1 = 'LoginComponent';
   tab2 = 'RegisterComponent';
   tab3 = 'MapsComponent';
-  tab4 = 'ExplorePage';
-  tab5 = 'TutorialPage';
+  tab4 = 'MyparkingComponent';
+  tab5 = 'ExplorePage';
+  tab6 = 'TutorialPage';
  
   constructor(public navCtrl: NavController, public navParams: NavParams) { }
 }

@@ -13,6 +13,7 @@ import { AuthService } from '../providers/auth.service';
 import { LocationsProvider } from '../providers/locations/locations';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
+import { ParkingService } from '../providers/parking.service';
 //import { RegisterComponent } from '../pages/register/register';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
   providers: [
     StatusBar,
     AuthService,
+    ParkingService,
     Network,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

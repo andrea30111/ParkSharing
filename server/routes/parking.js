@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Parking = require('../models/parking');
 var jwt = require('jsonwebtoken');
+/*TODO pass in token as parameter and decomment here
 
 //check if user is authenticated
 router.use('/', function (req, res, next) {
@@ -14,7 +15,7 @@ router.use('/', function (req, res, next) {
         }
         next();
     })
-});
+});*/
 
 router.get('/', function (req, res, next) {
     Parking.find({user: req.body.userId})
@@ -31,18 +32,28 @@ router.get('/', function (req, res, next) {
             });
         });
 });
-    
+
 router.post('/', function (req, res, next) {
-    console.log('save park');
-    /* save park
-    var user = new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        fiscalCode: req.body.fiscalCode,
-        password: bcrypt.hashSync(req.body.password,10),
-        email: req.body.email
+    // save park
+    var parking = new Parking({
+        address : req.body.address,
+        city : req.body.city,
+        cap : req.body.cap,
+        latitude : req.body.latitude,
+        longitude : req.body.longitude,
+        length : req.body.length,
+        width : req.body.width,
+        height : req.body.height,
+        type : req.body.type,
+        box_type : req.body.box_type,
+        hourly_price : req.body.hourly_price,
+        daily_price : req.body.daily_price,
+        weekly_price : req.body.weekly_price,
+        montly_price : req.body.montly_price,
+        userId : req.body.userId
     });
-    user.save(function(err,result){
+    
+    parking.save(function(err,result){
         console.log("save" );
         if(err){
             return res.status(500).json({
@@ -53,7 +64,8 @@ router.post('/', function (req, res, next) {
         res.status(201).json({
             message: 'saved user',
             obj: result
-        });*/
+        });
     });
+});
 
 module.exports = router;
