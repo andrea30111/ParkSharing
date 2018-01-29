@@ -12,6 +12,10 @@
             
         </ion-buttons>
       -->
+      <h2>{{errorMessage}}</h2>
+      <h2 *ngIf="isLoggedIn()">Welcome {{name}}</h2>
+      <button ion-button (click)="logout()" [hidden]="!name">Logout</button>
+      
           </ion-toolbar>
     </ion-header>
 
@@ -32,8 +36,6 @@
         </div>      
         <div class="page-form">
             <h1>LOGIN</h1>
-            <h2>{{errorMessage}}</h2>
-            <h2 *ngIf="isLoggedIn()">Welcome {{name}}</h2>
             <div class="content" #login>
                 <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
                     <ion-item>

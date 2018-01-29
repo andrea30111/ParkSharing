@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit{
                 data => {
                     localStorage.setItem('token',data.token);
                     localStorage.setItem('userId',data.userId);
-                    localStorage.setItem('userName',data.userName);
-                    this.name = data.userName;
+                    this.name = data.userName + " " + data.userSurname;
+                    localStorage.setItem('userName', data.userName + " " + data.userSurname);
                     this.navCtrl.popToRoot();
                     //non gestire la navigazione con angular ma con ionic
                     //this.router.navigateByUrl('/');                  
@@ -66,5 +66,10 @@ export class LoginComponent implements OnInit{
 
     isLoggedIn(){
         return this.loginService.isLoggedIn();
+    }
+
+    logout(){
+        this.loginService.logout();
+        this.name = null;
     }
 }

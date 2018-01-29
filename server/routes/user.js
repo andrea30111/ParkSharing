@@ -105,7 +105,8 @@ router.post('/signin', function(req, res, next) {
             message: 'Successfully logged in',
             token: token,
             userId: user._id,
-            userName: user.firstName
+            userName: user.firstName,
+            userSurname: user.lastName
         });
     });    
 });
