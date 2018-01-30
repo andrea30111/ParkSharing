@@ -12,7 +12,10 @@ export class ParkingService{
     createNew(parking: Parking) {
         const body = JSON.stringify(parking);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/parking', body, {headers: headers})
+        const token = localStorage.getItem('token')
+        ? '?token=' + localStorage.getItem('token')
+        : '';
+        return this.http.post('http://localhost:3000/parking' + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }

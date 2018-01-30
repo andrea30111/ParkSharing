@@ -13,9 +13,9 @@ export class Parking {
     daily_price?: number;
     weekly_price?: number;
     montly_price?: number;
-    userId: string;
+    user?: string;
 
-    constructor(address: string, city: string, cap: number, latitude: number, longitude: number, length: number, width: number, height: number, type: number, userId: string, box_type?: number, hourly_price?: number, daily_price?: number, weekly_price?: number, montly_price?: number){
+    constructor(address: string, city: string, cap: number, latitude: number, longitude: number, length: number, width: number, height: number, type: number, box_type?: number, hourly_price?: number, daily_price?: number, weekly_price?: number, montly_price?: number, user?: string){
         this.address = address;
         this.city = city;
         this.cap = cap;
@@ -30,6 +30,6 @@ export class Parking {
         this.daily_price = daily_price;
         this.weekly_price = weekly_price;
         this.montly_price = montly_price;
-        this.userId = userId;
+        this.user = user;
     } //?=optional
 }

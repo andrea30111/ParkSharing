@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Parking = require('../models/parking');
+var User = require('../models/user');
 var jwt = require('jsonwebtoken');
-/*TODO pass in token as parameter and decomment here
 
 //check if user is authenticated
 router.use('/', function (req, res, next) {
@@ -15,7 +15,7 @@ router.use('/', function (req, res, next) {
         }
         next();
     })
-});*/
+});
 
 router.get('/', function (req, res, next) {
     Parking.find({user: req.body.userId})
@@ -34,36 +34,44 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    // save park
-    var parking = new Parking({
-        address : req.body.address,
-        city : req.body.city,
-        cap : req.body.cap,
-        latitude : req.body.latitude,
-        longitude : req.body.longitude,
-        length : req.body.length,
-        width : req.body.width,
-        height : req.body.height,
-        type : req.body.type,
-        box_type : req.body.box_type,
-        hourly_price : req.body.hourly_price,
-        daily_price : req.body.daily_price,
-        weekly_price : req.body.weekly_price,
-        montly_price : req.body.montly_price,
-        userId : req.body.userId
-    });
-    
-    parking.save(function(err,result){
-        console.log("save" );
+    var decoded = jwt.decode(req.query.token);
+    User.findById(decoded.user._id, function(err, user){
         if(err){
             return res.status(500).json({
                 title: 'an error occurred',
                 error: err
             });
         }
-        res.status(201).json({
-            message: 'saved user',
-            obj: result
+
+        var parking = new Parking({
+            address : req.body.address,
+            city : req.body.city,
+            cap : req.body.cap,
+            latitude : req.body.latitude,
+            longitude : req.body.longitude,
+            length : req.body.length,
+            width : req.body.width,
+            height : req.body.height,
+            type : req.body.type,
+            box_type : req.body.box_type,
+            hourly_price : req.body.hourly_price,
+            daily_price : req.body.daily_price,
+            weekly_price : req.body.weekly_price,
+            montly_price : req.body.montly_price,
+            user : user
+        });
+        parking.save(function(err,result){
+            console.log("save" );
+            if(err){
+                return res.status(500).json({
+                    title: 'an error occurred',
+                    error: err
+                });
+            }
+            res.status(201).json({
+                message: 'saved user',
+                obj: result
+            });
         });
     });
 });

@@ -35,7 +35,6 @@ export class MyparkingComponent implements OnInit{
     onSubmit() {
 
         //TODO da calcolare lat long ecc dall'indirizzo
-        //TODO salvare riferimento utente (non se lo sta prendendo)
         const parking = new Parking(
             this.myForm.value.address, 
             'city', 
@@ -46,7 +45,6 @@ export class MyparkingComponent implements OnInit{
             this.myForm.value.width, 
             this.myForm.value.height, 
             this.myForm.value.type, 
-            localStorage.getItem('userId'),
             this.myForm.value.box_type, 
             this.myForm.value.hourly_price); 
 
