@@ -14,13 +14,14 @@ import { LocationsProvider } from '../providers/locations/locations';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { ParkingService } from '../providers/parking.service';
+import { AutocompleteComponent } from '../pages/autocomplete/autocomplete';
 //import { RegisterComponent } from '../pages/register/register';
 
 @NgModule({
   declarations: [
     MyApp,
-    TabsPage
-  //  RegisterComponent
+    TabsPage,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +32,8 @@ import { ParkingService } from '../providers/parking.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TabsPage
-//    RegisterComponent
+    TabsPage,
+    AutocompleteComponent
   ],
   providers: [
     StatusBar,

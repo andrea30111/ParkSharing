@@ -2,9 +2,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { AuthService } from '../../providers/auth.service';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController, ModalController } from 'ionic-angular';
 import { Parking } from '../../models/parking.model';
 import { ParkingService } from '../../providers/parking.service';
+import { AutocompleteComponent } from '../autocomplete/autocomplete';
 
 @IonicPage()
 @Component({
@@ -15,8 +16,12 @@ import { ParkingService } from '../../providers/parking.service';
 export class MyparkingComponent implements OnInit{
     myForm: FormGroup;
     createMessage: String;
-    constructor(private parkingService: ParkingService){
-        
+    address;
+
+    constructor(private parkingService: ParkingService,private navCtrl: NavController, private modalCtrl:ModalController){
+        this.address = {
+            place: ''
+          };
     }
  
     ngOnInit(){
@@ -61,4 +66,14 @@ export class MyparkingComponent implements OnInit{
             );
         this.myForm.reset;
     }
+
+    showAddressModal () {
+        let modal = this.modalCtrl.create(AutocompleteComponent);
+        let me = this;
+        modal.onDidDismiss(data => {
+          this.address.place = data;
+        });
+        modal.present();
+      }
+    
 }
