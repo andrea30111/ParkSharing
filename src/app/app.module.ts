@@ -15,7 +15,6 @@ import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { ParkingService } from '../providers/parking.service';
 import { AutocompleteComponent } from '../pages/autocomplete/autocomplete';
-//import { RegisterComponent } from '../pages/register/register';
 
 @NgModule({
   declarations: [

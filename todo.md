@@ -71,3 +71,5 @@ npm install --save jquery
 npm install -D @types/jquery
 vedi come è usato in app.component.ts
 
+//Autocomplete 
+npm install --save ionic2-google-places-autocomplete

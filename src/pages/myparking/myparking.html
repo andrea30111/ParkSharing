@@ -32,17 +32,9 @@
         </div>      
         <div class="page-form">
             <div class="content" #login>
-                    <ion-list>
-                            <ion-item>
-                              <ion-input (click)="showAddressModal()" [(ngModel)]="address.place"type="text" placeholder="Pick an address">              </ion-input>
-                            </ion-item>
-                          </ion-list>
+                <google-places-autocomplete (callback)="getAddress($event[0])" key="AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk"></google-places-autocomplete>
 
                 <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-                    <ion-item>
-                        <ion-label floating for="address">Indirizzo</ion-label>
-                        <ion-input type="text" id="address" class="form-control" formControlName="address"></ion-input>
-                    </ion-item>
                     <ion-item>
                         <ion-label floating for="length">Lunghezza</ion-label>
                         <ion-input type="text" id="length" class="form-control" formControlName="length"></ion-input>

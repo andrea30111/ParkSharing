@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { MyparkingComponent } from './myparking';
-import { AutocompleteComponent } from '../autocomplete/autocomplete';
+import { GooglePlacesAutocompleteComponentModule } from 'ionic2-google-places-autocomplete';
 
 @NgModule({
   declarations: [
     MyparkingComponent
-  //  AutocompleteComponent
   ],
- // entryComponents: [AutocompleteComponent],
   imports: [
-    IonicPageModule.forChild(MyparkingComponent)
+    IonicPageModule.forChild(MyparkingComponent),
+    GooglePlacesAutocompleteComponentModule
   ],
   exports: [
     MyparkingComponent

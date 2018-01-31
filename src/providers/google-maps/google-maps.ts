@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { ConnectivityProvider } from '../connectivity/connectivity';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Network } from '@ionic-native/network';
+import { Observable } from 'rxjs/Observable';
+import { Http, Response, Headers } from "@angular/http";
 
  
 declare var google;
@@ -18,7 +20,7 @@ export class GoogleMapsProvider {
   markers: any = [];
   apiKey: string = 'AIzaSyD1G8VfHJcQtFjuJFxulSq7Vx_okjQkLiQ';
  
-  constructor(public connectivityService: ConnectivityProvider) {
+  constructor(public connectivityService: ConnectivityProvider, private http: Http) {
  
   }
  
@@ -171,4 +173,13 @@ export class GoogleMapsProvider {
  
   }
  
+  getPlaceById(placeId: string) {
+    console.log(placeId);
+    let request = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + placeId + '&key=AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk';
+    console.log(request);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.get(request, {headers: headers})
+        .map((response: Response) => response.json())
+        .catch((error: Response) => Observable.throw(error.json()));
+  }
 }
