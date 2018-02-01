@@ -18,7 +18,8 @@ router.use('/', function (req, res, next) {
 });
 
 router.get('/', function (req, res, next) {
-    Parking.find({user: req.body.userId})
+    var decoded = jwt.decode(req.query.token);
+    Parking.find({user: decoded.user._id})
         .exec(function (err, parkings) {
             if (err) {
                 return res.status(500).json({
@@ -61,7 +62,6 @@ router.post('/', function (req, res, next) {
             user : user
         });
         parking.save(function(err,result){
-            console.log("save" );
             if(err){
                 return res.status(500).json({
                     title: 'an error occurred',
@@ -69,7 +69,7 @@ router.post('/', function (req, res, next) {
                 });
             }
             res.status(201).json({
-                message: 'saved user',
+                message: 'saved parking',
                 obj: result
             });
         });

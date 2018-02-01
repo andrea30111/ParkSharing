@@ -17,13 +17,14 @@ export class MyparkingComponent implements OnInit{
     myForm: FormGroup;
     createMessage: String;
     address;
+    parkings: Parking[];
 
     constructor(private parkingService: ParkingService, private googleMapsProvider: GoogleMapsProvider){
  
     }
  
     ngOnInit(){
-
+        //initialize form validator
         this.myForm = new FormGroup({
             length: new FormControl('', Validators.required),
             width: new FormControl('', Validators.required),
@@ -32,6 +33,14 @@ export class MyparkingComponent implements OnInit{
             box_type: new FormControl(''),
             hourly_price: new FormControl('', Validators.required)
         });
+
+        //retrieve user's parkings
+        this.parkingService.retrieveParkings().subscribe(
+            (parkings: Parking[]) => {
+                this.parkings = parkings;
+                console.log(this.parkings);
+            }
+        );
     }
 
     onSubmit() {
@@ -55,7 +64,7 @@ export class MyparkingComponent implements OnInit{
                     this.myForm.value.box_type, 
                     this.myForm.value.hourly_price); 
         
-                this.parkingService.createNew(parking)
+                this.parkingService.createParking(parking)
                     .subscribe(
                         data => {
                             console.log(data);
