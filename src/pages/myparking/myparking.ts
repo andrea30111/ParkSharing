@@ -1,8 +1,6 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user.model';
-import { AuthService } from '../../providers/auth.service';
-import { IonicPage, NavController, ModalController } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { Parking } from '../../models/parking.model';
 import { ParkingService } from '../../providers/parking.service';
 import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
@@ -39,6 +37,9 @@ export class MyparkingComponent implements OnInit{
             (parkings: Parking[]) => {
                 this.parkings = parkings;
                 console.log(this.parkings);
+            },
+            error => {
+                console.error(error);
             }
         );
     }
