@@ -9,7 +9,9 @@ import { IonicPage, NavController, Platform } from 'ionic-angular';
   templateUrl: 'maps.html'
 })
 export class MapsComponent {
- 
+  address;
+  map;
+
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
  
@@ -21,10 +23,26 @@ export class MapsComponent {
  
     this.platform.ready().then(() => {
       
-             let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
-      
+              this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
+        
          });
  
   }
  
+  getAddress(address){
+    this.address = address;
+    
+    this.maps.getPlaceById(this.address.place_id).subscribe(
+      data => {
+        console.log(data);
+        this.maps.centerMap(data.result.geometry.location);
+        //TODO aggiungere ricerca parcheggi
+      },
+      error => {
+        console.error(error);
+      }
+  );
+
+  }
+
 }

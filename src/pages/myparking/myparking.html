@@ -32,9 +32,9 @@
         </div>      
         <div class="page-form">
             <div class="content" #login>
-                <google-places-autocomplete (callback)="getAddress($event[0])" key="AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk"></google-places-autocomplete>
 
                 <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                        <google-places-autocomplete (callback)="getAddress($event[0])" key="AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk"></google-places-autocomplete>
                     <ion-item>
                         <ion-label floating for="length">Lunghezza</ion-label>
                         <ion-input type="text" id="length" class="form-control" formControlName="length"></ion-input>

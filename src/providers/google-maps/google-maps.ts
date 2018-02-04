@@ -109,6 +109,25 @@ export class GoogleMapsProvider {
     });
  
   }
+
+  centerMap(location): Promise<any> {
+ 
+    this.mapInitialised = true;
+ 
+    return new Promise((resolve) => {
+   
+        let mapOptions = {
+          center: location,
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+ 
+        this.map = new google.maps.Map(this.mapElement, mapOptions);
+        resolve(true);
+ 
+    });
+ 
+  }
  
   disableMap(): void {
  

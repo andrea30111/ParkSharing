@@ -9,7 +9,8 @@
     <div #pleaseConnect id="please-connect">
       <p>Please connect to the Internet...</p>
     </div>
-   
+    <google-places-autocomplete (callback)="getAddress($event[0])" key="AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk"></google-places-autocomplete>
+
     <div #map id="map"></div>
    
   </ion-content>
