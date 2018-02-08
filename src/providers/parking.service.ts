@@ -1,3 +1,4 @@
+import { LocationsProvider } from './locations/locations';
 import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from "@angular/http";
@@ -51,5 +52,38 @@ export class ParkingService{
                 return transformedMessages;
             })
             .catch((error: Response) => Observable.throw(error.json()));
+    }
+
+    getParkingsByAddress(location){
+        const headers = new Headers({'Content-Type': 'application/json'});
+        const body = JSON.stringify(location);
+        console.log(location);
+        return this.http.post('http://localhost:3000/maps', body, {headers: headers})
+            .map((response: Response) => {
+                const parkings = response.json().obj;
+                let transformedMessages: Parking[] = [];
+                for (let parking of parkings) {
+                    transformedMessages.push(new Parking(
+                        parking.address,
+                        parking.city,
+                        parking.cap,
+                        parking.latitude,
+                        parking.longitude,
+                        parking.length,
+                        parking.width,
+                        parking.height,
+                        parking.type,
+                        parking.box_type,
+                        parking.hourly_price,
+                        parking.daily_price,
+                        parking.weekly_price,
+                        parking.montly_price,
+                        parking.user)
+                    );
+                }
+                return transformedMessages;
+            })
+            .catch((error: Response) => Observable.throw(error.json()));
+
     }
 }
