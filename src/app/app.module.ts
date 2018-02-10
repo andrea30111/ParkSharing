@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Network } from '@ionic-native/network';
 import { Geolocation } from '@ionic-native/geolocation';
 
+
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../providers/auth.service';

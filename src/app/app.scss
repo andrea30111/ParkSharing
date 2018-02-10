@@ -17,6 +17,7 @@
 
 //declaring variables
 $font-family:'Montserrat', sans-serif;
+$font-family:'Montserrat', sans-serif;
 $primary-color: #E0CA3C;
 $font-color: #2D3047;
 $secondary-color:#cdfffc;
@@ -130,6 +131,50 @@ $screen-xl-min: 1200px;
 *{
     font-family: $font-family;    
 }
+
+//header
+ion-header{
+    height: 40px;
+    ion-toolbar{
+        height: 40px;
+    }
+    ion-title{
+        float: left;
+        padding: 10px;
+        span{
+            text-transform: uppercase;
+            font-size: 30px;
+            line-height: 50px;
+            color: $font-color;
+            font-weight: 700;
+        }
+    }
+    div{
+        float: right;
+
+        p{
+            border: 1px solid #2D3047;
+            background: #2D3047;
+            padding: 0 10px;
+            border-radius: 19px;
+            color: white;
+            display: inline-block;
+            height: 40px;
+            span{
+                line-height: 40px;
+            }
+        }
+        > i{
+            display: none;
+        }
+        &:hover > i{
+            display: inline;
+            cursor: pointer;
+        }
+    }
+
+}
+
 
 body, html , .page-container{
     height: 100%;

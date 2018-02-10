@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
 export class AuthService{
 
     constructor(private http: Http) {}
-
+    user: String;
     signup(user: User) {
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-Type': 'application/json'});
@@ -30,6 +30,9 @@ export class AuthService{
     }
 
     isLoggedIn(){
-        return localStorage.getItem('token') !== null;
+        if(localStorage.getItem('token') !== null){
+            this.user = localStorage.getItem('userName');
+            return true;
+        }
     }
 }

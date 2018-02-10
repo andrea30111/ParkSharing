@@ -1,29 +1,4 @@
-<ion-header>
-    <ion-toolbar>
 
-        <ion-title>HOME</ion-title>
-        <!--
-        <ion-buttons end>
-            <button ion-button navPush="LoginComponent">Login</button>
-            <button ion-button navPush="RegisterComponent">Register</button>
-            <button ion-button navPush="MapsComponent">Maps</button>
-            <button ion-button navPush="ExplorePage">Explore</button>
-            <button ion-button navPush="TutorialPage">Tutorial</button>
-            
-        </ion-buttons>
-      -->
-      </ion-toolbar>
-</ion-header>
+Questa è la bellissima home page
 
-
-
-
-
-<ion-content padding>
-  <p *ngIf="!isLoggedIn()">Please Log In to use the app</p>
-  <p *ngIf="isLoggedIn()">Welcome X Y</p>
-  <button ion-button round navPush="RegisterComponent">Sign Up</button>
-  <button ion-button round navPush="LoginComponent" *ngIf="!isLoggedIn()">Sign In</button>
-  <button ion-button round *ngIf="isLoggedIn()" (click)="onLogout()">Logout</button>
-</ion-content>
 

@@ -7,8 +7,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tabs.html',
 })
 export class TabsPage {
-  tab1 = 'LoginComponent';
-  tab2 = 'RegisterComponent';
+  tab2 = 'HomeComponent';
   tab3 = 'MapsComponent';
   tab4 = 'MyparkingComponent';
   tab5 = 'ExplorePage';

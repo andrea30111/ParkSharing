@@ -1,12 +1,12 @@
 import { AuthService } from '../../providers/auth.service';
-import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { IonicPage, NavController, Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage implements OnInit{
+export class HomeComponent{
 
   user: String;
   

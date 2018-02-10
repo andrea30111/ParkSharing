@@ -26,4 +26,20 @@
          width: 100%;
          height: 100%;
      }
-    
+    google-places-autocomplete{
+     position: absolute;
+    top: 60px;
+    z-index: 999999;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    ion-list{
+        ion-item{
+            padding: 10px !important;
+            &:last-child{
+                display: none;
+            }
+        }
+
+    }
+    }

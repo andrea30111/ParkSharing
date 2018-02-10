@@ -1,1 +1,14 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title><span>park</span></ion-title>
+      <div *ngIf="!isLoggedIn()" [hidden]="user">
+            <p (click)="presentPrompt()"><i class="flaticon-user-1"></i><span>Login</span></p>
+        </div>
+      <div *ngIf="isLoggedIn()" [hidden]="!user">
+          <p><i class="flaticon-user-1"></i><span>{{user}}</span></p>
+          <i class="flaticon-cross" (click)="onLogout()" ></i>
+      </div>
+    </ion-toolbar>
+</ion-header>
+
 <ion-nav [root]="rootPage"></ion-nav>
