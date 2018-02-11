@@ -188,6 +188,24 @@ body, html , .page-container{
     }
 }
 
+//popup
+.alert-md .alert-wrapper{
+    width: 500px;
+    max-width: 500px;
+    .alert-title{
+        text-align: center;
+        color: #2D3047;
+    }
+    .alert-input-wrapper{
+        max-width: 350px;
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .alert-button-group{
+    justify-content: space-between;
+    }
+}
 
 //reset
 .item-md {
