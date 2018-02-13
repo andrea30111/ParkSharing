@@ -54,10 +54,12 @@ export class ParkingService{
             .catch((error: Response) => Observable.throw(error.json()));
     }
 
-    getParkingsByAddress(location){
+    getParkingsByAddress(bounds){
         const headers = new Headers({'Content-Type': 'application/json'});
-        const body = JSON.stringify(location);
-        console.log(location);
+        var body = {};
+        body["minBounds"] = bounds.getSouthWest();
+        body["maxBounds"] = bounds.getNorthEast();
+        JSON.stringify(body);
         return this.http.post('http://localhost:3000/maps', body, {headers: headers})
             .map((response: Response) => {
                 const parkings = response.json().obj;

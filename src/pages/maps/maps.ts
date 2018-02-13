@@ -28,18 +28,16 @@ export class MapsComponent {
               this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
         
          });
- 
   }
  
   getAddress(address){
     this.address = address;
-    
+
     this.maps.getPlaceById(this.address.place_id).subscribe(
       data => {
         this.maps.centerMap(data.result.geometry.location);
-        this.parkingService.getParkingsByAddress(data.result.geometry.location).subscribe(
+        this.parkingService.getParkingsByAddress(this.maps.map.getBounds()).subscribe(
           (parkings: Parking[]) => {
-              console.log(parkings);
               for (let parking of parkings) {
                 this.maps.addMarker(parking.latitude, parking.longitude);
               }
@@ -48,7 +46,6 @@ export class MapsComponent {
             console.error(error);
           }
         );
-        //TODO aggiungere ricerca parcheggi
       },
       error => {
         console.error(error);

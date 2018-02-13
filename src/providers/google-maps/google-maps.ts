@@ -193,12 +193,11 @@ export class GoogleMapsProvider {
   }
  
   getPlaceById(placeId: string) {
-    console.log(placeId);
     let request = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + placeId + '&key=AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk';
-    console.log(request);
     const headers = new Headers({'Content-Type': 'application/json'});
     return this.http.get(request, {headers: headers})
         .map((response: Response) => response.json())
         .catch((error: Response) => Observable.throw(error.json()));
   }
+
 }
