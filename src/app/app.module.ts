@@ -15,13 +15,11 @@ import { LocationsProvider } from '../providers/locations/locations';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { ParkingService } from '../providers/parking.service';
-import { AutocompleteComponent } from '../pages/autocomplete/autocomplete';
 
 @NgModule({
   declarations: [
     MyApp,
-    TabsPage,
-    AutocompleteComponent
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -32,8 +30,7 @@ import { AutocompleteComponent } from '../pages/autocomplete/autocomplete';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TabsPage,
-    AutocompleteComponent
+    TabsPage
   ],
   providers: [
     StatusBar,

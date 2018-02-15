@@ -178,7 +178,7 @@ export class GoogleMapsProvider {
  
   }
  
-  addMarker(lat: number, lng: number): void {
+  addMarker(lat: number, lng: number, id: string): void {
  
     let latLng = new google.maps.LatLng(lat, lng);
  
@@ -187,7 +187,7 @@ export class GoogleMapsProvider {
       animation: google.maps.Animation.DROP,
       position: latLng
     });
- 
+    marker.set("id", id);
     this.markers.push(marker); 
  
   }

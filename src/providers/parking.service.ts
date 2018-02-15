@@ -46,7 +46,8 @@ export class ParkingService{
                         parking.daily_price,
                         parking.weekly_price,
                         parking.montly_price,
-                        parking.user)
+                        parking.user,
+                        parking._id)
                     );
                 }
                 return transformedMessages;
@@ -80,7 +81,8 @@ export class ParkingService{
                         parking.daily_price,
                         parking.weekly_price,
                         parking.montly_price,
-                        parking.user)
+                        parking.user,
+                        parking._id)
                     );
                 }
                 return transformedMessages;

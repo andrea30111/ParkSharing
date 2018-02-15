@@ -39,7 +39,7 @@ export class MapsComponent {
         this.parkingService.getParkingsByAddress(this.maps.map.getBounds()).subscribe(
           (parkings: Parking[]) => {
               for (let parking of parkings) {
-                this.maps.addMarker(parking.latitude, parking.longitude);
+                this.maps.addMarker(parking.latitude, parking.longitude, parking._id);
               }
           },
           error => {
