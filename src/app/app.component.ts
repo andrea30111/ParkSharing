@@ -5,6 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth.service';
 import { NavController, AlertController } from 'ionic-angular';
 
+declare var jquery:any;
+declare var $ :any;
+
 import { User } from '../models/user.model';
 
 import { TabsPage } from '../pages/tabs/tabs';

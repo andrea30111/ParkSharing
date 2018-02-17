@@ -13,7 +13,7 @@ import { Parking } from '../../models/parking.model';
 export class MapsComponent {
   address;
   map;
-  parks = [];
+  parks;
 
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
@@ -25,15 +25,14 @@ export class MapsComponent {
   ionViewDidLoad(){
  
     this.platform.ready().then(() => {
-      
               this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
-        
          });
   }
  
   getAddress(address){
     this.address = address;
-
+    this.parks = [];
+    
     this.maps.getPlaceById(this.address.place_id).subscribe(
       data => {
         this.maps.centerMap(data.result.geometry.location);

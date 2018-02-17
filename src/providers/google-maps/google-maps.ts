@@ -5,6 +5,9 @@ import { Network } from '@ionic-native/network';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers } from "@angular/http";
 
+declare var jquery:any;
+declare var $ :any;
+
  
 declare var google;
  
@@ -181,13 +184,29 @@ export class GoogleMapsProvider {
   addMarker(lat: number, lng: number, id: string): void {
  
     let latLng = new google.maps.LatLng(lat, lng);
+
+    var icon = {
+
+      path: "M70.169,31.688C70.169,42.827,50,82.887,50,82.887s-20.169-40.06-20.169-51.199S38.861,11.519,50,11.519  S70.169,20.549,70.169,31.688z M50,23.931c-4.284,0-7.757,3.473-7.757,7.757S50,47.746,50,47.746s7.757-11.774,7.757-16.058  S54.284,23.931,50,23.931z",
+      fillColor: '#4A90E2',
+      fillOpacity: 1,
+      anchor: new google.maps.Point(0,0),
+      strokeWeight: 0,
+      scale: .5
+  }
  
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
-      position: latLng
+      position: latLng,
+      icon: icon,
+      id: id,
+      type: 'point'
     });
-    marker.set("id", id);
+    google.maps.event.addListener(marker, 'click', function() { 
+      $("#"+marker.id).addClass("active"); 
+      $("#"+marker.id).siblings().removeClass("active");
+    });
     this.markers.push(marker); 
  
   }

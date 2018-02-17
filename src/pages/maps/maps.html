@@ -9,12 +9,12 @@
 
     <div class="park-tails down" *ngIf="parks?.length > 0">
           <span class="show up flaticon-left-arrow"></span>
-          <div class="park-tail" *ngFor="let park of parks">
+          <div class="park-tail" *ngFor="let park of parks" id="{{park._id}}">
             <p class="title">{{park.address}}</p>
             <p class="item"><span class="tit">box_type:</span>{{park.box_type}}</p>
             <p class="item"><span class="tit">daily_price:</span>{{park.daily_price}}€/d</p>
             <p class="item"><span class="tit">width:</span>{{park.box_type}}</p>
-            <p class="item price">{{park.hourly_price}}€/h</p>
+            <p class="price">{{park.hourly_price}}€/h</p>
             <button>book</button>
           </div>
     </div>

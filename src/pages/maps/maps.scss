@@ -49,23 +49,25 @@
         z-index: 9999;
         bottom:0;
         width: auto;
-        height: 300px;
+        height: auto;
         display: flex;
         flex-direction: row;
+        align-items: flex-end;
         left: 50%;
         transform: translate(-50% , 0);
         transition-property: all;
         transition-duration: .9s;
         transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
         &.down{
-            bottom: -221px;
+            bottom: -62px;
             transition-property: all;
             transition-duration: .9s;
             transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
         }
         .show{
             position: absolute;
-            left: 50%;
+            left: calc(50% - 20px);
+            align-self: stretch;
             cursor: pointer;
             margin-top: -20px;
             -webkit-transform: rotate(270deg);
@@ -88,42 +90,58 @@
             padding: 20px;
             margin: 20px;
             position: relative;
-            height: 260px;
+            height: 100px;
             width: 200px;
-            vertical-align: bottom;
             border-radius: 10px;
             display: inline-block;
             .title{
-                font-size: 12px;
+                font-size: 13px;
                 font-weight: bold;
                 position: relative;
                 margin-top: 0;
-                &:after{
-                    content: '';
-                    height: 1px;
-                    width: 30px;
-                    position: absolute;
-                    bottom: -9px;
-                    left: 0;
-                    border-bottom: 1px solid white;
-                }
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             .item{
-                display: block;
+                display: none;
                 padding-bottom: 5px;
                 margin: 0;
                 .tit{
                     font-weight: bold;
                     text-transform: uppercase;
                 }
-                &.price{
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    font-size: 20px;
-                    font-weight: bold;
-                    padding: 0;
+            }
+
+            &.active{
+                height: 260px;
+                .item{
+                    display: block;
                 }
+
+                .title{
+                    white-space: initial;
+                    overflow: initial;
+                    text-overflow: initial;
+                    &:after{
+                        content: '';
+                        height: 1px;
+                        width: 30px;
+                        position: absolute;
+                        bottom: -9px;
+                        left: 0;
+                        border-bottom: 1px solid white;
+                    }
+                }
+            }
+            .price{
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                font-size: 20px;
+                font-weight: bold;
+                padding: 0;
+                margin: 0;
             }
             button{
                 position: absolute;
