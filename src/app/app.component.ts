@@ -77,9 +77,9 @@ export class MyApp {
             const user = new User(
               data.email, 
               data.password, 
-              data.firstName, 
-              data.lastName, 
-              data.fiscalCode, 
+              data.firstname, 
+              data.lastname, 
+              data.CF, 
               null);
               this.authService.signup(user)
                   .subscribe(
