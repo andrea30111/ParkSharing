@@ -13,6 +13,7 @@ import { Parking } from '../../models/parking.model';
 export class MapsComponent {
   address;
   map;
+  parks = [];
 
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
@@ -40,6 +41,7 @@ export class MapsComponent {
           (parkings: Parking[]) => {
               for (let parking of parkings) {
                 this.maps.addMarker(parking.latitude, parking.longitude, parking._id);
+                this.parks.push(parking);
               }
           },
           error => {

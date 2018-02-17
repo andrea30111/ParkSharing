@@ -3,6 +3,7 @@ var router = express.Router();
 var Parking = require('../models/parking');
 
 router.post('/', function (req, res, next) {
+    
     minLat = req.body.minBounds.lat;
     maxLat = req.body.maxBounds.lat;
     minLen = req.body.minBounds.lng;

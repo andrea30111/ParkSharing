@@ -27,19 +27,116 @@
          height: 100%;
      }
     google-places-autocomplete{
-     position: absolute;
-    top: 60px;
-    z-index: 999999;
-    left: 50%;
-    transform: translate(-50%, 0);
+        position: absolute;
+        top: 60px;
+        z-index: 999999;
+        left: 50%;
+        transform: translate(-50%, 0);
 
-    ion-list{
-        ion-item{
-            padding: 10px !important;
-            &:last-child{
-                display: none;
+        ion-list{
+            ion-item{
+                padding: 10px !important;
+                &:last-child{
+                    display: none;
+                }
+            }
+
+        }
+    }
+
+    .park-tails{
+        position: absolute;
+        z-index: 9999;
+        bottom:0;
+        width: auto;
+        height: 300px;
+        display: flex;
+        flex-direction: row;
+        left: 50%;
+        transform: translate(-50% , 0);
+        transition-property: all;
+        transition-duration: .9s;
+        transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+        &.down{
+            bottom: -221px;
+            transition-property: all;
+            transition-duration: .9s;
+            transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+        }
+        .show{
+            position: absolute;
+            left: 50%;
+            cursor: pointer;
+            margin-top: -20px;
+            -webkit-transform: rotate(270deg);
+                -moz-transform: rotate(270deg);
+                -o-transform: rotate(270deg);
+                -ms-transform: rotate(270deg);
+                transform: rotate(270deg);
+            &.up{
+                -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
+                
             }
         }
+        .park-tail{
+            background:$main-color;
+            color:white;
+            padding: 20px;
+            margin: 20px;
+            position: relative;
+            height: 260px;
+            width: 200px;
+            vertical-align: bottom;
+            border-radius: 10px;
+            display: inline-block;
+            .title{
+                font-size: 12px;
+                font-weight: bold;
+                position: relative;
+                margin-top: 0;
+                &:after{
+                    content: '';
+                    height: 1px;
+                    width: 30px;
+                    position: absolute;
+                    bottom: -9px;
+                    left: 0;
+                    border-bottom: 1px solid white;
+                }
+            }
+            .item{
+                display: block;
+                padding-bottom: 5px;
+                margin: 0;
+                .tit{
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                &.price{
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding: 0;
+                }
+            }
+            button{
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                padding: 7px 10px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: white;
+                color: #4A90E2;
+            }
+        }
+    }
 
-    }
-    }
