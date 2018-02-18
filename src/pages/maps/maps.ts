@@ -15,12 +15,31 @@ export class MapsComponent {
   map;
   parks;
 
+   bookedPark ={
+    date: this.calculateTime(''),
+    hoursFrom: this.calculateTime('+1'),
+    hoursTo: this.calculateTime('+3'),
+    targa:''
+  }
+
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
  
   constructor(public navCtrl: NavController, public maps: GoogleMapsProvider, public parkingService: ParkingService, public platform: Platform, public locations: LocationsProvider) {
- 
+    //this.time = this.calculateTime();
   }
+
+  calculateTime(offset: any) {
+    // create Date object for current location
+    let d = new Date();
+
+    // create new Date object for different city
+    // using supplied offset
+    let nd = new Date(d.getTime() + (3600000 * offset));
+
+    return nd.toISOString();
+  }
+  
  
   ionViewDidLoad(){
  

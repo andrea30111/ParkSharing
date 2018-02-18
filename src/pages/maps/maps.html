@@ -10,12 +10,35 @@
     <div class="park-tails down" *ngIf="parks?.length > 0">
           <span class="show up flaticon-left-arrow"></span>
           <div class="park-tail" *ngFor="let park of parks" id="{{park._id}}">
-            <p class="title">{{park.address}}</p>
-            <p class="item"><span class="tit">box_type:</span>{{park.box_type}}</p>
-            <p class="item"><span class="tit">daily_price:</span>{{park.daily_price}}€/d</p>
-            <p class="item"><span class="tit">width:</span>{{park.box_type}}</p>
+            <p class="title">{{park.address}}</p><i class="flaticon-fire"></i>
+            <p class="item descr">Questo è un bellissimo esempio di descrizione che verrà inserito in fas di registrazione dall'utente.</p>
+            <p class="item"><span class="tit">box_type: </span>{{park.box_type}} || <span class="tit">width: </span>{{park.box_type}} || <span class="tit">daily_price: </span>{{park.daily_price}}€/d</p>
             <p class="price">{{park.hourly_price}}€/h</p>
-            <button>book</button>
+            <button class="book">book</button>
+            <p class="title-book">Book a park</p>
+            <div class="booking-form">
+                <ion-item>
+                  <ion-label>Date</ion-label>
+                  <ion-datetime displayFormat="DD/MM/YYYY"  [(ngModel)]="bookedPark.date"></ion-datetime>
+                </ion-item>
+                <ion-item class="hours">
+                    <ion-label>From</ion-label>
+                    <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
+                  </ion-item>
+                  <ion-item class="hours">
+                  <ion-label>To</ion-label>
+                  <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Targa</ion-label>
+                    <ion-input  name="targa" placeholder="XX12345"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>Car description</ion-label>
+                      <ion-input  name="car" ></ion-input>
+                    </ion-item>
+                <button class="book" type="submit" block>Prenota</button>
+                </div>
           </div>
     </div>
     

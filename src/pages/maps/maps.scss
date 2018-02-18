@@ -17,6 +17,17 @@
          font-size: 1.6em;
          top: 30%;
      }
+     .searchbar-md {
+        background: inherit;
+        padding: 0;
+        padding-bottom: 5px;
+        padding-top: 10px;
+        border-radius: 10px;
+        
+    }
+    .searchbar-input{
+        border-radius: 10px!important;
+    }
     
      .scroll {
          height: 100%;
@@ -30,12 +41,13 @@
         position: absolute;
         top: 60px;
         z-index: 999999;
+        width: 360px;
         left: 50%;
         transform: translate(-50%, 0);
-
         ion-list{
+            
             ion-item{
-                padding: 10px !important;
+                padding: 0 10px !important;
                 &:last-child{
                     display: none;
                 }
@@ -87,7 +99,7 @@
         .park-tail{
             background:$main-color;
             color:white;
-            padding: 20px;
+            padding: 10px;
             margin: 20px;
             position: relative;
             height: 100px;
@@ -102,6 +114,12 @@
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                width: 80%;
+                + i{
+                    position: absolute;
+                    top: 16px;
+                    right: 0px;
+                }
             }
             .item{
                 display: none;
@@ -112,17 +130,23 @@
                     text-transform: uppercase;
                 }
             }
+            
 
             &.active{
                 height: 260px;
                 .item{
                     display: block;
+                    &.descr{
+                        display: none;
+                    }
                 }
 
                 .title{
                     white-space: initial;
                     overflow: initial;
+                    font-size: 16px;
                     text-overflow: initial;
+                    
                     &:after{
                         content: '';
                         height: 1px;
@@ -131,6 +155,47 @@
                         bottom: -9px;
                         left: 0;
                         border-bottom: 1px solid white;
+                    }
+                }
+            }
+            .booking-form{
+                display: none;
+            }
+
+            .title-book{
+                display: none;
+            }
+
+            &.booking{
+                width: 500px;
+                height: 460px;
+                .item{
+                    display: block;
+                    &.descr{
+                        display: block;
+                    }
+                }
+                p.title-book{
+                    display: block;
+                    text-align: center;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                .booking-form{
+                    display: block;
+                    background: white;
+                    padding: 14px;
+                    border-radius: 5px;
+                    input{
+                        text-align: center;
+                        font-size: 18px;
+                    }
+                    .datetime-text{
+                        font-size: 18px;
+                    }
+                    .hours{
+                        display: inline-block;
+                        width: 49.5%;
                     }
                 }
             }
@@ -143,7 +208,7 @@
                 padding: 0;
                 margin: 0;
             }
-            button{
+            button.book{
                 position: absolute;
                 bottom: 10px;
                 left: 10px;
