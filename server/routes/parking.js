@@ -45,6 +45,8 @@ router.post('/', function (req, res, next) {
         }
 
         var parking = new Parking({
+            name : req.body.name,
+            description : req.body.description,
             address : req.body.address,
             city : req.body.city,
             cap : req.body.cap,

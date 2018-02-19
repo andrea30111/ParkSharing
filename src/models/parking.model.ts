@@ -1,4 +1,6 @@
 export class Parking {
+    name: string;
+    description: string;
     address: string;
     city: string;
     cap: number;
@@ -16,7 +18,9 @@ export class Parking {
     user?: string;
     _id: string;
 
-    constructor(address: string, city: string, cap: number, latitude: number, longitude: number, length: number, width: number, height: number, type: number, box_type?: number, hourly_price?: number, daily_price?: number, weekly_price?: number, montly_price?: number, user?: string, _id?: string){
+    constructor(name: string, description: string, address: string, city: string, cap: number, latitude: number, longitude: number, length: number, width: number, height: number, type: number, box_type?: number, hourly_price?: number, daily_price?: number, weekly_price?: number, montly_price?: number, user?: string, _id?: string){
+        this.name = name;
+        this.description = description;
         this.address = address;
         this.city = city;
         this.cap = cap;

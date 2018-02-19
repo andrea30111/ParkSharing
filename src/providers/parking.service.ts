@@ -32,6 +32,8 @@ export class ParkingService{
                 let transformedMessages: Parking[] = [];
                 for (let parking of parkings) {
                     transformedMessages.push(new Parking(
+                        parking.name,
+                        parking.description,
                         parking.address,
                         parking.city,
                         parking.cap,
@@ -67,6 +69,8 @@ export class ParkingService{
                 let transformedMessages: Parking[] = [];
                 for (let parking of parkings) {
                     transformedMessages.push(new Parking(
+                        parking.name,
+                        parking.description,
                         parking.address,
                         parking.city,
                         parking.cap,

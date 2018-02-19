@@ -24,12 +24,13 @@ export class MyparkingComponent implements OnInit{
     ngOnInit(){
         //initialize form validator
         this.myForm = new FormGroup({
-            
+            name: new FormControl('', Validators.required),
+            description: new FormControl('', Validators.required),            
             length: new FormControl('', Validators.required),
             width: new FormControl('', Validators.required),
             height: new FormControl('', Validators.required),
             type: new FormControl('', Validators.required),
-            box_type: new FormControl(''),
+            box_type: new FormControl('', Validators.required),
             hourly_price: new FormControl('', Validators.required)
         });
 
@@ -54,6 +55,8 @@ export class MyparkingComponent implements OnInit{
                 let latitude = data.result.geometry.location.lat;                
                 let longitude = data.result.geometry.location.lng;       
                 const parking = new Parking(
+                    this.myForm.value.name, 
+                    this.myForm.value.description, 
                     this.address.description, 
                     'city', 
                     1, 

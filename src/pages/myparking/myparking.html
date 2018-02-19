@@ -10,6 +10,14 @@
                 <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
                     <p>Inizia a guadagnare registrando il tuo parcheggio!</p>
                     <ion-item>
+                        <ion-label floating for="name">Nome</ion-label>
+                        <ion-input type="text" id="name" class="form-control" formControlName="name"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating for="description">Descrizione</ion-label>
+                        <ion-input type="text" id="description" class="form-control" formControlName="description"></ion-input>
+                    </ion-item>
+                    <ion-item>
                         <ion-label floating for="length">Lunghezza</ion-label>
                         <ion-input type="text" id="length" class="form-control" formControlName="length"></ion-input>
                     </ion-item>
