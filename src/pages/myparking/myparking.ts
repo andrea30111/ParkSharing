@@ -24,6 +24,7 @@ export class MyparkingComponent implements OnInit{
     ngOnInit(){
         //initialize form validator
         this.myForm = new FormGroup({
+            
             length: new FormControl('', Validators.required),
             width: new FormControl('', Validators.required),
             height: new FormControl('', Validators.required),

@@ -3,27 +3,18 @@
 <div class="page-container">
           
     <div class="login-container">
-        <div class="page-presentation">
-            <div class="content">   
-                    <h1>We are STOCAZZO</h1>                         
-                    <section class="bottom">
-                        Con sto cazzo puoi:    
-                        <ul class="my-nav">
-                            <li>List item</li>
-                            <li>List item</li>
-                        </ul>
-                    </section>                       
-            </div>
-        </div>      
+      
         <div class="page-form">
             <div class="content" #login>
-
+                <h1>We are STOCAZZO</h1>    
                 <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-                        <google-places-autocomplete (callback)="getAddress($event[0])" key="AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk"></google-places-autocomplete>
+                    <p>Inizia a guadagnare registrando il tuo parcheggio!</p>
                     <ion-item>
                         <ion-label floating for="length">Lunghezza</ion-label>
                         <ion-input type="text" id="length" class="form-control" formControlName="length"></ion-input>
                     </ion-item>
+                    <google-places-autocomplete (callback)="getAddress($event[0])" placeholder="Indirizzo" key="AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk"></google-places-autocomplete>
+                    
                     <ion-item>
                         <ion-label floating for="width">Larghezza</ion-label>
                         <ion-input type="text" id="width" class="form-control" formControlName="width"></ion-input>
@@ -47,7 +38,7 @@
         
                     <hr>
 
-                    <button ion-button block class="btn btn-submit btn-primary" type="submit" [disabled]=!myForm.valid>Sign Up</button>
+                    <button ion-button block class="btn btn-submit btn-primary" type="submit" [disabled]=!myForm.valid>Registra Parcheggio</button>
                 </form>
         </div>
         {{createMessage}}        

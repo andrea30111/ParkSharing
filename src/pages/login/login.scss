@@ -69,7 +69,7 @@
             text-align: center;
             background: white;
             display: inline-block;
-            width:50%;
+            width:100%;
             position: relative;
             @include border-top-radius(10px);
             @include border-right-radius(10px);
@@ -80,7 +80,7 @@
                 @include center(90%, 50%);
             }
             .login-form{
-                max-width: 230px;
+                max-width: 500px;
                 margin: 10px auto;
                 background: white;
                  

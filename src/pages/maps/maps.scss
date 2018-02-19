@@ -141,22 +141,7 @@
                     }
                 }
 
-                .title{
-                    white-space: initial;
-                    overflow: initial;
-                    font-size: 16px;
-                    text-overflow: initial;
-                    
-                    &:after{
-                        content: '';
-                        height: 1px;
-                        width: 30px;
-                        position: absolute;
-                        bottom: -9px;
-                        left: 0;
-                        border-bottom: 1px solid white;
-                    }
-                }
+                
             }
             .booking-form{
                 display: none;
@@ -168,7 +153,7 @@
 
             &.booking{
                 width: 500px;
-                height: 460px;
+                height: 470px;
                 .item{
                     display: block;
                     &.descr{
@@ -181,6 +166,25 @@
                     font-weight: bold;
                     text-transform: uppercase;
                 }
+
+                .title{
+                    white-space: initial;
+                    overflow: initial;
+                    font-size: 16px;
+                    padding: 10px 0;
+                    text-overflow: initial;
+                    
+                    &:after{
+                        content: '';
+                        height: 1px;
+                        width: 80px;
+                        position: absolute;
+                        bottom: -9px;
+                        left: 0;
+                        border-bottom: 3px solid white;
+                    }
+                }
+
                 .booking-form{
                     display: block;
                     background: white;
