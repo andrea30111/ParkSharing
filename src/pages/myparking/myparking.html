@@ -6,51 +6,17 @@
       
         <div class="page-form">
             <div class="content" #login>
-                <h1>We are STOCAZZO</h1>    
-                <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-                    <p>Inizia a guadagnare registrando il tuo parcheggio!</p>
-                    <ion-item>
-                        <ion-label floating for="name">Nome</ion-label>
-                        <ion-input type="text" id="name" class="form-control" formControlName="name"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating for="description">Descrizione</ion-label>
-                        <ion-input type="text" id="description" class="form-control" formControlName="description"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating for="length">Lunghezza</ion-label>
-                        <ion-input type="text" id="length" class="form-control" formControlName="length"></ion-input>
-                    </ion-item>
-                    <google-places-autocomplete (callback)="getAddress($event[0])" placeholder="Indirizzo" key="AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk"></google-places-autocomplete>
-                    
-                    <ion-item>
-                        <ion-label floating for="width">Larghezza</ion-label>
-                        <ion-input type="text" id="width" class="form-control" formControlName="width"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating for="height">Altezza</ion-label>                    
-                        <ion-input type="text" id="height" class="form-control" formControlName="height"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating for="type">Categoria</ion-label>
-                        <ion-input type="text" id="type" class="form-control" formControlName="type"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating for="box_type">Tipologia box</ion-label>
-                        <ion-input type="text" id="box_type" class="form-control" formControlName="box_type"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating for="hourly_price">Prezzo/h</ion-label>
-                        <ion-input type="text" id="hourly_price" class="form-control" formControlName="hourly_price"></ion-input>
-                    </ion-item>
+                <button (click)="goToNewParking()" ion-button block class="btn btn-submit btn-primary">Nuovo Parcheggio</button>
+                <div class="park-tail" *ngFor="let park of parkings" id="{{park._id}}">
+                    <p class="title">{{park.name}}</p>
+                    <p class="title">{{park.address}}</p>
+                    <p class="item descr">{{park.description}}</p>
+                    <p class="item"><span class="tit">box_type: </span>{{park.box_type}} || <span class="tit">width: </span>{{park.box_type}} || <span class="tit">daily_price: </span>{{park.daily_price}}€/d</p>
+                    <p class="price">{{park.hourly_price}}€/h</p>
+                    <p>-------------------------------------------------------------------------------</p>
+                  </div>
         
-                    <hr>
-
-                    <button ion-button block class="btn btn-submit btn-primary" type="submit" [disabled]=!myForm.valid>Registra Parcheggio</button>
-                </form>
+            </div>
         </div>
-        {{createMessage}}        
     </div>
-</div>
-
 </div>
