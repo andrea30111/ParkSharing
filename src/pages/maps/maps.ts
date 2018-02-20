@@ -66,13 +66,14 @@ export class MapsComponent {
               setTimeout(function() {
                 $(".bx-wrapper").bxSlider({
                   captions: true,
-                  auto: true,
+                  auto: false,
                   autoControls: true,
                   minSlides: 1,
                   maxSlides: 6,
                   moveSlides: 1,
                   slideMargin: 10,  
                   pager: true,
+                  touchEnabled:true,
                   autoHover: true
                 });
               }, 1000);
