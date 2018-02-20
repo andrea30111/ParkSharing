@@ -56,11 +56,39 @@
         }
     }
 
+    .bx-wrapper {
+        -moz-box-shadow: initial ;
+        -webkit-box-shadow: initial ;
+        box-shadow: initial;
+        border:0;
+        background:transparent;
+        display: flex;
+    }
+
+    .bx-viewport{
+        height: 120px!important;
+    }
+    .bx-viewport.booking{
+        height: 510px!important;
+
+    }
+
+    .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+        text-align: left;
+        width: auto;
+        left: 50%;
+        transform: translate(-50% , 0);
+    }
+
+    .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .bx-wrapper .bx-pager.bx-default-pager a:focus {
+        background: #488aff;
+    }
+
     .park-tails{
         position: absolute;
         z-index: 9999;
         bottom:0;
-        width: auto;
+        width: 880px;
         height: auto;
         display: flex;
         flex-direction: row;
@@ -69,6 +97,7 @@
         transform: translate(-50% , 0);
         transition-property: all;
         transition-duration: .9s;
+
         transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
         .subtitle{
             display: none;
@@ -104,9 +133,10 @@
             color:white;
             padding: 10px;
             margin: 20px;
+            align-self: flex-end;
             position: relative;
             height: 100px;
-            width: 200px;
+            width: 200px!important;
             border-radius: 10px;
             display: inline-block;
             .subtitle{
@@ -161,7 +191,7 @@
             }
 
             &.booking{
-                width: 500px;
+                width: 500px!important;
                 height: 490px;
                 .item{
                     display: block;

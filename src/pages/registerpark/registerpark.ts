@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController} from 'ionic-angular';
 import { Parking } from '../../models/parking.model';
 import { ParkingService } from '../../providers/parking.service';
 import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
@@ -16,7 +16,7 @@ export class RegisterparkComponent implements OnInit{
     createMessage: String;
     address;
 
-    constructor(private parkingService: ParkingService, private googleMapsProvider: GoogleMapsProvider){
+    constructor(public navCtrl: NavController, private parkingService: ParkingService, private googleMapsProvider: GoogleMapsProvider){
  
     }
  
@@ -61,6 +61,7 @@ export class RegisterparkComponent implements OnInit{
                         data => {
                             console.log(data);
                             this.createMessage = data.message;
+                            this.navCtrl.push('MyparkingComponent');
                         },
                         error => {
                             console.error(error);

@@ -14,25 +14,33 @@ export class MyparkingComponent implements OnInit{
     parkings: Parking[];
     editId: String;
     editedPark: Object;
+    
 
     constructor(public navCtrl: NavController,private parkingService: ParkingService){
- 
+        
     }
 
     editPark(event){
         var idAttr = event.target.id;
-        for (let park of this.parkings) {
-            if(idAttr == park._id){
-                this.editedPark = park;
+        if(idAttr == ''){
+            this.editedPark = this.parkings[0];
+        }else{
+            for (let park of this.parkings) {
+                if(idAttr == park._id){
+                    this.editedPark = park;
+                }
             }
-        }
+        } 
     }
+        
+    
  
     ngOnInit(){
         //retrieve user's parkings
         this.parkingService.retrieveParkings().subscribe(
             (parkings: Parking[]) => {
                 this.parkings = parkings;
+                this.editedPark = this.parkings[0];
                 console.log(this.parkings);
             },
             error => {

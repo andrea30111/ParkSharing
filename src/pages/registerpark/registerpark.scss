@@ -1,58 +1,108 @@
-.step1, .step2, .step3{
-    background: $main-color;
-    color:white;
-    border: 1px solid $main-color;
-    padding:10px;
-    margin-bottom: 15px;
-    border-radius:10px;
-    .label-md[floating]{
-        color:white;
+.register-park{
+
+    margin: 70px auto;
+    width: 600px;
+    text-align: center;
+
+    h1{
+        
     }
-    p{
-        font-weight: bold;
-    text-transform: uppercase;
-    font-size: 11px;
-    line-height: 30px;
-    margin-bottom: -10px;
+
+    button {
+        max-width: initial!important;
+        margin: 0 auto;
+        background: #4A90E2;
     }
-    .dimensioni{
-        .item-md{
-            width:29%;
-            display: inline-block;
-        }
-    }
-    .item-md{
+
+    .step1, .step2, .step3{
         background: $main-color;
         color:white;
+        border: 1px solid $main-color;
+        padding:10px;
+        margin-bottom: 15px;
+        border-radius:10px;
+        .label-md[floating]{
+            color:white;
+        }
+        p{
+            font-weight: bold;
+        text-transform: uppercase;
+        font-size: 11px;
+        line-height: 30px;
+        margin-bottom: -10px;
+        }
+        .dimensioni{
+            .item-md{
+                width:29%;
+                display: inline-block;
+            }
+        }
+        .item-md{
+            background: $main-color;
+            color:white;
+        }
+
+        google-places-autocomplete{
+            position: static;
+        .searchbar-input-container{
+                .searchbar-search-icon{display: none}
+                .searchbar-input{    
+                    border: none;
+                    background: none;
+                    padding: 0;
+                    border-radius: 0!important;
+                    box-shadow: none;
+                    border-bottom: 1px solid #dedede;
+                    margin-top: 30px;
+                }
+        }
+        .list-md{
+            position: absolute;
+            width: 230px;
+            z-index: 99;
+        }
+            ion-list{
+                
+                ion-item{
+                    padding: 0 10px !important;
+                    &:last-child{
+                        display: none;
+                    }
+                }
+
+            }
+            
+        }
+        
     }
-}
 
-.step1:before{
-    content: '1';
-    position: absolute;
-    color: #4A90E2;
-    font-size: 43px;
-    display: block;
-    font-weight: bold;
-    margin-left: -50px;
-}
+    .step1:before{
+        content: '1';
+        position: absolute;
+        color: #4A90E2;
+        font-size: 43px;
+        display: block;
+        font-weight: bold;
+        margin-left: -50px;
+    }
 
-.step2:before{
-    content: '2';
-    position: absolute;
-    color: #4A90E2;
-    font-size: 43px;
-    display: block;
-    font-weight: bold;
-    margin-left: -50px;
-}
+    .step2:before{
+        content: '2';
+        position: absolute;
+        color: #4A90E2;
+        font-size: 43px;
+        display: block;
+        font-weight: bold;
+        margin-left: -50px;
+    }
 
-.step3:before{
-    content: '3';
-    position: absolute;
-    color: #4A90E2;
-    font-size: 43px;
-    display: block;
-    font-weight: bold;
-    margin-left: -50px;
+    .step3:before{
+        content: '3';
+        position: absolute;
+        color: #4A90E2;
+        font-size: 43px;
+        display: block;
+        font-weight: bold;
+        margin-left: -50px;
+    }
 }

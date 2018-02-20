@@ -8,6 +8,7 @@ $(document).on("click", ".show", function(){
 
 $(document).on("click", ".park-tail", function(){
     $(this).addClass("booking");
+    $(this).parents(".bx-viewport").addClass("booking");
     $(".park-tails").removeClass("down");
     $(this).siblings().removeClass("booking");
 });
@@ -15,3 +16,5 @@ $(document).on("click", ".park-tail", function(){
 $(document).on("click", ".input-wrapper .label-md", function(){
     $(".searchbar-input").val($(this).text());
 });
+
+

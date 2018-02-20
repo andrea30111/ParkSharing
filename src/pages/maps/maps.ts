@@ -5,6 +5,8 @@ import { IonicPage, NavController, Platform } from 'ionic-angular';
 import { ParkingService } from '../../providers/parking.service';
 import { Parking } from '../../models/parking.model';
 
+declare var $ :any;
+
 @IonicPage()
 @Component({
   selector: 'page-map',
@@ -61,6 +63,20 @@ export class MapsComponent {
                 this.maps.addMarker(parking.latitude, parking.longitude, parking._id);
                 this.parks.push(parking);
               }
+              setTimeout(function() {
+                $(".bx-wrapper").bxSlider({
+                  captions: true,
+                  auto: true,
+                  autoControls: true,
+                  minSlides: 1,
+                  maxSlides: 6,
+                  moveSlides: 1,
+                  slideMargin: 10,  
+                  pager: true,
+                  autoHover: true
+                });
+              }, 1000);
+              
           },
           error => {
             console.error(error);
