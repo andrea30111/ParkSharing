@@ -12,9 +12,20 @@ import { ParkingService } from '../../providers/parking.service';
 
 export class MyparkingComponent implements OnInit{
     parkings: Parking[];
+    editId: String;
+    editedPark: Object;
 
     constructor(public navCtrl: NavController,private parkingService: ParkingService){
  
+    }
+
+    editPark(event){
+        var idAttr = event.target.id;
+        for (let park of this.parkings) {
+            if(idAttr == park._id){
+                this.editedPark = park;
+            }
+        }
     }
  
     ngOnInit(){
@@ -34,4 +45,5 @@ export class MyparkingComponent implements OnInit{
         // go to the MyPage component
         this.navCtrl.push('RegisterparkComponent');
     }
+
 }

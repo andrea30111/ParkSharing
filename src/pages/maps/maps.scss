@@ -70,6 +70,9 @@
         transition-property: all;
         transition-duration: .9s;
         transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+        .subtitle{
+            display: none;
+        }
         &.down{
             bottom: -62px;
             transition-property: all;
@@ -106,6 +109,10 @@
             width: 200px;
             border-radius: 10px;
             display: inline-block;
+            .subtitle{
+                font-style: italic;
+                margin:0;
+            }
             .title{
                 font-size: 13px;
                 font-weight: bold;
@@ -115,6 +122,7 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 width: 80%;
+
                 + i{
                     position: absolute;
                     top: 16px;
@@ -134,6 +142,7 @@
 
             &.active{
                 height: 260px;
+                
                 .item{
                     display: block;
                     &.descr{
@@ -153,12 +162,26 @@
 
             &.booking{
                 width: 500px;
-                height: 470px;
+                height: 490px;
                 .item{
                     display: block;
                     &.descr{
                         display: block;
+                        margin-top: 10px;
+                        padding-top: 10px;
+                        &:after{
+                            content: '';
+                            height: 1px;
+                            width: 80px;
+                            position: absolute;
+                            top: 0px;
+                            left: 0;
+                            border-bottom: 3px solid white;
+                        }
                     }
+                }
+                .subtitle{
+                    display: block;
                 }
                 p.title-book{
                     display: block;
@@ -171,18 +194,10 @@
                     white-space: initial;
                     overflow: initial;
                     font-size: 16px;
-                    padding: 10px 0;
                     text-overflow: initial;
-                    
-                    &:after{
-                        content: '';
-                        height: 1px;
-                        width: 80px;
-                        position: absolute;
-                        bottom: -9px;
-                        left: 0;
-                        border-bottom: 3px solid white;
-                    }
+                    padding: 3px 0;
+                    margin-bottom: 0;
+                   
                 }
 
                 .booking-form{

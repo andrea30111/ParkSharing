@@ -1,22 +1,28 @@
 
 
-<div class="page-container">
-          
-    <div class="login-container">
-      
-        <div class="page-form">
-            <div class="content" #login>
-                <button (click)="goToNewParking()" ion-button block class="btn btn-submit btn-primary">Nuovo Parcheggio</button>
-                <div class="park-tail" *ngFor="let park of parkings" id="{{park._id}}">
+<div class="page-container list-park">
+        <div class="left-content">
+            <button (click)="goToNewParking()" ion-button block class="btn btn-submit btn-primary">Nuovo Parcheggio</button>
+            <p>I tuoi parcheggi</p>
+            <div class="park-container">
+                <div class="park-tail" *ngFor="let park of parkings" >
                     <p class="title">{{park.name}}</p>
                     <p class="title">{{park.address}}</p>
                     <p class="item descr">{{park.description}}</p>
                     <p class="item"><span class="tit">box_type: </span>{{park.box_type}} || <span class="tit">width: </span>{{park.box_type}} || <span class="tit">daily_price: </span>{{park.daily_price}}€/d</p>
                     <p class="price">{{park.hourly_price}}€/h</p>
-                    <p>-------------------------------------------------------------------------------</p>
-                  </div>
-        
+                    <span class="show right flaticon-left-arrow" id="{{park._id}}" (click)="editPark($event)"></span>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="edit-park" *ngIf="editedPark">
+                <p>Modifica il tuo parcheggio</p>
+                <div class="park-tail">
+                        <p class="title">{{editedPark.name}}</p>
+                        <p class="title">{{editedPark.address}}</p>
+                        <p class="item descr">{{editedPark.description}}</p>
+                        <p class="item"><span class="tit">box_type: </span>{{editedPark.box_type}} || <span class="tit">width: </span>{{editedPark.box_type}} || <span class="tit">daily_price: </span>{{editedPark.daily_price}}€/d</p>
+                        <p class="price">{{editedPark.hourly_price}}€/h</p>
+                    </div>
+        </div>
 </div>
