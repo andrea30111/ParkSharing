@@ -152,14 +152,13 @@ ion-header{
     div{
         float: right;
 
-        p{
-            border: 1px solid #2D3047;
-            background: #2D3047;
-            padding: 0 10px;
-            border-radius: 19px;
-            color: white;
+        button +p{
             display: inline-block;
             height: 40px;
+            width: 120px;
+            text-align: right;
+            margin-left: -205px;
+            margin-top: -37px;
             span{
                 line-height: 40px;
             }
@@ -201,6 +200,10 @@ body, html , .page-container{
     .alert-button-group{
     justify-content: space-between;
     }
+}
+
+ion-fab[top][edge] {
+    top: 0px;
 }
 
 //reset

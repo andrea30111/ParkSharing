@@ -3,6 +3,13 @@
       <p>Please connect to the Internet...</p>
     </div>
     <google-places-autocomplete (callback)="getAddress($event[0])" key="AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk"></google-places-autocomplete>
+    <div class="input-cont">
+      
+      <ion-datetime displayFormat="DD/MM/YYYY"  [(ngModel)]="bookedPark.date"></ion-datetime>
+
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+    </div>
 
     <div #map id="map"></div>
 
