@@ -14,9 +14,9 @@
     <div #map id="map"></div>
 
 
-    <div class="park-tails down" *ngIf="parks?.length > 0">
+    <div class="park-tails up" *ngIf="parks?.length > 0">
           <span class="show up flaticon-left-arrow"></span>
-          <div class="bx-wrapper">
+          
           <div class="park-tail" *ngFor="let park of parks" id="{{park._id}}">
             <p class="title" *ngIf="park.name">{{park.name}}</p><i *ngIf="park.name" class="flaticon-fire"></i>
             <p class="title" *ngIf="!park.name">{{park.address}}</p><i *ngIf="!park.name" class="flaticon-fire"></i>
@@ -47,10 +47,11 @@
                       <ion-label>Car description</ion-label>
                       <ion-input  name="car" ></ion-input>
                     </ion-item>
-                <button class="book" type="submit" block>Prenota</button>
+                  <button class="back" type="submit" block>Back</button>
+                  <button class="book" type="submit" block>Prenota</button>
                 </div>
           </div>
-        </div>
+        
     </div>
     
    

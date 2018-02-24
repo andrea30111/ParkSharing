@@ -47,7 +47,7 @@
     google-places-autocomplete{
         position: absolute;
         top: 60px;
-        z-index: 999999;
+        z-index: 99;
         width: 360px;
         left: 50%;
         transform: translate(-50%, 0);
@@ -66,7 +66,7 @@
     .input-cont{
         position: absolute;
         top: 112px;
-        z-index: 999999;
+        z-index: 99;
         left: 50%;
         width: 360px;
         transform: translate(-50% , 0);
@@ -138,9 +138,16 @@
         flex-direction: row;
         align-items: flex-end;
         left: 50%;
+        max-width: 880px;
+        overflow: scroll;
         transform: translate(-50% , 0);
         transition-property: all;
         transition-duration: .9s;
+
+        @include sm{
+            width: 100%;
+            max-width: 100%;
+        }
 
         transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
         .subtitle{
@@ -180,7 +187,7 @@
             align-self: flex-end;
             position: relative;
             height: 100px;
-            width: 200px!important;
+            min-width: 200px!important;
             border-radius: 10px;
             display: inline-block;
             .subtitle{
@@ -235,8 +242,21 @@
             }
 
             &.booking{
-                width: 500px!important;
-                height: 490px;
+                min-width: 500px!important;
+                min-height: 490px;
+                border-radius: 0;
+
+                .price{
+                    bottom: 50px;
+                }
+
+                @include sm{
+                    width: 100%;
+                    max-width: 100%;
+                    z-index: 9999;
+                    min-width: 100%!important;
+                    margin-bottom: 0;
+                }
                 .item{
                     display: block;
                     &.descr{
@@ -304,14 +324,27 @@
             button.book{
                 position: absolute;
                 bottom: 10px;
-                left: 10px;
+                right: 10px;
                 padding: 7px 10px;
                 border-radius: 6px;
                 font-size: 16px;
                 font-weight: bold;
                 text-transform: uppercase;
+                background: #4A90E2;
                 background: white;
                 color: #4A90E2;
+            }
+            button.back{
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                padding: 7px 10px;
+                border-radius: 6px;
+                font-size: 16px;
+                text-transform: uppercase;
+                background: #4A90E2;
+                border: 1px solid white;
+                color: white;
             }
         }
     }
