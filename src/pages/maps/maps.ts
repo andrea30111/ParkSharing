@@ -6,6 +6,7 @@ import { ParkingService } from '../../providers/parking.service';
 import { Parking } from '../../models/parking.model';
 
 declare var $ :any;
+declare var google;
 
 @IonicPage()
 @Component({
@@ -40,55 +41,66 @@ export class MapsComponent {
     let nd = new Date(d.getTime() + (3600000 * offset));
 
     return nd.toISOString();
-  }
-  
- 
+  }  
+
   ionViewDidLoad(){
- 
+    var thisComponent = this;
     this.platform.ready().then(() => {
-              this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
-         });
+      this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement).then(() => {
+        var listener = google.maps.event.addListener(this.maps.map, 'bounds_changed', function(){
+          thisComponent.searchParkings();
+          google.maps.event.removeListener(listener);
+        });
+          }).catch(() => {
+              console.log("Cannot load map");
+          });
+      });
   }
  
   getAddress(address){
     this.address = address;
-    this.parks = [];
     
     this.maps.getPlaceById(this.address.place_id).subscribe(
       data => {
         this.maps.centerMap(data.result.geometry.location);
-        this.parkingService.getParkingsByAddress(this.maps.map.getBounds()).subscribe(
-          (parkings: Parking[]) => {
-              for (let parking of parkings) {
-                this.maps.addMarker(parking.latitude, parking.longitude, parking._id);
-                this.parks.push(parking);
-              }
-              setTimeout(function() {
-                $(".bx-wrapper").bxSlider({
-                  captions: true,
-                  auto: false,
-                  autoControls: true,
-                  minSlides: 1,
-                  maxSlides: 6,
-                  moveSlides: 1,
-                  slideMargin: 10,  
-                  pager: true,
-                  touchEnabled:true,
-                  autoHover: true
-                });
-              }, 1000);
-              
-          },
-          error => {
-            console.error(error);
-          }
-        );
+        this.searchParkings();
       },
       error => {
         console.error(error);
       }
   );
 
+  }
+
+  searchParkings(){
+    this.parks = [];
+    this.parkingService.getParkingsByAddress(this.maps.map.getBounds()).subscribe(
+      (parkings: Parking[]) => {
+          for (let parking of parkings) {
+            this.maps.addMarker(parking.latitude, parking.longitude, parking._id);
+            this.parks.push(parking);
+          }
+          //questo fa cagare, cambialo
+          setTimeout(function() {
+            $(".bx-wrapper").bxSlider({
+              captions: true,
+              auto: false,
+              autoControls: true,
+              minSlides: 1,
+              maxSlides: 6,
+              moveSlides: 1,
+              slideMargin: 10,  
+              pager: true,
+              touchEnabled:true,
+              autoHover: true
+            });
+          }, 1000);
+          
+      },
+      error => {
+        console.error(error);
+      }
+    );
   }
 
 }
