@@ -37,8 +37,7 @@ export class RegisterComponent implements OnInit{
             this.myForm.value.password, 
             this.myForm.value.firstName, 
             this.myForm.value.lastName, 
-            this.myForm.value.fiscalCode, 
-            null);
+            this.myForm.value.fiscalCode);
         this.registerService.signup(user)
             .subscribe(
                 data => {

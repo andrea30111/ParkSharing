@@ -9,28 +9,30 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 
 import { MyApp } from './app.component';
-import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../providers/auth.service';
 import { LocationsProvider } from '../providers/locations/locations';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { ParkingService } from '../providers/parking.service';
+import { TabsPageModule } from '../pages/tabs/tabs.module';
+import { UserService } from '../providers/user.service';
 
 @NgModule({
   declarations: [
     MyApp,
-    TabsPage
+    //TabsPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    TabsPageModule,
     IonicModule.forRoot(MyApp)
 //    IonicPageModule.forChild(RegisterComponent)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TabsPage
+    //TabsPage
   ],
   providers: [
     StatusBar,
@@ -41,7 +43,8 @@ import { ParkingService } from '../providers/parking.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LocationsProvider,
     ConnectivityProvider,
-    GoogleMapsProvider
+    GoogleMapsProvider,
+    UserService
   ]
 })
 export class AppModule {}

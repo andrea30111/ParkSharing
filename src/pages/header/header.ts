@@ -1,30 +1,19 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { AuthService } from '../providers/auth.service';
-import { NavController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { AuthService } from '../../providers/auth.service';
+import { User } from '../../models/user.model';
 
-declare var jquery:any;
-declare var $ :any;
-
-import { User } from '../models/user.model';
-
-import { TabsPage } from '../pages/tabs/tabs';
+@IonicPage()
 @Component({
-  templateUrl: 'app.html'
+  selector: 'myheader',
+  templateUrl: 'header.html',
 })
-export class MyApp {
-  rootPage:any = TabsPage;
+export class HeaderComponent {
+
   user: String;
   registerMessage: String;
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService ,private alertCtrl: AlertController) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
+
+  constructor(private authService: AuthService ,private alertCtrl: AlertController, private navCtrl: NavController) {
   }
 
   onLogout(){
@@ -38,7 +27,6 @@ export class MyApp {
       return true;
     }
   }
-
 
   presentRegistration = function() {
     let prompt = this.alertCtrl.create({
@@ -155,5 +143,9 @@ export class MyApp {
     prompt.present();
   }
   
-}
+  goToUserArea(){
+    this.navCtrl.push('UserareaComponent');
+  }
 
+
+}

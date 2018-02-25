@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><span>park</span></ion-title>
+    <div *ngIf="!isLoggedIn()" [hidden]="user">
+          <p (click)="presentPrompt()"><i class="flaticon-user-1"></i><span>Login</span></p>
+      </div>
+    
+  </ion-toolbar>
+  <div *ngIf="isLoggedIn()" [hidden]="!user">
+          <ion-fab top right edge #fab1>
+                  <button ion-fab mini><ion-icon name="body"></ion-icon></button>
+                  <ion-fab-list>
+                    <button ion-fab (click)="goToUserArea()"><i class="flaticon-square-1"></i></button>
+                    <p>user area</p>
+                    <button ion-fab ><i class="flaticon-star"></i></button>
+                    <p>park</p>
+                    <button ion-fab ><i class="flaticon-calendar"></i></button>
+                    <p>prenotation</p>
+                    <button ion-fab class="logout" (click)="onLogout()"><i class="flaticon-cross"></i></button>
+                    <p>logout</p>
+                  </ion-fab-list>
+                </ion-fab>
+       
+    </div>
+  
+</ion-header>

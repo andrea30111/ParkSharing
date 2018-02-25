@@ -1,0 +1,41 @@
+
+
+<div class="page-container">
+          
+    <div class="register-park">
+      
+        <div class="page-form">
+            <div class="content" >
+                <h1>IL TUO PROFILO</h1>    
+                <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                    <ion-item>
+                        <ion-label floating for="firstName">Nome</ion-label>
+                        <ion-input type="text" id="firstName" class="form-control" formControlName="firstName"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating for="lastName">Cognome</ion-label>
+                        <ion-input type="text" id="lastName" class="form-control" formControlName="lastName"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating for="fiscalCode">Codice Fiscale</ion-label>
+                        <ion-input type="text" id="fiscalCode" class="form-control" formControlName="fiscalCode"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating for="email">Email</ion-label>                    
+                        <ion-input type="text" id="email" class="form-control" formControlName="email"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating for="password">Password</ion-label>
+                        <ion-input type="password" id="password" class="form-control" formControlName="password"></ion-input>
+                    </ion-item>
+
+                    <hr>
+
+                    <button ion-button block class="btn btn-submit btn-primary" type="submit" [disabled]=!myForm.valid>Aggiorna dati</button>
+                </form>
+        </div>
+        {{createMessage}}        
+    </div>
+</div>
+
+</div>

@@ -16,6 +16,7 @@ router.post('/', function (req, res, next) {
     });
     
     //send verification email
+    /*
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -37,6 +38,7 @@ router.post('/', function (req, res, next) {
         console.log('Email sent: ' + info.response);
       }
     });
+    */
 
     //store user in DB
     user.save(function(err,result){
@@ -93,5 +95,63 @@ router.post('/signin', function(req, res, next) {
         });
     });    
 });
+
+router.use('/data', function (req, res, next) {
+    jwt.verify(req.query.token, 'secret', function(err, decoded){
+        if(err){
+            return res.status(401).json({
+                title: 'Not Authenticated',
+                error: err
+            });
+        }
+        next();
+    })
+});
+
+router.get('/data', function (req, res, next) {
+    var decoded = jwt.decode(req.query.token);
+    User.findOne({_id: decoded.user._id})
+        .exec(function (err, user) {
+            if (err) {
+                return res.status(500).json({
+                    title: 'An error occurred',
+                    error: err
+                });
+            }
+            res.status(200).json({
+                message: 'Success',
+                obj: user
+            });
+        });
+});
+
+router.post('/data', function (req, res, next) {
+    var decoded = jwt.decode(req.query.token);
+    User.findOne({_id: decoded.user._id})
+        .exec(function (err, user) {
+            if (err) {
+                return res.status(500).json({
+                    title: 'An error occurred',
+                    error: err
+                });
+            }
+            user.firstName = req.body.firstName;
+            user.lastName = req.body.lastName;
+            user.save(function(err,result){
+                if(err){
+                    return res.status(500).json({
+                        title: 'An error occurred',
+                        error: err
+                    });
+                }
+                res.status(201).json({
+                    message: 'User updated successfully',
+                    obj: result
+                });
+            });    
+        });
+
+});
+
 
 module.exports = router;
