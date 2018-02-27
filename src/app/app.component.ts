@@ -9,13 +9,11 @@ declare var jquery:any;
 declare var $ :any;
 
 import { User } from '../models/user.model';
-
-import { TabsPage } from '../pages/tabs/tabs';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage: string = "TabsPage";
   user: String;
   registerMessage: String;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService ,private alertCtrl: AlertController) {
@@ -94,7 +92,6 @@ export class MyApp {
                           this.registerMessage = error.title;
                       }
                   );
-          
           }
         }
       ]

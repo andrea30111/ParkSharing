@@ -146,6 +146,4 @@ export class HeaderComponent {
   goToUserArea(){
     this.navCtrl.push('UserareaComponent');
   }
-
-
 }

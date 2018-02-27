@@ -19,20 +19,17 @@ import { UserService } from '../providers/user.service';
 
 @NgModule({
   declarations: [
-    MyApp,
-    //TabsPage
+    MyApp
   ],
   imports: [
     BrowserModule,
     HttpModule,
     TabsPageModule,
     IonicModule.forRoot(MyApp)
-//    IonicPageModule.forChild(RegisterComponent)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    //TabsPage
+    MyApp
   ],
   providers: [
     StatusBar,
