@@ -1,11 +1,16 @@
+.page-container{
+    overflow: scroll;
+}
 .register-park{
 
     margin: 70px auto;
-    width: 600px;
+    max-width: 600px!important;
+    width: 80%!important;
     text-align: center;
 
     h1{
-        
+        font-size: 15px;
+        color:$main-color;
     }
 
     button {
@@ -13,9 +18,14 @@
         margin: 0 auto;
         background: #4A90E2;
     }
+    form{
+        padding-left: 20px;
+        margin-right: -20px;
+    }
 
     .step1, .step2, .step3{
         background: $main-color;
+        position: relative;
         color:white;
         border: 1px solid $main-color;
         padding:10px;
@@ -76,33 +86,14 @@
         
     }
 
-    .step1:before{
-        content: '1';
+    .step1 > p.number , .step2 > p.number, .step3 > p.number{
         position: absolute;
         color: #4A90E2;
         font-size: 43px;
         display: block;
         font-weight: bold;
-        margin-left: -50px;
+        left: -40px;
+        margin-top: 0;
     }
 
-    .step2:before{
-        content: '2';
-        position: absolute;
-        color: #4A90E2;
-        font-size: 43px;
-        display: block;
-        font-weight: bold;
-        margin-left: -50px;
-    }
-
-    .step3:before{
-        content: '3';
-        position: absolute;
-        color: #4A90E2;
-        font-size: 43px;
-        display: block;
-        font-weight: bold;
-        margin-left: -50px;
-    }
 }

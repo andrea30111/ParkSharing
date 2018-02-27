@@ -146,4 +146,10 @@ export class HeaderComponent {
   goToUserArea(){
     this.navCtrl.push('UserareaComponent');
   }
+
+  goToYourPark(){
+    this.navCtrl.push('MyparkingComponent');
+  }
+
+
 }

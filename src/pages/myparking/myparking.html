@@ -5,9 +5,9 @@
             <button (click)="goToNewParking()" ion-button block class="btn btn-submit btn-primary">Nuovo Parcheggio</button>
             <p>I tuoi parcheggi</p>
             <div class="park-container">
-                <div class="park-tail" *ngFor="let park of parkings" >
+                <div class="park" *ngFor="let park of parkings" >
                     <p class="title">{{park.name}}</p>
-                    <p class="title">{{park.address}}</p>
+                    <p class="subtitle">{{park.address}}</p>
                     <p class="item descr">{{park.description}}</p>
                     <p class="item"><span class="tit">box_type: </span>{{park.box_type}} || <span class="tit">width: </span>{{park.box_type}} || <span class="tit">daily_price: </span>{{park.daily_price}}€/d</p>
                     <p class="price">{{park.hourly_price}}€/h</p>
@@ -17,7 +17,7 @@
         </div>
         <div class="edit-park" *ngIf="editedPark">
                 <p>Modifica il tuo parcheggio</p>
-                <div class="park-tail">
+                <div class="park">
                         <p class="title">{{editedPark.name}}</p>
                         <p class="title">{{editedPark.address}}</p>
                         <p class="item descr">{{editedPark.description}}</p>
