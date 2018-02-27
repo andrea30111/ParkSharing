@@ -154,11 +154,14 @@ ion-header{
 
         button +p{
             display: inline-block;
-            height: 40px;
+            height: 26px;
             width: 120px;
             text-align: right;
             margin-left: -205px;
-            margin-top: -37px;
+            margin-top: -32px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
             span{
                 line-height: 40px;
             }
