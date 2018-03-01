@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 
 /**
  * Generated class for the TutorialPage page.
@@ -31,5 +33,24 @@ export class TutorialPage {
       image: "../../assets/imgs/logo.png",
     }
   ];
+
+  constructor(
+    private app: App, 
+    public navCtrl: NavController,
+    public storage: Storage
+  ) { }
+
+  startApp() {
+    this.navCtrl.push("TabsPage").then(() => {
+      this.storage.set('hasSeenTutorial', 'true');
+    })
+  }
+  
+  registerParking() {
+    this.navCtrl.push("TabsPage").then(() => {
+      this.app.getRootNav().getActiveChildNav().select(3);
+      this.storage.set('hasSeenTutorial', 'true');
+    })
+  }
 
 }

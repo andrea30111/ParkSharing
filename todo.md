@@ -73,3 +73,6 @@ vedi come è usato in app.component.ts
 
 //Autocomplete 
 npm install --save ionic2-google-places-autocomplete
+
+//Storage
+npm install --save @ionic/storage
