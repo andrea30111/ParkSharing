@@ -144,11 +144,11 @@ export class HeaderComponent {
   }
   
   goToUserArea(){
-    this.app.getRootNav().getActiveChildNav().select(5);
+    this.app.getRootNav().getActiveChildNav().select(4);
   }
 
   goToYourPark(){
-    this.app.getRootNav().getActiveChildNav().select(4);
+    this.app.getRootNav().getActiveChildNav().select(3);
   }
 
 
