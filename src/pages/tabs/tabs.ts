@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
  
-@IonicPage()
+@IonicPage({
+  segment: 'page-tabs'
+})
 @Component({
-  selector: 'page-tabs',
-  templateUrl: 'tabs.html',
+  templateUrl: 'tabs.html'
 })
 export class TabsPage {
   tab1 = 'HomepagePage';
@@ -12,6 +13,7 @@ export class TabsPage {
   tab3 = 'MapsComponent';
   tab4 = 'MyparkingComponent';
   tab5 = 'ExplorePage';
+  tab7 = 'UserareaPage';
   
   constructor(public navCtrl: NavController, public navParams: NavParams) { }
 }

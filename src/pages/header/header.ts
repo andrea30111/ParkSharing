@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic-angular';
 import { AuthService } from '../../providers/auth.service';
 import { User } from '../../models/user.model';
 
@@ -13,7 +13,7 @@ export class HeaderComponent {
   user: String;
   registerMessage: String;
 
-  constructor(private authService: AuthService ,private alertCtrl: AlertController, private navCtrl: NavController) {
+  constructor(private app: App, private authService: AuthService ,private alertCtrl: AlertController, private navCtrl: NavController) {
   }
 
   onLogout(){
@@ -144,11 +144,11 @@ export class HeaderComponent {
   }
   
   goToUserArea(){
-    this.navCtrl.push('UserareaComponent');
+    this.app.getRootNav().getActiveChildNav().select(5);
   }
 
   goToYourPark(){
-    this.navCtrl.push('MyparkingComponent');
+    this.app.getRootNav().getActiveChildNav().select(4);
   }
 
 

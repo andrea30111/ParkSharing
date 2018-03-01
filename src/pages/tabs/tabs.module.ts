@@ -11,7 +11,6 @@ import { UserareaModule } from '../userarea/userarea.module';
   imports: [
     IonicPageModule,
     HeaderModule,
-    UserareaModule,
     IonicPageModule.forChild(TabsPage)
   ],
   exports: [

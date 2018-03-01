@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { UserareaComponent } from './userarea';
+import { UserareaPage } from './userarea';
 
 @NgModule({
   declarations: [
-    UserareaComponent
+    UserareaPage
   ],
   imports: [
-    IonicPageModule.forChild(UserareaComponent)
+    IonicPageModule.forChild(UserareaPage)
   ],
   exports: [
-    UserareaComponent
+    UserareaPage
   ]
 })
 export class UserareaModule {}

@@ -10,7 +10,7 @@ import { User } from '../../models/user.model';
     templateUrl: 'userarea.html'
 })
 
-export class UserareaComponent implements OnInit{
+export class UserareaPage implements OnInit{
     myForm: FormGroup;
     submitMessage: String;
     address;
