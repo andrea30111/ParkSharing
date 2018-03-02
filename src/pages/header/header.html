@@ -2,8 +2,10 @@
   <ion-toolbar>
     <ion-title><span>park</span></ion-title>
     <div *ngIf="!isLoggedIn()" [hidden]="user">
-          <p (click)="presentPrompt()"><i class="flaticon-user-1"></i><span>Login</span></p>
-      </div>
+        <ion-fab top right edge #fab1>
+        <button class="grey" (click)="presentPrompt()" ion-fab mini><ion-icon name="body"></ion-icon></button>
+        </ion-fab>
+    </div>
     
   </ion-toolbar>
   <div *ngIf="isLoggedIn()" [hidden]="!user">

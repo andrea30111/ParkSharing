@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 import { Parking } from '../models/parking.model';
 
 @Injectable()
-export class ParkingService{
+export class ReservationService{
 
     constructor(private http: Http) {}
 

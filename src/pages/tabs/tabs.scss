@@ -1,15 +1,16 @@
-page-tabs {
-    .tabs-md .tabbar {
+ion-tabs {
+    .tabbar {
         background: white;
         height: 40px;
     }
 
-    #tab-t0-2{
+    #tab-t1-2{
         border-radius: 80px;
         background: #488aff;
         color: white;
         width: 30px;
         margin-bottom: 6px;
+        border: 2px solid white;
         /* border-bottom-left-radius: 0; */
         /* border-bottom-right-radius: 0; */
         max-width: 70px;

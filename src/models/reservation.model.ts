@@ -2,12 +2,12 @@ export class Reservation{
     user: string;
     parking: string;
     car: string;
-    start_ts: date;
-    end_ts: date;
+    start_ts: Date;
+    end_ts: Date;
     amount: number;
     payment_type: number;
     
-    constructor(user: string, parking: string, car: string, start_ts: date, end_ts: date, amount: number, payment_type: number){
+    constructor(user: string, parking: string, car: string, start_ts: Date, end_ts: Date, amount: number, payment_type: number){
         this.user = user;
         this.parking = parking;
         this.car = car;
