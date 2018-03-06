@@ -9,6 +9,16 @@ $(document).on("click touch", ".back", function(){
     $(this).parents(".park-tail").animate({height: 100}).removeClass("booking").removeAttr("style");
 });
 
+$(document).on("click touch", ".boss", function(){
+    $(".tabs").toggleClass("opacity");
+});
+
+$(document).on("click touch", ".slave", function(){
+    $(".boss").removeClass("fab-close-active");
+    $(".list").removeClass("fab-list-active");
+    $(".tabs").removeClass("opacity");
+});
+
 $(document).on("click touch", ".edit", function(){
     $(".edit-form").toggle();
 });
