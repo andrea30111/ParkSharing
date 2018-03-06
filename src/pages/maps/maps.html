@@ -5,9 +5,10 @@
     <google-places-autocomplete (callback)="getAddress($event[0])" key="AIzaSyDqA3ASlf5Mshe6bUVlPKiPdIhGQ7meBBk"></google-places-autocomplete>
     <div class="input-cont">
       
-      <ion-datetime displayFormat="DD/MM/YYYY"  [(ngModel)]="bookedPark.date"></ion-datetime>
-
+      <ion-datetime displayFormat="DD/MM"  [(ngModel)]="bookedPark.date"></ion-datetime>
+      <p>from</p>
       <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
+      <p>to</p>
       <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
     </div>
 

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from "@angular/http";
 import 'rxjs/Rx';
-import { Parking } from '../models/parking.model';
+import { Reservation } from '../models/reservation.model';
 
 @Injectable()
 export class ReservationService{
@@ -23,7 +23,15 @@ export class ReservationService{
                 const reservations = response.json().obj;
                 let transformedReservations: Reservation[] = [];
                 for (let reservation of reservations) {
-                    transformedReservations.push(new Reservation(reservation));
+                    transformedReservations.push(new Reservation(
+                        reservation.user,
+                        reservation.parking,
+                        reservation.car,
+                        reservation.start_ts,
+                        reservation.end_ts,
+                        reservation.amount,
+                        reservation.payment_type
+                    ));
                 }
                 return transformedReservations;
             })

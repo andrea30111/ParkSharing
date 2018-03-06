@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic
 import { AuthService } from '../../providers/auth.service';
 import { User } from '../../models/user.model';
 
+declare var micron:any;
+
 @IonicPage()
 @Component({
   selector: 'myheader',
