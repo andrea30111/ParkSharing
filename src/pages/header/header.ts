@@ -153,5 +153,9 @@ export class HeaderComponent {
     this.app.getRootNav().getActiveChildNav().select(3);
   }
 
+  goToHomePage(){
+    this.app.getRootNav().getActiveChildNav().select(0);
+  }
+
 
 }

@@ -4,6 +4,10 @@ ion-tabs {
         height: 40px;
     }
 
+    #tab-t1-4,#tab-t1-0{
+        display:none;
+    }
+
     #tab-t1-2{
         border-radius: 80px;
         background:$main-color;

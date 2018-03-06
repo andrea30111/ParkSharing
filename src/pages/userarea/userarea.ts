@@ -15,6 +15,9 @@ export class UserareaPage implements OnInit{
     submitMessage: String;
     address;
 
+    firstName: String;
+    lastName: String; 
+    email: String;
     constructor(public navCtrl: NavController, private userService: UserService){
  
     }
@@ -39,6 +42,9 @@ export class UserareaPage implements OnInit{
                 this.myForm.patchValue({firstName: user.firstName});
                 this.myForm.patchValue({lastName: user.lastName});
                 this.myForm.patchValue({fiscalCode: user.fiscalCode});
+                this.firstName= user.firstName;
+                this.lastName= user.lastName;
+                this.email = user.email;
             },
             error => {
                 console.error(error);

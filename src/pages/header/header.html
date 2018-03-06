@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><span>park</span></ion-title>
+    <button (click)="goToHomePage()">park</button>
     <div *ngIf="!isLoggedIn()" [hidden]="user">
         <ion-fab top right edge #fab1>
         <button  class="grey" (click)="presentPrompt()" ion-fab mini><ion-icon name="body"></ion-icon></button>

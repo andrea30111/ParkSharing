@@ -138,16 +138,19 @@ ion-header{
     ion-toolbar{
         height: 40px;
     }
-    ion-title{
+    button{
+        outline: none;
+        border: none;
+        background: none;
         float: left;
         padding: 10px;
-        span{
+        
             text-transform: uppercase;
             font-size: 30px;
             line-height: 50px;
             color: $font-color;
             font-weight: 700;
-        }
+        
     }
     div{
         float: right;

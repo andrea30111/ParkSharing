@@ -1,12 +1,24 @@
 
 
-<div class="page-container">
+<div class="page-container user-area">
           
-    <div class="register-park">
-      
+    <div class="top">
+        <img width="80" height="80" src="../../assets/imgs/logo.png"/>
+        
+    </div>
+
+    <div class="bottom">
+        <button class="edit"><i class="flaticon-pencil"></i></button>
+        <p>{{firstName}} {{lastName}}</p>
+        <p>{{email}}</p>
+        <button class="left">my park</button>
+        <button class="right">my registration</button>
+    </div>
+
+    <div class="edit-form">
         <div class="page-form">
             <div class="content" >
-                <h1>IL TUO PROFILO</h1>    
+                    
                 <form class="login-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
                     <ion-item>
                         <ion-label floating for="firstName">Nome</ion-label>

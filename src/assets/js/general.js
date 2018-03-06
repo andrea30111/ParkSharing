@@ -9,6 +9,10 @@ $(document).on("click touch", ".back", function(){
     $(this).parents(".park-tail").animate({height: 100}).removeClass("booking").removeAttr("style");
 });
 
+$(document).on("click touch", ".edit", function(){
+    $(".edit-form").toggle();
+});
+
 $(document).on("click touch", ".park-tail:not(.booking)", function(){
     $(this).addClass("booking");
     $(this).animate({height: ($(window).height() - 90) }); 

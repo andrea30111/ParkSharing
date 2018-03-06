@@ -1,80 +1,90 @@
-.register-park{
-
-    margin: 70px auto;
-    width: 600px;
-    text-align: center;
-
-    h1{
-        
-    }
-
-    button {
-        max-width: initial!important;
-        margin: 0 auto;
-        background: #4A90E2;
-    }
-
-    .step1, .step2, .step3{
-        background: $main-color;
-        color:white;
-        border: 1px solid $main-color;
-        padding:10px;
-        margin-bottom: 15px;
-        border-radius:10px;
-        .label-md[floating]{
-            color:white;
-        }
+.user-area{
+    .top{
+        height: 25%;
+        background: palevioletred;
         p{
-            font-weight: bold;
-        text-transform: uppercase;
-        font-size: 11px;
-        line-height: 30px;
-        margin-bottom: -10px;
-        }
-        .dimensioni{
-            .item-md{
-                width:29%;
-                display: inline-block;
-            }
-        }
-        .item-md{
-            background: $main-color;
-            color:white;
-        }
-
-        google-places-autocomplete{
-            position: static;
-        .searchbar-input-container{
-                .searchbar-search-icon{display: none}
-                .searchbar-input{    
-                    border: none;
-                    background: none;
-                    padding: 0;
-                    border-radius: 0!important;
-                    box-shadow: none;
-                    border-bottom: 1px solid #dedede;
-                    margin-top: 30px;
-                }
-        }
-        .list-md{
+            color: white;
             position: absolute;
-            width: 230px;
-            z-index: 99;
+            top: 50px;
+            left: 50%;
+            font-size: 23px;
+            transform: translate(-50%, 0);
+            text-align: center;
         }
-            ion-list{
-                
-                ion-item{
-                    padding: 0 10px !important;
-                    &:last-child{
-                        display: none;
-                    }
-                }
-
+        button{
+            border-radius: 50px;
+            height: 40px;
+            max-width: 130px;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            left: 10px;
+            top: 22%;
+            width: 130px;
+            position: absolute;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+            &.right{
+                left: initial;
+                right: 10px;
             }
-            
         }
-        
+        img{
+            width: 200px;
+            height: 200px;
+            left: 50%;
+            top:60px;
+            position: absolute;
+            border-radius: 100px;
+            transform: translate(-50%, 0);
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+        }
+    }
+    .bottom {
+        margin-top:130px;
+        p{
+            text-align: center;
+            font-weight: 700px;
+            font-size: 20px;
+            color: $font-color;
+        }
+        button{
+            border-radius: 50px;
+            height: 40px;
+            max-width: initial;
+            width: calc(100% - 40px);
+            margin: 5px 20px;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            &.edit{
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            left: 50%;
+            top: 25%;
+            position: absolute;
+            i:before{
+                color:white;
+                font-weight: 100;
+                padding: 0;
+                text-align: center;
+                padding: 0px;
+                margin-top: 0;
+            }
+        }
+    }
+    }
+    ion-list{
+        position: absolute;
+        bottom: 60px;
+        width: 100%;
     }
 
-
+    .edit-form{
+        padding: 50px;
+        display: none;
+    }
+    
 }
