@@ -30,6 +30,18 @@ export class HeaderComponent {
     }
   }
 
+  goToUserArea(){
+    this.app.getRootNav().getActiveChildNav().select(4);
+  }
+
+  goToYourPark(){
+    this.app.getRootNav().getActiveChildNav().select(3);
+  }
+
+  goToHomePage(){
+    this.app.getRootNav().getActiveChildNav().select(0);
+  }
+
   presentRegistration = function() {
     let prompt = this.alertCtrl.create({
       title: 'Registrazione',
@@ -145,17 +157,7 @@ export class HeaderComponent {
     prompt.present();
   }
   
-  goToUserArea(){
-    this.app.getRootNav().getActiveChildNav().select(4);
-  }
-
-  goToYourPark(){
-    this.app.getRootNav().getActiveChildNav().select(3);
-  }
-
-  goToHomePage(){
-    this.app.getRootNav().getActiveChildNav().select(0);
-  }
+  
 
 
 }

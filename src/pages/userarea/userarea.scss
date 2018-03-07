@@ -1,6 +1,7 @@
 .user-area{
     .top{
         height: 25%;
+        padding-top: 50px;
         background: palevioletred;
         p{
             color: white;
@@ -34,19 +35,39 @@
             height: 200px;
             left: 50%;
             top:60px;
-            position: absolute;
+            display: block;
+            margin: 0 auto;
             border-radius: 100px;
-            transform: translate(-50%, 0);
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
         }
     }
     .bottom {
-        margin-top:130px;
+        margin-top:80px;
+        overflow: scroll;
+        &.edit{
+            margin-top:10px;
+        }
+
+        .edit-form{
+            p{
+                font-weight: 700;
+                color: $main-color;
+            }
+        }
         p{
             text-align: center;
-            font-weight: 700px;
-            font-size: 20px;
             color: $font-color;
+            &.name{
+                font-weight: 700;
+                font-size: 20px;
+                text-transform: capitalize;
+                margin-bottom: 0;
+            }
+            &.email{
+                font-weight: 100;
+                font-size: 15px;
+                margin-top: 0;
+            }
         }
         button{
             border-radius: 50px;
@@ -58,7 +79,7 @@
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            &.edit{
+            &.edit-form-button{
             width: 40px;
             height: 40px;
             border-radius: 20px;
@@ -83,7 +104,7 @@
     }
 
     .edit-form{
-        padding: 50px;
+        padding: 0 50px;
         display: none;
     }
     

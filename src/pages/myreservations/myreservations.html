@@ -2,7 +2,6 @@
 
 <div class="page-container list-park">
         <div class="left-content">
-            <button (click)="goToNewParking()" ion-button block class="btn btn-submit btn-primary">Nuovo Parcheggio</button>
             <p>I tuoi parcheggi</p>
             <div class="park-container">
                 <div class="park" *ngFor="let park of parkings" >
@@ -25,4 +24,9 @@
                         <p class="price">{{editedPark.hourly_price}}€/h</p>
                     </div>
         </div>
+    <ion-content>
+        <ion-fab right bottom>
+                <button ion-fab color="danger" (click)="goToNewParking()"><ion-icon name="add"></ion-icon></button>
+        </ion-fab>
+    </ion-content>
 </div>

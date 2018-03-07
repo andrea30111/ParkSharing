@@ -1,4 +1,10 @@
 p.homepage{
     padding: 80px 20px;
     text-align: center;
+    font-size: 60px;
+    font-weight: 700;
+    color: $main-color;
+    span{
+        text-decoration: underline;
+    }
 }

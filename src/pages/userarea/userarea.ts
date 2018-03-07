@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController} from 'ionic-angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonicPage, NavController, Content} from 'ionic-angular';
 import { UserService } from '../../providers/user.service';
 import { User } from '../../models/user.model';
 
@@ -10,19 +10,23 @@ import { User } from '../../models/user.model';
     templateUrl: 'userarea.html'
 })
 
+
 export class UserareaPage implements OnInit{
     myForm: FormGroup;
     submitMessage: String;
     address;
-
+    
+    scrollAmount: Number;
     firstName: String;
-    lastName: String; 
+    lastName: String;
     email: String;
+        
     constructor(public navCtrl: NavController, private userService: UserService){
- 
+        
     }
- 
+
     ngOnInit(){
+        
         //initialize form validator
         this.myForm = new FormGroup({
             firstName: new FormControl('', Validators.required),
@@ -34,7 +38,6 @@ export class UserareaPage implements OnInit{
             ]),
             password: new FormControl('', Validators.required)
         });
-
         this.userService.retrieveUserData().subscribe(
             (user: User) => {
                 this.myForm.patchValue({email: user.email});
@@ -43,7 +46,7 @@ export class UserareaPage implements OnInit{
                 this.myForm.patchValue({lastName: user.lastName});
                 this.myForm.patchValue({fiscalCode: user.fiscalCode});
                 this.firstName= user.firstName;
-                this.lastName= user.lastName;
+                this.lastName = user.lastName;
                 this.email = user.email;
             },
             error => {

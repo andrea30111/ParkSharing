@@ -19,9 +19,24 @@ $(document).on("click touch", ".slave", function(){
     $(".tabs").removeClass("opacity");
 });
 
-$(document).on("click touch", ".edit", function(){
-    $(".edit-form").toggle();
+$(document).on("click touch", ".edit-form-button", function(){
+    $(".edit-form").slideToggle();
+    $(".bottom").addClass("edit");
+    $(".user-img").animate({height:'100px',width:'100px'});
+    $(".hide-edit").slideToggle();
 });
+
+$(document).on("click touch", ".confirm-form-button", function(event){
+    $(".edit-form").slideToggle();
+    $(".user-img").animate({height:'200px', width:'200px' });
+    $(".hide-edit").slideToggle();
+    $(".bottom").removeClass("edit");
+    event.preventDefault();
+    event.stopPropagation();
+});
+
+
+
 
 $(document).on("click touch", ".park-tail:not(.booking)", function(){
     $(this).addClass("booking");

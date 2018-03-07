@@ -6,13 +6,20 @@
         padding: 10px;
         padding-top: 50px;
         background: #4A90E2;
-        height: 40%;
+        height: 60%;
         button{
             width: auto;
             max-width: initial;
             background: white;
             color: $main-color;
             margin: 20px auto;
+        }
+        .park-img{
+            width: calc(100% + 80px);
+            /* height: 100%; */
+            margin-top: -260px;
+            margin-left: -10px;
+            position: absolute;
         }
         > p{
             text-transform: uppercase;
@@ -21,7 +28,6 @@
             font-weight: bold;
         }
         .park-container{
-            height: 210px;
             width: 100%;
             overflow-x: scroll;
             white-space: nowrap;
@@ -37,8 +43,34 @@
             border-radius: 10px;
             max-width: 270px;
             margin-bottom: 10px;
-            padding-right: 30px;
+            padding-top: 180px;
             max-width: 250px;
+            .price{
+                top: -52px;
+                position: absolute;
+                height: 60px;
+                width: 90px;
+                z-index: 9999;
+                text-align: center;
+                /* padding-right: 10px; */
+                line-height: 95px;
+                border-radius: 23px;
+                background: palevioletred;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+                color: white;
+                font-weight: 700;
+                font-size: 16px;
+                left: 50%;
+                -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0);
+            }
+
+            p{
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
             overflow: hidden;
             margin-right: 10px;
             -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -73,6 +105,19 @@
                 transform: rotate(180deg);
             }
         }
+
+        .addPark{
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 60%;
+            right: 10px;
+            margin: 0;
+            transform: translate(0 , -50%);
+            background: palevioletred;
+            color: white;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+        }
         
     }
 
@@ -81,6 +126,9 @@
         max-width: 500px;
         vertical-align: top;
         margin: 60px auto;
+        posi
+        
+        
         >p{
             text-align: center;
             text-transform: uppercase;
@@ -89,6 +137,13 @@
         }
         p{
             text-align: center;
+        }
+    }
+
+    .park{
+        .price{
+
+        margin-right: 0px;
         }
     }
 
