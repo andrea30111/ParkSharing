@@ -6,10 +6,11 @@
     <div class="input-cont">
       
       <ion-datetime displayFormat="DD/MM"  [(ngModel)]="bookedPark.date"></ion-datetime>
-      <p>from</p>
-      <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
-      <p>to</p>
-      <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+        <div class="ore">
+        <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
+        <i class="flaticon-double-arrow-1"></i>
+        <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+      </div>
     </div>
 
     <div #map id="map"></div>

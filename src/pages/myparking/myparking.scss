@@ -5,7 +5,7 @@
         
         padding: 10px;
         padding-top: 50px;
-        background: #4A90E2;
+        background: $main-color;
         height: 60%;
         button{
             width: auto;
@@ -55,9 +55,9 @@
                 /* padding-right: 10px; */
                 line-height: 95px;
                 border-radius: 23px;
-                background: palevioletred;
+                background:$primary-color;
                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
-                color: white;
+                color:white;
                 font-weight: 700;
                 font-size: 16px;
                 left: 50%;
@@ -93,16 +93,16 @@
             
             .show{
                 position: absolute;
-                color: #4A90E2;
+                color: white;
                 right: 0px;
                 font-weight: bold;
                 top: calc(50% - 10px);
+                background:$main-color;
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                border-radius: 20px;
                 cursor: pointer;
-                -webkit-transform: rotate(180deg);
-                -moz-transform: rotate(180deg);
-                -o-transform: rotate(180deg);
-                -ms-transform: rotate(180deg);
-                transform: rotate(180deg);
             }
         }
 
@@ -114,8 +114,8 @@
             right: 10px;
             margin: 0;
             transform: translate(0 , -50%);
-            background: palevioletred;
-            color: white;
+            background:$primary-color;
+            color:white;
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
         }
         

@@ -4,13 +4,14 @@
         <div class="left-content">
             <p>I tuoi parcheggi</p>
             <div class="park-container">
-                <div class="park" *ngFor="let park of parkings" id="{{park._id}}" (click)="editPark($event)">
+                <div class="park" *ngFor="let park of parkings" >
                     <img src="../../assets/imgs/logo.png" class="park-img">
                     <p class="title">{{park.name}}</p>
                     <p class="subtitle">{{park.address}}</p>
                     <p class="item descr">{{park.description}}</p>
                     <p class="item"><span class="tit">box_type: </span>{{park.box_type}} || <span class="tit">width: </span>{{park.box_type}} || <span class="tit">daily_price: </span>{{park.daily_price}}€/d</p>
                     <p class="price">{{park.hourly_price}}€/h</p>
+                    <span class="show right flaticon-pencil" id="{{park._id}}" (click)="editPark($event)"></span>
                 </div>
             </div>
             <button class="addPark" ion-fab color="danger" (click)="goToNewParking()"><ion-icon name="add"></ion-icon></button>

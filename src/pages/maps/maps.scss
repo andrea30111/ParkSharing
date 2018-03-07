@@ -97,7 +97,7 @@
             text-align: center;
             position: relative;
         }
-        ion-datetime:first-child{
+        > ion-datetime{
             width: 50%;
             height: 50px;
             /* line-height: 50px; */
@@ -106,8 +106,16 @@
             padding: 0;
             padding-top: 17px;
             border-radius: 30px;
-            background: #488aff;
-            border: 2px solid #488aff;
+            background: $main-color;
+            border: 2px solid $main-color;
+        }
+        .ore{
+            display: inline-block;
+            width: 220px;
+            line-height: 40px;
+            vertical-align: bottom;
+            margin-left: 30px;
+            font-size: 17px;
         }
         p{
             width: 30px;
@@ -140,7 +148,7 @@
     }
 
     .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .bx-wrapper .bx-pager.bx-default-pager a:focus {
-        background: #488aff;
+        background: $main-color;
     }
 
     .gm-style button{
@@ -353,9 +361,9 @@
                 font-size: 16px;
                 font-weight: bold;
                 text-transform: uppercase;
-                background: #4A90E2;
+                background: $main-color;
                 background: white;
-                color: #4A90E2;
+                color: $main-color;
             }
             button.back{
                 position: absolute;
@@ -365,7 +373,7 @@
                 border-radius: 6px;
                 font-size: 16px;
                 text-transform: uppercase;
-                background: #4A90E2;
+                background: $main-color;
                 border: 1px solid white;
                 color: white;
             }

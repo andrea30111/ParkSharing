@@ -9,3 +9,8 @@ button.grey{
 .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
   background: none;
 }
+
+.boss{
+  background: $main-color;
+  border: 1px solid white;
+}
