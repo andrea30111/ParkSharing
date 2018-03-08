@@ -14,6 +14,7 @@ export class TabsPage {
   tab4 = 'MyparkingComponent';
   tab5 = 'ExplorePage';
   tab7 = 'UserareaPage';
+  tab8 = 'MyreservationsPage';
   
   constructor(public navCtrl: NavController, public navParams: NavParams) { }
 }

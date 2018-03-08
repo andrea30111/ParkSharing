@@ -42,6 +42,10 @@ export class HeaderComponent {
     this.app.getRootNav().getActiveChildNav().select(0);
   }
 
+  goToYourReservations(){
+    this.app.getRootNav().getActiveChildNav().select(5);    
+  }
+
   presentRegistration = function() {
     let prompt = this.alertCtrl.create({
       title: 'Registrazione',

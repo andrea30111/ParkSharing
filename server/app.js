@@ -9,6 +9,7 @@ var appRoutes = require('./routes/app');
 var userRoutes = require('./routes/user');
 var parkingRoutes = require('./routes/parking');
 var mapRoutes = require('./routes/maps');
+var reservationRoutes = require('./routes/reservation');
 
 var app = express();
 var mongoose = require('mongoose');
@@ -36,6 +37,7 @@ app.use(function (req, res, next) {
 app.use('/user', userRoutes);
 app.use('/parking', parkingRoutes);
 app.use('/maps', mapRoutes);
+app.use('/reservation', reservationRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler
