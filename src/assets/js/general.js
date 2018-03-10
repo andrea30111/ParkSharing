@@ -1,6 +1,8 @@
 $(document).on("click touch", ".back", function(){
     $(this).parents(".park-tail").animate({height: 100}).removeClass("booking").removeAttr("style");
     $(".park-tails").css("overflow","auto");
+    $("#google-places-autocomplete").animate({padding: '60px'}); 
+    $(".searchbar-md, .flaticon-left-arrow").slideDown();
 });
 
 $(document).on("click touch", ".boss", function(){
@@ -29,16 +31,30 @@ $(document).on("click touch", ".confirm-form-button", function(event){
     event.stopPropagation();
 });
 
+$(document).on("click touch", ".flaticon-left-arrow", function(event){
+    $("#google-places-autocomplete").animate({padding:'350px'});
+    $(".input-cont").show();
+    $(this).addClass("close");
+});
+
+$(document).on("click touch", ".flaticon-left-arrow.close", function(event){
+    $("#google-places-autocomplete").animate({padding:'60px'});
+    $(".input-cont").hide();
+    $(this).removeClass("close");
+});
+
 
 
 
 $(document).on("click touch", ".park-tail:not(.booking)", function(){
     $(this).addClass("booking");
-    $(this).animate({height: ($(window).height() - 90) }); 
+    $(this).animate({height: ($(window).height()) }); 
     $(".park-tails").css("overflow","hidden");
     $(this).siblings().removeClass("booking").removeAttr("style");
     centerItFixedWidth(this, ".park-tails");
     $(this).find(".bxslider").bxSlider();
+    $("#google-places-autocomplete").animate({padding: '10px'}); 
+    $(".searchbar-md, .flaticon-left-arrow").slideUp();
 });
 
 function getViewportOffset($e) {

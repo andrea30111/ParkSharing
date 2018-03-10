@@ -20,8 +20,13 @@
      .searchbar-md {
         background: inherit;
         padding: 0;
-        padding-bottom: 5px;
-        padding-top: 10px;
+        width: 50%;
+        margin: 0 auto;
+        position: absolute;
+        top: 85px;
+        left: 50%;
+        transform: translate(-50% , 0);
+        /* padding-top: 90px; */
         border-radius: 10px;
         
     }
@@ -44,12 +49,20 @@
     google-places-autocomplete{
         position: absolute;
         top:10px;
-        @include sm{
-            top: 60px;
-        }
+        top: -30px;
+        border-radius: 100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding-top: 50px;
+        padding: 20px;
+        -webkit-box-shadow: 3px 2px 57px 3px rgba(46,46,46,0.36);
+        -moz-box-shadow: 3px 2px 57px 3px rgba(46,46,46,0.36);
+        box-shadow: 3px 2px 57px 3px rgba(46,46,46,0.36);
+        background:$primary-color;
+        width: 120%;
+        padding-top: 100px;
         
-        z-index: 99;
-        width: 360px;
+        z-index: 10;
         left: 50%;
         transform: translate(-50%, 0);
         ion-list{
@@ -62,10 +75,26 @@
             }
 
         }
+
+        + i{
+            position: absolute;
+            top: 102px;
+            z-index: 99999;
+            /* left: 45%; */
+            color: white;
+            right: calc(50% + -20px);
+            transform: rotate(-90deg);
+            &.close{
+                top:initial;
+                bottom:10px;
+                transform: rotate(-270deg);
+            }
+        }
     }
 
     .input-cont{
         position: absolute;
+        display: none;
         @include sm{
             top: 112px;
         }
@@ -170,7 +199,7 @@
 
     .park-tails{
         position: absolute;
-        z-index: 9999;
+        z-index: 9;
         bottom:0;
         width: 880px;
         height: auto;
@@ -259,7 +288,7 @@
 
                 + i{
                     position: absolute;
-                    top: 16px;
+                    top: 120px;
                     right: 0px;
                 }
             }
@@ -295,11 +324,12 @@
             }
 
             &.booking{
+                z-index: 99;
                 min-width: 500px!important;
                 min-height: 490px;
                 border-radius: 0;
                 margin: 0!important;
-
+                padding-top: 100px;
                 .price{
                     bottom: 50px;
                 }
@@ -355,7 +385,7 @@
                 .bx-wrapper{
                     display: block;
                     margin-bottom: 35px;
-                    height: 130px;
+                        height: 130px;
                 }
 
                 .booking-form{
@@ -363,6 +393,9 @@
                     background: white;
                     padding: 14px;
                     border-radius: 5px;
+                    -webkit-box-shadow: 3px 2px 57px 3px rgba(46,46,46,0.36);
+                    -moz-box-shadow: 3px 2px 57px 3px rgba(46,46,46,0.36);
+                    box-shadow: 3px 2px 57px 3px rgba(46,46,46,0.36);
                     .date{
                         *{
                             display: inline-block;
