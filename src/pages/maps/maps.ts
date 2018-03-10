@@ -4,6 +4,7 @@ import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
 import { IonicPage, NavController, Platform } from 'ionic-angular';
 import { ParkingService } from '../../providers/parking.service';
 import { Parking } from '../../models/parking.model';
+import { ReservationService } from '../../providers/reservation.service';
 
 declare var $ :any;
 declare var google;
@@ -17,6 +18,7 @@ export class MapsComponent {
   address;
   map;
   parks;
+  selectedParkingId;
 
    bookedPark ={
     date: this.calculateTime(''),
@@ -28,8 +30,12 @@ export class MapsComponent {
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
  
-  constructor(public navCtrl: NavController, public maps: GoogleMapsProvider, public parkingService: ParkingService, public platform: Platform, public locations: LocationsProvider) {
-    //this.time = this.calculateTime();
+  constructor(public navCtrl: NavController, 
+    public maps: GoogleMapsProvider, 
+    public parkingService: ParkingService, 
+    public platform: Platform, 
+    public locations: LocationsProvider,
+    public reservationService: ReservationService) {
   }
 
   calculateTime(offset: any) {
@@ -105,4 +111,23 @@ export class MapsComponent {
   }
   }
 
+  selectParking(parkId){
+    this.selectedParkingId = parkId;
+  }
+
+  goToStep2(){
+    //FIXME get real dates!
+    var start = new Date();
+    start.setDate(start.getDate() - 1);
+    var end = new Date();
+
+    this.reservationService.bookParking(this.selectedParkingId, start, end).subscribe(
+      data => {
+        console.log(data.message);          
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
 }

@@ -10,7 +10,20 @@ export class ReservationService{
 
     constructor(private http: Http) {}
 
-    createReservation() {
+    bookParking(parkingId, start, end) {
+        var body = {};
+        body["parkingId"] = parkingId;
+        body["start"] = start;
+        body["end"] = end;
+        JSON.stringify(body);
+        
+        const headers = new Headers({'Content-Type': 'application/json'});
+        const token = localStorage.getItem('token')
+        ? '?token=' + localStorage.getItem('token')
+        : '';
+        return this.http.post('http://localhost:3000/reservation' + token, body, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) => Observable.throw(error.json()));
     }
 
     retrieveReservations() {

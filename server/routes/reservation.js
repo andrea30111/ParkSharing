@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Reservation = require('../models/reservation');
 var User = require('../models/user');
+var Parking = require('../models/parking');
 var jwt = require('jsonwebtoken');
 
 //check if user is authenticated
@@ -33,7 +34,7 @@ router.get('/', function (req, res, next) {
             });
         });
 });
-/*
+
 router.post('/', function (req, res, next) {
     var decoded = jwt.decode(req.query.token);
     User.findById(decoded.user._id, function(err, user){
@@ -43,39 +44,42 @@ router.post('/', function (req, res, next) {
                 error: err
             });
         }
-
-        var parking = new Parking({
-            name : req.body.name,
-            description : req.body.description,
-            address : req.body.address,
-            city : req.body.city,
-            cap : req.body.cap,
-            latitude : req.body.latitude,
-            longitude : req.body.longitude,
-            length : req.body.length,
-            width : req.body.width,
-            height : req.body.height,
-            type : req.body.type,
-            box_type : req.body.box_type,
-            hourly_price : req.body.hourly_price,
-            daily_price : req.body.daily_price,
-            weekly_price : req.body.weekly_price,
-            montly_price : req.body.montly_price,
-            user : user
-        });
-        parking.save(function(err,result){
+        Parking.findById(req.body.parkingId, function(err, parking){
             if(err){
                 return res.status(500).json({
                     title: 'an error occurred',
                     error: err
                 });
             }
-            res.status(201).json({
-                message: 'saved parking',
-                obj: result
+            console.log("AAAAA" + req.body.parkingId);
+
+            //FIXME calculate amount correctly
+            const amount = parking.hourly_price;
+
+            var reservation = new Reservation({
+                user: user,
+                parking: parking,
+                car: null,
+                start_ts: req.body.start,
+                end_ts: req.body.end,
+                amount: amount,
+                payment_type: 1
+            });
+
+            reservation.save(function(err,result){
+                if(err){
+                    return res.status(500).json({
+                        title: 'an error occurred',
+                        error: err
+                    });
+                }
+                res.status(201).json({
+                    message: 'saved booking',
+                    obj: result
+                });
             });
         });
     });
 });
-*/
+
 module.exports = router;
