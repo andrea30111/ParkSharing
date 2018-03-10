@@ -60,6 +60,7 @@ export class ParkingService{
     getParkingsByAddress(bounds){
         const headers = new Headers({'Content-Type': 'application/json'});
         var body = {};
+        if(bounds != undefined){
         body["minBounds"] = bounds.getSouthWest();
         body["maxBounds"] = bounds.getNorthEast();
         JSON.stringify(body);
@@ -92,6 +93,6 @@ export class ParkingService{
                 return transformedMessages;
             })
             .catch((error: Response) => Observable.throw(error.json()));
-
+        }   
     }
 }

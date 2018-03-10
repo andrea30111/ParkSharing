@@ -1,12 +1,6 @@
-
-$(document).on("click touch", ".show", function(){
-    $(".park-tail").removeClass("booking");
-    
-});
-
-
 $(document).on("click touch", ".back", function(){
     $(this).parents(".park-tail").animate({height: 100}).removeClass("booking").removeAttr("style");
+    $(".park-tails").css("overflow","auto");
 });
 
 $(document).on("click touch", ".boss", function(){
@@ -41,9 +35,10 @@ $(document).on("click touch", ".confirm-form-button", function(event){
 $(document).on("click touch", ".park-tail:not(.booking)", function(){
     $(this).addClass("booking");
     $(this).animate({height: ($(window).height() - 90) }); 
-    $(this).parents(".bx-viewport").addClass("booking");
+    $(".park-tails").css("overflow","hidden");
     $(this).siblings().removeClass("booking").removeAttr("style");
     centerItFixedWidth(this, ".park-tails");
+    $(this).find(".bxslider").bxSlider();
 });
 
 function getViewportOffset($e) {

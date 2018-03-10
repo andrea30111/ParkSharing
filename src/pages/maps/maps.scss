@@ -159,6 +159,15 @@
         display: none;
     }
 
+    .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .bx-wrapper .bx-pager.bx-default-pager a:focus {
+        background: white;
+    }
+
+    .bx-wrapper .bx-pager.bx-default-pager a {
+        border: 1px solid white;
+        background: transparent;
+    }
+
     .park-tails{
         position: absolute;
         z-index: 9999;
@@ -214,13 +223,26 @@
             background:$main-color;
             color:white;
             padding: 10px;
-            margin: 20px;
+            margin: 20px 5px;
             align-self: flex-end;
             position: relative;
             height: 100px;
             min-width: 200px!important;
-            border-radius: 10px;
+            border-radius: 5px;
             display: inline-block;
+
+            .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
+                position: absolute;
+                top: 110px;
+                width: 100%;
+                left: 50%;
+                transform: translate(-50% , 0);
+            }
+
+            .bxslider,.bx-wrapper{
+                display:none;
+            }
+
             .subtitle{
                 font-style: italic;
                 margin:0;
@@ -276,9 +298,14 @@
                 min-width: 500px!important;
                 min-height: 490px;
                 border-radius: 0;
+                margin: 0!important;
 
                 .price{
                     bottom: 50px;
+                }
+
+                .bxslider{
+                    display:block;
                 }
 
                 @include sm{
@@ -325,11 +352,31 @@
                    
                 }
 
+                .bx-wrapper{
+                    display: block;
+                    margin-bottom: 35px;
+                    height: 130px;
+                }
+
                 .booking-form{
                     display: block;
                     background: white;
                     padding: 14px;
                     border-radius: 5px;
+                    .date{
+                        *{
+                            display: inline-block;
+                            color: $font-color;
+                            vertical-align: -webkit-baseline-middle;
+                        }
+                        .ore{
+                            float: right;
+                        }
+                        .datetime-md{
+                            padding: 5px;
+                            position: relative;
+                        }
+                    }
                     input{
                         text-align: center;
                         font-size: 18px;

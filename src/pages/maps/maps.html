@@ -26,21 +26,22 @@
             <p class="item descr">{{park.description}}</p>
             <p class="item"><span class="tit">Dimensioni: </span>{{park.height}}m X {{park.width}}m X {{park.length}}m </p>
             <p class="price" *ngIf="park.hourly_price">{{park.hourly_price}}€/h</p>
-            
+            <div class="bxslider">
+              <div><img src="../../assets/imgs/logo.png" title="Funky roots"></div>
+              <div><img src="../../assets/imgs/logo.png" title="The long and winding road"></div>
+              <div><img src="../../assets/imgs/logo.png" title="Happy trees"></div>
+            </div>
             <p class="title-book">Book a park</p>
             <div class="booking-form">
-                <ion-item>
-                  <ion-label>Date</ion-label>
-                  <ion-datetime displayFormat="DD/MM/YYYY"  [(ngModel)]="bookedPark.date"></ion-datetime>
-                </ion-item>
-                <ion-item class="hours">
-                    <ion-label>From</ion-label>
+              <div class="date">
+                  <i class="flaticon-calendar"></i><ion-datetime displayFormat="DD/MM"  [(ngModel)]="bookedPark.date"></ion-datetime>
+                  <div class="ore">
+                      <i class="flaticon-clock"></i>
                     <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
-                  </ion-item>
-                  <ion-item class="hours">
-                  <ion-label>To</ion-label>
-                  <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
-                </ion-item>
+                    <i class="flaticon-double-arrow-1"></i>
+                    <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+                </div>
+              </div>
                 <ion-item>
                     <ion-label>Targa</ion-label>
                     <ion-input  name="targa" placeholder="XX12345"></ion-input>

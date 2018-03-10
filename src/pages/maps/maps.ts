@@ -74,6 +74,7 @@ export class MapsComponent {
 
   searchParkings(){
     this.parks = [];
+    if(this.maps.map.getBounds() != undefined){
     this.parkingService.getParkingsByAddress(this.maps.map.getBounds()).subscribe(
       (parkings: Parking[]) => {
           for (let parking of parkings) {
@@ -101,6 +102,7 @@ export class MapsComponent {
         console.error(error);
       }
     );
+  }
   }
 
 }

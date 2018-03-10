@@ -4,7 +4,7 @@ var mongooseUniqueValidator = require('mongoose-unique-validator');
 
 //here we store one entity for each availabilty timeframe
 var schema = new Schema({
-    parking: {type:Schema.Types.ObjectId, ref:'Parking'} //foreign key
+    parking: {type:Schema.Types.ObjectId, ref:'Parking'}, //foreign key
     type: {type: Number, required: true}, //0: hourly | 1: daily | 2: weekly | 3: monthly
     start: {type: Date, required: true}, //start date of unavailability
     end: {type: Date, required: true}, //end date of unavailability
