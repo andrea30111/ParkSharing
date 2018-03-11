@@ -21,13 +21,14 @@
                     [type]="type"
                     [format]="'YYYY-MM-DD'">
                     </ion-calendar>
-                    <p>search hours</p>
+                    <p>Search hours</p>
 
                     <div class="ore">
                             <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
                             <i class="flaticon-double-arrow-1"></i>
                             <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
                           </div>
+                          <button class="search">search</button>
             </div>
             <div *ngIf="searchDate == 'month'">
                     <ion-calendar [(ngModel)]="dateRange"
@@ -42,6 +43,7 @@
                             <i class="flaticon-double-arrow-1"></i>
                             <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
                           </div>
+                          <button class="search">search</button>
             </div>
                 
          

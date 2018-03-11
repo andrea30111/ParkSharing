@@ -43,6 +43,11 @@ $(document).on("click touch", ".flaticon-left-arrow.close.show", function(event)
     $(this).removeClass("close");
 });
 
+$(document).on("click touch", "button.search", function(event){
+    $("#google-places-autocomplete").animate({padding:'60px'});
+    $(".searchDate").slideUp('slow');
+    $(".flaticon-left-arrow").removeClass("close");
+});
 
 
 

@@ -4,21 +4,21 @@ ion-tabs {
         height: 40px;
     }
 
-    #tab-t1-4,#tab-t1-0{
+    #tab-t1-4,#tab-t1-0,#tab-t1-5{
         display:none;
     }
 
     #tab-t1-2[aria-selected='false']{
         border-radius: 80px;
-        background:$main-color;
+        background:$primary-color;
         color: white;
         width: 30px;
         margin-bottom: 6px;
-        border: 2px solid white;
+        border: 2px solid $primary-color;
         /* border-bottom-left-radius: 0; */
         /* border-bottom-right-radius: 0; */
-        max-width: 70px;
-        height: 70px;
+        max-width: 60px;
+        height: 60px;
 
         ion-icon{
             color: white;
