@@ -435,7 +435,7 @@
             }
 
             .datetime{
-                position: relative;;
+                position: relative;
             }
             button.book{
                 position: absolute;
@@ -448,6 +448,24 @@
                 width: 50px;
                 text-align: center;
                 transform: rotate(180deg);
+                font-weight: bold;
+                text-transform: uppercase;
+                background: $primary-color;
+                color: white;
+                i:before{
+                    font-weight: 700;
+                    padding: 0;
+                }
+            }
+            button.pay{
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                padding: 7px 10px;
+                border-radius: 36px;
+                font-size: 20px;
+                height: 50px;
+                text-align: center;
                 font-weight: bold;
                 text-transform: uppercase;
                 background: $primary-color;
