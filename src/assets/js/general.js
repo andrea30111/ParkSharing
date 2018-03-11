@@ -31,15 +31,15 @@ $(document).on("click touch", ".confirm-form-button", function(event){
     event.stopPropagation();
 });
 
-$(document).on("click touch", ".flaticon-left-arrow", function(event){
+$(document).on("click touch", ".flaticon-left-arrow.show", function(event){
     $("#google-places-autocomplete").animate({padding:'350px'});
-    $(".input-cont").show();
+    $(".searchDate").slideDown('slow');
     $(this).addClass("close");
 });
 
-$(document).on("click touch", ".flaticon-left-arrow.close", function(event){
+$(document).on("click touch", ".flaticon-left-arrow.close.show", function(event){
     $("#google-places-autocomplete").animate({padding:'60px'});
-    $(".input-cont").hide();
+    $(".searchDate").slideUp('slow');
     $(this).removeClass("close");
 });
 

@@ -1,0 +1,52 @@
+
+      
+      
+      <ion-content class="searchDate">
+            <h1>Search date</h1>
+        <ion-card>
+
+          <ion-card-content>
+            <ion-segment [(ngModel)]="searchDate" color="dark">
+              <ion-segment-button value="day">
+                day
+              </ion-segment-button>
+              <ion-segment-button value="month">
+                month
+              </ion-segment-button>
+            </ion-segment>
+            
+            <div *ngIf="searchDate == 'day'">
+                    <ion-calendar [(ngModel)]="date"
+                    (onChange)="changeDay($event)"
+                    [type]="type"
+                    [format]="'YYYY-MM-DD'">
+                    </ion-calendar>
+                    <p>search hours</p>
+
+                    <div class="ore">
+                            <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
+                            <i class="flaticon-double-arrow-1"></i>
+                            <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+                          </div>
+            </div>
+            <div *ngIf="searchDate == 'month'">
+                    <ion-calendar [(ngModel)]="dateRange"
+                        [options]="optionsRange"
+                        (onChange)="changeRange($event)"
+                        [type]="type"
+                        [format]="'YYYY-MM-DD'">
+                    </ion-calendar>
+                    <p>Search hours</p>
+                    <div class="ore">
+                            <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
+                            <i class="flaticon-double-arrow-1"></i>
+                            <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+                          </div>
+            </div>
+                
+         
+            
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
+      

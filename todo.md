@@ -35,6 +35,9 @@ ionic cordova plugin add cordova-plugin-network-information
 npm install --save @ionic-native/network
 npm install --save @ionic-native/geolocation
 
+calendario : https://github.com/HsuanXyz/ion2-calendar
+npm install ion2-calendar moment --save
+
 
 https://stackoverflow.com/questions/42427915/ionic-2-google-places-and-autocomplete-location
 
