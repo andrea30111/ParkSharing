@@ -19,14 +19,14 @@
             <p *ngIf="park.name" class="subtitle">{{park.address}}</p>
             <p class="item descr">{{park.description}}</p>
             <p class="item"><span class="tit">Dimensioni: </span>{{park.height}}m X {{park.width}}m X {{park.length}}m </p>
-            <p class="price" *ngIf="park.hourly_price">{{park.hourly_price}}€/h</p>
+            
             <div class="bxslider">
               <div><img src="../../assets/imgs/logo.png" title="Funky roots"></div>
               <div><img src="../../assets/imgs/logo.png" title="The long and winding road"></div>
               <div><img src="../../assets/imgs/logo.png" title="Happy trees"></div>
             </div>
-            <p class="title-book">Book a park</p>
-            <div class="booking-form">
+            <p class="title-book">Book a park <span class="right" class="price" *ngIf="park.hourly_price">{{park.hourly_price}}€/h</span></p>
+            <div class="booking-form" data-step="1">
               <div class="date">
                   <i class="flaticon-calendar"></i><ion-datetime displayFormat="DD/MM"  [(ngModel)]="bookedPark.date"></ion-datetime>
                   <div class="ore">
@@ -37,18 +37,42 @@
                 </div>
               </div>
                 <ion-item>
-                    <ion-label>Targa</ion-label>
-                    <ion-input  name="targa" placeholder="XX12345"></ion-input>
+                  <ion-label>Targa</ion-label>
+                  <ion-input  name="targa" placeholder="XX12345"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Car description</ion-label>
+                  <ion-input  name="car" ></ion-input>
+                </ion-item>
+                <button class="back" type="submit" block>back</button>
+                <button class="book" type="submit" (click)="goToStep(1,2)" block><i class="flaticon-left-arrow-1"></i></button>
+          </div>
+          
+          <div class="booking-form" data-step="2" style="display:none">
+              <ion-item>
+                  <ion-label>Code</ion-label>
+                  <ion-input  name="card" placeholder="XXXX XXXX XXXX XXXX"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Card Holder</ion-label>
+                    <ion-input  name="cardHolder" placeholder="Name Surname"></ion-input>
                   </ion-item>
                   <ion-item>
-                      <ion-label>Car description</ion-label>
-                      <ion-input  name="car" ></ion-input>
+                      <ion-label>CVV</ion-label>
+                      <ion-input  name="CVV" placeholder="***"></ion-input>
                     </ion-item>
-                  <button class="back" type="submit" block>Back</button>
-                  <button class="book" type="submit" (click)="goToStep2()" block>Prenota</button>
-                </div>
+                    
+                    <ion-item>
+                        <ion-label>Exp Date</ion-label>
+                      <ion-datetime displayFormat="MM" placeholder="mm"></ion-datetime>
+                      <ion-datetime displayFormat="YYYY" placeholder="yyyy"></ion-datetime>
+                    </ion-item>
+                    <button class="back" type="submit" (click)="goToStep(2,1)" block>back</button>
+                <button class="book" type="submit" (click)="pay()" block>pay</button>
+                    
           </div>
         
+        </div>
     </div>
     
    

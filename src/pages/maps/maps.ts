@@ -75,7 +75,7 @@ export class MapsComponent {
       error => {
         console.error(error);
       }
-  );
+    );
 
   }
 
@@ -112,12 +112,17 @@ export class MapsComponent {
   }
   }
 
+  goToStep(step, nextStep){
+    $("div[data-step='"+step+"']").hide('1000');
+    $("div[data-step='"+nextStep+"']").show('1000');  
+  }
+
   selectParking(parkId){
     this.selectedParkingId = parkId;
   }
 
-  goToStep2(){
-    //FIXME get real dates!
+  pay(){
+  //FIXME get real dates!
     var start = new Date();
     start.setDate(start.getDate() - 1);
     var end = new Date();
@@ -131,4 +136,5 @@ export class MapsComponent {
       }
     );
   }
+
 }
