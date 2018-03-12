@@ -88,22 +88,6 @@ export class MapsComponent {
             this.maps.addMarker(parking.latitude, parking.longitude, parking._id);
             this.parks.push(parking);
           }
-          //questo fa cagare, cambialo
-          setTimeout(function() {
-            $(".bx-wrapper").bxSlider({
-              captions: true,
-              auto: false,
-              autoControls: true,
-              minSlides: 1,
-              maxSlides: 6,
-              moveSlides: 1,
-              slideMargin: 10,  
-              pager: true,
-              touchEnabled:true,
-              autoHover: true
-            });
-          }, 1000);
-          
       },
       error => {
         console.error(error);
