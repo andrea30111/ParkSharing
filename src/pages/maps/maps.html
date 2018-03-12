@@ -14,7 +14,9 @@
           <span class="show up flaticon-left-arrow"></span>
           
           <div class="park-tail" *ngFor="let park of parks" id="{{park._id}}" (click)="selectParking(park._id)">
+            <img src="../../assets/imgs/logo.png" title="Funky roots">
             <p class="title" *ngIf="park.name">{{park.name}}</p><i *ngIf="park.name" class="flaticon-fire"></i>
+            <span class="price-top" *ngIf="park.hourly_price">{{park.hourly_price}}€/h</span>
             <p class="title" *ngIf="!park.name">{{park.address}}</p><i *ngIf="!park.name" class="flaticon-fire"></i>
             <p *ngIf="park.name" class="subtitle">{{park.address}}</p>
             <p class="item descr">{{park.description}}</p>

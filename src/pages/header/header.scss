@@ -10,7 +10,12 @@ button.grey{
   background: none;
 }
 
+
+
 .boss{
-  background: $main-color;
+  background: $primary-color;
   border: 1px solid white;
+  & + .list{
+    padding-top: 20px;
+  }
 }

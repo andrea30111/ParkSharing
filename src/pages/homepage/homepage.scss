@@ -1,9 +1,16 @@
 p.homepage{
-    padding: 80px 20px;
+    padding: 80px 80px;
     text-align: center;
-    font-size: 60px;
+    font-size: 30px;
     font-weight: 700;
-    color: $main-color;
+    color: white;
+    margin: 0;
+    width: 120%;
+    -webkit-transform: translate(-16%, 0);
+    transform: translate(-9%, 0);
+    background: #2D3047;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
     span{
         text-decoration: underline;
     }

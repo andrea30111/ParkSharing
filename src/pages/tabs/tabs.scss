@@ -29,12 +29,12 @@ ion-tabs {
 
 }
 
-.tabs-md .tab-button-icon{
+.tabs .tab-button-icon{
     color: white;
 }
 
-.tabs-md .tabbar {
-    background: $font-color;
+.tabs .tabbar {
+    background: $main-color;
 }
 
 ion-tabs.opacity{

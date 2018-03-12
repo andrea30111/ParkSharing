@@ -5,8 +5,12 @@ $(document).on("click touch", ".back", function(){
     $(".searchbar-md, .flaticon-left-arrow").slideDown();
 });
 
-$(document).on("click touch", ".boss", function(){
-    $(".tabs").toggleClass("opacity");
+$(document).on("click", ".boss:not(.fab-close-active)", function(){
+    $(".tabs").removeClass("opacity");
+});
+
+$(document).on("click touch", ".boss.fab-close-active", function(){
+    $(".tabs").addClass("opacity");
 });
 
 $(document).on("click touch", ".slave", function(){

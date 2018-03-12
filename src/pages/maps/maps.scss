@@ -202,6 +202,7 @@
         z-index: 9;
         bottom:0;
         width: 880px;
+        
         height: auto;
         display: flex;
         flex-direction: row;
@@ -219,9 +220,7 @@
         }
 
         transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-        .subtitle{
-            display: none;
-        }
+
         &.down{
             bottom: -62px;
             transition-property: all;
@@ -254,6 +253,7 @@
             padding: 10px;
             margin: 20px 5px;
             align-self: flex-end;
+            overflow: hidden;
             position: relative;
             height: 100px;
             min-width: 200px!important;
@@ -261,7 +261,36 @@
             display: inline-block;
             -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-
+            .price-top{
+                    top: -33px;
+                    position: absolute;
+                    height: 60px;
+                    width: 90px;
+                    z-index: 9999;
+                    text-align: center;
+                    /* padding-right: 10px; */
+                    line-height: 95px;
+                    border-radius: 23px;
+                    background:$primary-color;
+                    -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+                    color: white;
+                    font-weight: 700;
+                    font-size: 16px;
+                    left: 50%;
+                    -webkit-transform: translate(-50%, 0);
+                    transform: translate(-50%, 0);
+                
+            }
+            > img{
+                position: absolute;
+                width: 100%;
+                /* max-height: 100%; */
+                overflow: hidden;
+                top: 0;
+                left: 0;
+                opacity: 0.3;
+            }
             .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
                 position: absolute;
                 top: 110px;
@@ -277,16 +306,22 @@
             .subtitle{
                 font-style: italic;
                 margin:0;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             .title{
                 font-size: 13px;
                 font-weight: bold;
+                padding-top: 30px;
                 position: relative;
                 margin-top: 0;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                width: 80%;
+                text-align: center;
+                margin-bottom: 0;
 
                 + i{
                     position: absolute;
@@ -332,6 +367,10 @@
                 border-radius: 0;
                 margin: 0!important;
                 padding-top: 100px;
+
+                > img{
+                    display: none;
+                } 
                 .price{
                     bottom: 50px;
                 }
@@ -364,8 +403,10 @@
                         }
                     }
                 }
-                .subtitle{
+                .title, .subtitle{
                     display: block;
+                    text-align: left;
+                    padding: 0;
                 }
                 p.title-book{
                     display: block;
