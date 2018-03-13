@@ -2,12 +2,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var mongooseUniqueValidator = require('mongoose-unique-validator');
 
-//here we store one entity for each availabilty timeframe
+//here we store one entity for each unavailabilty timeframe
 var schema = new Schema({
     parking: {type:Schema.Types.ObjectId, ref:'Parking'}, //foreign key
-    type: {type: Number, required: true}, //0: hourly | 1: daily | 2: weekly | 3: monthly
-    start: {type: Date, required: true}, //start date of unavailability
-    end: {type: Date, required: true}, //end date of unavailability
+    start_ts: {type: Date, required: true}, //start date of unavailability
+    end_ts: {type: Date, required: true}, //end date of unavailability
+    type: {type: Number}, //0: hourly | 1: daily | 2: weekly | 3: monthly
     daily_recurrence: {type: Number}, //0: working days | N: every N days | null if not recurs daily
     start_daily_recurrence: {type: Date}, //start date of recurrence | null if not recurs daily
     end_daily_recurrence: {type: Date}, //end date of recurrence | null if not recurs daily
@@ -19,4 +19,4 @@ var schema = new Schema({
 
 schema.plugin(mongooseUniqueValidator);
 
-module.exports = mongoose.model('Park_availability',schema);
+module.exports = mongoose.model('Availability',schema);

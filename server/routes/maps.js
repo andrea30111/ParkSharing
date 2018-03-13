@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Parking = require('../models/parking');
+var Availability = require('../models/availability');
 
 router.post('/', function (req, res, next) {
     
@@ -12,7 +13,7 @@ router.post('/', function (req, res, next) {
     Parking.find({
         latitude : { $gte :  minLat, $lte :  maxLat},
         longitude : { $gte :  minLen, $lte :  maxLen}  
-    })
+    }).populate('availability', null, {start_ts: { $gte :  minLat, $lte :  maxLat}})
         .exec(function (err, parkings) {
             if (err) {
                 return res.status(500).json({
