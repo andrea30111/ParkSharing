@@ -9,21 +9,55 @@ router.post('/', function (req, res, next) {
     maxLat = req.body.maxBounds.lat;
     minLen = req.body.minBounds.lng;
     maxLen = req.body.maxBounds.lng;
-    
-    Parking.find({
-        latitude : { $gte :  minLat, $lte :  maxLat},
-        longitude : { $gte :  minLen, $lte :  maxLen}  
-    }).populate('availability', null, {start_ts: { $gte :  minLat, $lte :  maxLat}})
-        .exec(function (err, parkings) {
+    startTime = new Date(req.body.startTime);
+    endTime = new Date(req.body.endTime);
+
+    Parking.aggregate([
+        {$match:
+         {
+            latitude : { $gte :  minLat, $lte :  maxLat},
+            longitude : { $gte :  minLen, $lte :  maxLen}
+         }
+        },
+        {$lookup:
+         {from : "availability",
+          localField : "_id" ,
+          foreignField : "parking" ,
+          as : "availability"}
+        }
+    ]).exec(function (err, parkings) {
             if (err) {
                 return res.status(500).json({
                     title: 'An error occurred',
                     error: err
                 });
             }
+            var availableParkings = [];
+            var flag = 0;
+
+            parkings.forEach(function(parking){
+                parking.availability.forEach(function(slot){
+                                console.log(slot);
+                                console.log(startTime);
+                                console.log(endTime);
+
+                    if((startTime > slot.start_ts && startTime < slot.end_ts) ||
+                        (endTime > slot.start_ts && endTime < slot.end_ts) ||
+                        (startTime < slot.start_ts && endTime > slot.end_ts)){
+
+                        console.log("adding");
+
+                        flag = 1;
+                    }
+                });
+                if(flag == 0){
+                    availableParkings.push(parking);
+                }
+                flag = 0;
+            });
             res.status(200).json({
                 message: 'Success',
-                obj: parkings
+                obj: availableParkings
             });
         });
 });

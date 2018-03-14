@@ -20,7 +20,9 @@ export class MapsComponent {
   map;
   parks;
   selectedParkingId;
-
+  startTime;
+  endTime;
+  
    bookedPark ={
     date: this.calculateTime(''),
     hoursFrom: this.calculateTime('+1'),
@@ -51,6 +53,11 @@ export class MapsComponent {
   }  
 
   ionViewDidLoad(){
+    //FIXME get real dates!
+    this.startTime = new Date();
+    this.startTime.setDate(this.startTime.getDate() - 1);
+    this.endTime = new Date();
+
     var thisComponent = this;
     this.platform.ready().then(() => {
       this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement).then(() => {
@@ -82,7 +89,7 @@ export class MapsComponent {
   searchParkings(){
     this.parks = [];
     if(this.maps.map.getBounds() != undefined){
-    this.parkingService.getParkingsByAddress(this.maps.map.getBounds()).subscribe(
+    this.parkingService.getParkingsByAddress(this.maps.map.getBounds(), this.startTime, this.endTime).subscribe(
       (parkings: Parking[]) => {
           for (let parking of parkings) {
             this.maps.addMarker(parking.latitude, parking.longitude, parking._id);
@@ -106,12 +113,8 @@ export class MapsComponent {
   }
 
   pay(){
-  //FIXME get real dates!
-    var start = new Date();
-    start.setDate(start.getDate() - 1);
-    var end = new Date();
 
-    this.reservationService.bookParking(this.selectedParkingId, start, end).subscribe(
+    this.reservationService.bookParking(this.selectedParkingId, this.startTime, this.endTime).subscribe(
       data => {
         console.log(data.message);          
       },
