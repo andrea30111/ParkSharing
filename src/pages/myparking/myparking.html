@@ -26,6 +26,44 @@
                         <p class="item"><span class="tit">box_type: </span>{{editedPark.box_type}} || <span class="tit">width: </span>{{editedPark.box_type}} || <span class="tit">daily_price: </span>{{editedPark.daily_price}}€/d</p>
                         <p class="price">{{editedPark.hourly_price}}€/h</p>
                     </div>
+                </div>
+                
+                <ion-segment [(ngModel)]="searchDate" color="dark">
+                    <ion-segment-button value="day">
+                        day
+                    </ion-segment-button>
+                    <ion-segment-button value="month">
+                        month
+                    </ion-segment-button>
+                </ion-segment>
+                <button style="float:right" (click)="updateAvailability()">UPDATE</button> 
+                
+                <div *ngIf="searchDate == 'day'">
+                    <ion-calendar [(ngModel)]="date" 
+                    (onChange)="changeDay($event)"
+                    [type]="type"
+                    [format]="'YYYY-MM-DD'">
+                </ion-calendar>
+                <p>Search hours</p>
+                
+                <div class="ore">
+                    <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
+                    <i class="flaticon-double-arrow-1"></i>
+                    <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+                </div>
+            </div>
+            <div *ngIf="searchDate == 'month'">
+                <ion-calendar [(ngModel)]="dateRange" 
+                [options]="optionsRange"
+                (onChange)="changeRange($event)"
+                [type]="type"
+                [format]="'YYYY-MM-DD'">
+            </ion-calendar>
+            <p>Search hours</p>
+            <div class="ore">
+                <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
+                <i class="flaticon-double-arrow-1"></i>
+                <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+            </div>
         </div>
-       
-</div>
+    </div>

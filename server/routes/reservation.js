@@ -51,7 +51,6 @@ router.post('/', function (req, res, next) {
                     error: err
                 });
             }
-            console.log("AAAAA" + req.body.parkingId);
 
             //FIXME calculate amount correctly
             const amount = parking.hourly_price;

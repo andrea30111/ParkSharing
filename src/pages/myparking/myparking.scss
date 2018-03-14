@@ -147,4 +147,22 @@
         }
     }
 
+    .ore{
+        padding: 10px;
+        display: inline-block;
+        width: 100%;
+        border-radius: 30px;
+        line-height: 20px;
+        vertical-align: bottom;
+        text-align: center;
+        margin: 0;
+        font-size: 1.2em;
+        color: #333;
+        border-radius: 20px;
+        background: white;
+        -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+
+    }
+
 }

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Parking } from '../../models/parking.model';
 import { ParkingService } from '../../providers/parking.service';
+import { CalendarComponentOptions } from 'ion2-calendar';
+import { Availability } from '../../models/availability.model';
 
 @IonicPage()
 @Component({
@@ -12,9 +14,42 @@ import { ParkingService } from '../../providers/parking.service';
 
 export class MyparkingComponent implements OnInit{
     parkings: Parking[];
-    editId: String;
-    editedPark: Object;
-    
+    editId: string;
+    editedPark: Parking;
+    searchDate = 'day';
+    date: string;
+    type: 'js-date';
+    dateRange: { from: string; to: string; };
+    optionsRange: CalendarComponentOptions = {
+        pickMode: 'range'
+    };
+    startTime;
+    endTime;
+
+    bookedPark ={
+      hoursFrom: this.calculateTime('+1'),
+      hoursTo: this.calculateTime('+3'),
+    }
+  
+    changeDay($event) {
+      console.log($event);
+    }
+  
+    changeRange($event) {
+      console.log($event);
+    }
+  
+    calculateTime(offset: any) {
+      // create Date object for current location
+      let d = new Date();
+  
+      // create new Date object for different city
+      // using supplied offset
+      let nd = new Date(d.getTime() + (3600000 * offset));
+  
+      return nd.toISOString();
+    }  
+  
 
     constructor(public navCtrl: NavController,private parkingService: ParkingService){
         
@@ -32,8 +67,6 @@ export class MyparkingComponent implements OnInit{
             }
         } 
     }
-        
-    
  
     ngOnInit(){
         //retrieve user's parkings
@@ -54,4 +87,19 @@ export class MyparkingComponent implements OnInit{
         this.navCtrl.push('RegisterparkComponent');
     }
 
+    updateAvailability(){
+        //FIXME get parameters from selection
+        this.startTime = new Date();
+        this.endTime = new Date();
+        const slot = new Availability(this.parkings[0]._id, this.startTime, this.endTime);
+        this.parkingService.setAvailability(slot)                    
+        .subscribe(
+            data => {
+                console.log(data);
+            },
+            error => {
+                console.error(error);
+            }
+        );         
+    }
 }

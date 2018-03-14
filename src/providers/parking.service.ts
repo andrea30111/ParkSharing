@@ -97,4 +97,15 @@ export class ParkingService{
             .catch((error: Response) => Observable.throw(error.json()));
         }   
     }
+
+    setAvailability(slot){
+        const body = JSON.stringify(slot);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        const token = localStorage.getItem('token')
+        ? '?token=' + localStorage.getItem('token')
+        : '';
+        return this.http.post('http://localhost:3000/parking/availability' + token, body, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) => Observable.throw(error.json()));
+    }
 }

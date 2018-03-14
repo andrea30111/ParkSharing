@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Parking = require('../models/parking');
 var User = require('../models/user');
+var Availability = require('../models/availability');
 var jwt = require('jsonwebtoken');
 
 //check if user is authenticated
@@ -32,6 +33,35 @@ router.get('/', function (req, res, next) {
                 obj: parkings
             });
         });
+});
+
+router.post('/availability', function (req, res, next) {
+    var decoded = jwt.decode(req.query.token);
+    User.findById(decoded.user._id, function(err, user){
+        if(err){
+            return res.status(500).json({
+                title: 'an error occurred',
+                error: err
+            });
+        }
+        var availability = new Availability({
+            parking : req.body.parking,
+            start_ts : req.body.start_ts,
+            end_ts : req.body.end_ts
+        });
+        availability.save(function(err,result){
+            if(err){
+                return res.status(500).json({
+                    title: 'an error occurred',
+                    error: err
+                });
+            }
+            res.status(201).json({
+                message: 'saved parking availability',
+                obj: result
+            });
+        });
+    });
 });
 
 router.post('/', function (req, res, next) {
