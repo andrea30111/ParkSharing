@@ -20,10 +20,16 @@ router.post('/', function (req, res, next) {
          }
         },
         {$lookup:
-         {from : "availability",
+         {from : "availabilities",
           localField : "_id" ,
           foreignField : "parking" ,
-          as : "availability"}
+          as : "availabilities"}
+        },
+        {$lookup:
+         {from : "reservations",
+          localField : "_id" ,
+          foreignField : "parking" ,
+          as : "reservations"}
         }
     ]).exec(function (err, parkings) {
             if (err) {
@@ -35,11 +41,15 @@ router.post('/', function (req, res, next) {
             var availableParkings = [];
             var flag = 0;
 
-            parkings.forEach(function(parking){
-                parking.availability.forEach(function(slot){
-                                console.log(slot);
-                                console.log(startTime);
-                                console.log(endTime);
+            for( var i in parkings){
+                var parking = parkings[i];
+
+                //console.log(parking);
+                
+                parking.availabilities.forEach(function(slot){
+                    console.log(slot);
+                    console.log(startTime);
+                    console.log(endTime);
 
                     if((startTime > slot.start_ts && startTime < slot.end_ts) ||
                         (endTime > slot.start_ts && endTime < slot.end_ts) ||
@@ -50,11 +60,28 @@ router.post('/', function (req, res, next) {
                         flag = 1;
                     }
                 });
+
+                parking.reservations.forEach(function(slot){
+                    console.log(slot);
+                    console.log(startTime);
+                    console.log(endTime);
+
+                    if((startTime > slot.start_ts && startTime < slot.end_ts) ||
+                        (endTime > slot.start_ts && endTime < slot.end_ts) ||
+                        (startTime < slot.start_ts && endTime > slot.end_ts)){
+
+                        console.log("adding");
+
+                        flag = 1;
+                    }
+                });
+
                 if(flag == 0){
                     availableParkings.push(parking);
                 }
+
                 flag = 0;
-            });
+            }
             res.status(200).json({
                 message: 'Success',
                 obj: availableParkings
