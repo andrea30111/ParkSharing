@@ -1,6 +1,6 @@
 
 
-<div class="page-container list-park">
+<ion-content class="page-container list-park"  (ionScroll)="scrollingFun($event)">
         <div class="left-content">
             <p>I tuoi parcheggi</p>
             <div class="park-container">
@@ -27,7 +27,7 @@
                         <p class="price">{{editedPark.hourly_price}}€/h</p>
                     </div>
                 </div>
-                
+                <div class="editParkDate">
                 <ion-segment [(ngModel)]="searchDate" color="dark">
                     <ion-segment-button value="day">
                         day
@@ -36,34 +36,37 @@
                         month
                     </ion-segment-button>
                 </ion-segment>
-                <button style="float:right" (click)="updateAvailability()">UPDATE</button> 
+                
                 
                 <div *ngIf="searchDate == 'day'">
-                    <ion-calendar [(ngModel)]="date" 
-                    (onChange)="changeDay($event)"
+                        <ion-calendar [(ngModel)]="date" 
+                        (onChange)="changeDay($event)"
+                        [type]="type"
+                        [format]="'YYYY-MM-DD'">
+                    </ion-calendar>
+                    <p>Search hours</p>
+                    
+                    <div class="ore">
+                        <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
+                        <i class="flaticon-double-arrow-1"></i>
+                        <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
+                    </div>
+                </div>
+                <div *ngIf="searchDate == 'month'">
+                    <ion-calendar [(ngModel)]="dateRange" 
+                    [options]="optionsRange"
+                    (onChange)="changeRange($event)"
                     [type]="type"
                     [format]="'YYYY-MM-DD'">
                 </ion-calendar>
-                <p>Search hours</p>
-                
+                <p>Edit hours</p>
                 <div class="ore">
                     <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
                     <i class="flaticon-double-arrow-1"></i>
                     <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
                 </div>
             </div>
-            <div *ngIf="searchDate == 'month'">
-                <ion-calendar [(ngModel)]="dateRange" 
-                [options]="optionsRange"
-                (onChange)="changeRange($event)"
-                [type]="type"
-                [format]="'YYYY-MM-DD'">
-            </ion-calendar>
-            <p>Search hours</p>
-            <div class="ore">
-                <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursFrom"></ion-datetime>
-                <i class="flaticon-double-arrow-1"></i>
-                <ion-datetime displayFormat="HH:mm" [(ngModel)]="bookedPark.hoursTo"></ion-datetime>
-            </div>
+            <button class="update" (click)="updateAvailability()">UPDATE</button> 
+
         </div>
-    </div>
+</ion-content>

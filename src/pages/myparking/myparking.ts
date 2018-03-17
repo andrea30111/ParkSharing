@@ -6,6 +6,8 @@ import { ParkingService } from '../../providers/parking.service';
 import { CalendarComponentOptions } from 'ion2-calendar';
 import { Availability } from '../../models/availability.model';
 
+declare var $ :any;
+
 @IonicPage()
 @Component({
     selector: 'page-myparking',
@@ -52,6 +54,15 @@ export class MyparkingComponent implements OnInit{
   
 
     constructor(public navCtrl: NavController,private parkingService: ParkingService){
+        
+    }
+
+    scrollingFun($event){
+        if($event.directionY == "down"){
+            $(".addPark").fadeOut();
+        }else{
+            $(".addPark").fadeIn();
+        }
         
     }
 

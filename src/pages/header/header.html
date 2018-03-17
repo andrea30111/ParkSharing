@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <button (click)="goToHomePage()">P∆RK</button>
+    <button (click)="goToHomePage()"><img class="logo" src="../../assets/imgs/logoUP-white.png" height="40" width="40"></button>
     <div *ngIf="!isLoggedIn()" [hidden]="user">
         <ion-fab top right edge #fab1>
         <button  class="grey" (click)="presentPrompt()" ion-fab mini><ion-icon name="body"></ion-icon></button>

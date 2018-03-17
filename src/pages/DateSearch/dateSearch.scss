@@ -20,7 +20,7 @@
             .segment-button.segment-activated {
                 border-color:$main-color;
                 opacity: 1;
-                color: #4A90E2;
+                color: $main-color;
                 font-weight: 700;
             }
         }
@@ -102,7 +102,7 @@
         text-align: center;
         margin: 0;
         font-size: 1.2em;
-        color: #333;
+        color: $main-color;
         border-radius: 20px;
         background: white;
         -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);

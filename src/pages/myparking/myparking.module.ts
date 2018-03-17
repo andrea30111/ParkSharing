@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { MyparkingComponent } from './myparking';
 import { CalendarModule } from 'ion2-calendar';
 
+
 @NgModule({
   declarations: [
     MyparkingComponent

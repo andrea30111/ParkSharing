@@ -53,12 +53,16 @@ $(document).on("click touch", "button.search", function(event){
     $(".flaticon-left-arrow").removeClass("close");
 });
 
+$(document).on("scroll", function(event){
+    $(".addPark").hide();
+});
+
 
 
 
 $(document).on("click touch", ".park-tail:not(.booking)", function(){
     $(this).addClass("booking");
-    $(this).animate({height: ($(window).height()) }); 
+    $(this).animate({height: ($(window).height()), backgroundColor:'#4E1402'}); 
     $(".park-tails").css("overflow","hidden");
     $(this).siblings().removeClass("booking").removeAttr("style");
     centerItFixedWidth(this, ".park-tails");

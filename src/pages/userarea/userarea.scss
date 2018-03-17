@@ -75,10 +75,20 @@
             max-width: initial;
             width: calc(100% - 40px);
             margin: 5px 20px;
-            color: white;
+            color:$font-color;
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
+            &.edit-form-button{
+            right: 0px;
+            font-weight: bold;
+            background: $main-color;
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            border-radius: 20px;
+            cursor: pointer;
+            }
             &.edit-form-button{
             width: 40px;
             height: 40px;

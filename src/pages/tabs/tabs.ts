@@ -18,3 +18,5 @@ export class TabsPage {
   
   constructor(public navCtrl: NavController, public navParams: NavParams) { }
 }
+
+

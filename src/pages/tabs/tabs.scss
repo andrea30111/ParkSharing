@@ -19,15 +19,30 @@ ion-tabs {
         /* border-bottom-right-radius: 0; */
         max-width: 60px;
         height: 60px;
+       
 
         ion-icon{
             color: white;
             font-size: 3.4rem;
             margin-top: -5px;
         }
+
     }
 
 }
+
+@keyframes pulse {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
 
 .tabs .tab-button-icon{
     color: white;
