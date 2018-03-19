@@ -2,6 +2,7 @@ import { AuthService } from '../../providers/auth.service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, Platform } from 'ionic-angular';
 import { CalendarComponentOptions } from 'ion2-calendar'
+@IonicPage()
 @Component({
   selector: 'DateSearch',
   templateUrl: 'dateSearch.html'
