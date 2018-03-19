@@ -4,7 +4,6 @@ import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
 import { IonicPage, NavController, Platform } from 'ionic-angular';
 import { ParkingService } from '../../providers/parking.service';
 import { Parking } from '../../models/parking.model';
-import { DateSearchComponent } from '../dateSearch/dateSearch';
 import { ReservationService } from '../../providers/reservation.service';
 
 declare var $ :any;

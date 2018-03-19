@@ -1,0 +1,7 @@
+{
+    "name": "Parksharing",
+    "description": "A simple Parksharing app",
+    "repository": "https://github.com/acittar/ParkSharing",
+    "logo": "http://ionicframework.com/img/ionic-logo-blog.png",
+    "keywords": ["ionic", "park"]
+}

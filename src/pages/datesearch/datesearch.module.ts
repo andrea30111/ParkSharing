@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { DateSearchComponent } from './dateSearch';
+import { DateSearchComponent } from './datesearch';
 import { CalendarModule } from "ion2-calendar";
 
 @NgModule({
