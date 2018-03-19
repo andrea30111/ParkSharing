@@ -16,7 +16,7 @@ export class ParkingService{
         const token = localStorage.getItem('token')
         ? '?token=' + localStorage.getItem('token')
         : '';
-        return this.http.post('http://localhost:3000/parking' + token, body, {headers: headers})
+        return this.http.post('/parking' + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
@@ -26,7 +26,7 @@ export class ParkingService{
         const token = localStorage.getItem('token')
         ? '?token=' + localStorage.getItem('token')
         : '';
-        return this.http.get('http://localhost:3000/parking' + token, {headers: headers})
+        return this.http.get('/parking' + token, {headers: headers})
             .map((response: Response) => {
                 const parkings = response.json().obj;
                 let transformedMessages: Parking[] = [];
@@ -66,7 +66,7 @@ export class ParkingService{
         body["startTime"] = startTime;
         body["endTime"] = endTime;
         JSON.stringify(body);
-        return this.http.post('http://localhost:3000/maps', body, {headers: headers})
+        return this.http.post('/maps', body, {headers: headers})
             .map((response: Response) => {
                 const parkings = response.json().obj;
                 let transformedMessages: Parking[] = [];
@@ -104,7 +104,7 @@ export class ParkingService{
         const token = localStorage.getItem('token')
         ? '?token=' + localStorage.getItem('token')
         : '';
-        return this.http.post('http://localhost:3000/parking/availability' + token, body, {headers: headers})
+        return this.http.post('/parking/availability' + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }

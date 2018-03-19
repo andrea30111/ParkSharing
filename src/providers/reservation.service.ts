@@ -21,7 +21,7 @@ export class ReservationService{
         const token = localStorage.getItem('token')
         ? '?token=' + localStorage.getItem('token')
         : '';
-        return this.http.post('http://localhost:3000/reservation' + token, body, {headers: headers})
+        return this.http.post('/reservation' + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
@@ -31,7 +31,7 @@ export class ReservationService{
         const token = localStorage.getItem('token')
         ? '?token=' + localStorage.getItem('token')
         : '';
-        return this.http.get('http://localhost:3000/reservation' + token, {headers: headers})
+        return this.http.get('/reservation' + token, {headers: headers})
             .map((response: Response) => {
                 const reservations = response.json().obj;
                 let transformedReservations: Reservation[] = [];

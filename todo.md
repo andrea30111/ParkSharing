@@ -79,3 +79,6 @@ npm install --save ionic2-google-places-autocomplete
 
 //Storage
 npm install --save @ionic/storage
+
+//todo after server review
+npm install serve-favicon morgan cookie-parser body-parser cors mongoose mongoose-unique-validator bcryptjs jsonwebtoken --save

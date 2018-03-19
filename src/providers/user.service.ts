@@ -16,7 +16,7 @@ export class UserService{
         const token = localStorage.getItem('token')
         ? '?token=' + localStorage.getItem('token')
         : '';
-        return this.http.get('http://localhost:3000/user/data' + token, {headers: headers})
+        return this.http.get('/user/data' + token, {headers: headers})
             .map((response: Response) => {
                 console.log(response);
                 const user = response.json().obj;
@@ -37,7 +37,7 @@ export class UserService{
         const token = localStorage.getItem('token')
         ? '?token=' + localStorage.getItem('token')
         : '';
-        return this.http.post('http://localhost:3000/user/data' + token, body, {headers: headers})
+        return this.http.post('/user/data' + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
