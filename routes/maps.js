@@ -4,7 +4,7 @@ var Parking = require('../models/parking');
 var Availability = require('../models/availability');
 
 router.post('/', function (req, res, next) {
-    
+
     minLat = req.body.minBounds.lat;
     maxLat = req.body.maxBounds.lat;
     minLen = req.body.minBounds.lng;
@@ -45,7 +45,7 @@ router.post('/', function (req, res, next) {
                 var parking = parkings[i];
 
                 //console.log(parking);
-                
+
                 parking.availabilities.forEach(function(slot){
                     console.log(slot);
                     console.log(startTime);
