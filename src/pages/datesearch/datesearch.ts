@@ -5,7 +5,7 @@ import { CalendarComponentOptions } from 'ion2-calendar'
 @IonicPage()
 @Component({
   selector: 'DateSearch',
-  templateUrl: 'dateSearch.html'
+  templateUrl: 'datesearch.html'
 })
 export class DateSearchComponent{
 
