@@ -1,6 +1,6 @@
 
-      
-      
+
+
       <ion-content class="searchDate">
             <h1>Search date</h1>
         <ion-card>
@@ -14,7 +14,7 @@
                 month
               </ion-segment-button>
             </ion-segment>
-            
+
             <div *ngIf="searchDate == 'day'">
                     <ion-calendar [(ngModel)]="date"
                     (onChange)="changeDay($event)"
@@ -45,10 +45,9 @@
                           </div>
                           <button class="search">search</button>
             </div>
-                
-         
-            
+
+
+
           </ion-card-content>
         </ion-card>
       </ion-content>
-      
