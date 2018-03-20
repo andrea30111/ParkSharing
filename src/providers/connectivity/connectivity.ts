@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Network } from '@ionic-native/network';
-
 
 /*
   Generated class for the ConnectivityProvider provider.
@@ -9,14 +7,11 @@ import { Network } from '@ionic-native/network';
   and Angular DI.
 */
 
-declare var Connection;
-
-
 @Injectable()
 export class ConnectivityProvider {
   onDevice = true;
 
-  constructor(private network: Network) {
+  constructor() {
    
   }
 

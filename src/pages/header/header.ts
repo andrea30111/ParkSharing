@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic-angular';
+import { IonicPage, AlertController, App } from 'ionic-angular';
 import { AuthService } from '../../providers/auth.service';
 import { User } from '../../models/user.model';
-
-declare var micron:any;
 
 @IonicPage()
 @Component({
@@ -15,7 +13,7 @@ export class HeaderComponent {
   user: String;
   registerMessage: String;
 
-  constructor(private app: App, private authService: AuthService ,private alertCtrl: AlertController, private navCtrl: NavController) {
+  constructor(private app: App, private authService: AuthService ,private alertCtrl: AlertController) {
   }
 
   onLogout(){

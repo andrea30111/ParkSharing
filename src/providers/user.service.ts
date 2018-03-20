@@ -1,9 +1,7 @@
-import { LocationsProvider } from './locations/locations';
 import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from "@angular/http";
 import 'rxjs/Rx';
-import { Parking } from '../models/parking.model';
 import { User } from '../models/user.model';
 
 @Injectable()

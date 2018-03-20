@@ -1,11 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AuthService } from '../providers/auth.service';
-import { NavController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { User } from '../models/user.model';
 
 @Component({
   templateUrl: 'app.html'

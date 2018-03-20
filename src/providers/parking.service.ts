@@ -1,4 +1,3 @@
-import { LocationsProvider } from './locations/locations';
 import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from "@angular/http";

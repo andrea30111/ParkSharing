@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ConnectivityProvider } from '../connectivity/connectivity';
-import { Geolocation } from '@ionic-native/geolocation';
-import { Network } from '@ionic-native/network';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers } from "@angular/http";
 
-declare var jquery:any;
 declare var $ :any;
-
  
 declare var google;
  

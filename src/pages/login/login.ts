@@ -1,5 +1,5 @@
-import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { AuthService } from '../../providers/auth.service';
 import { NavController, IonicPage } from 'ionic-angular';
