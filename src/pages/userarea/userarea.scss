@@ -3,6 +3,10 @@
         height: 25%;
         padding-top: 50px;
         background: $primary-color;
+        width: calc(100% + 260px);
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        transform: translate(-130px, 0 );
         p{
             color: white;
             position: absolute;
@@ -75,19 +79,20 @@
             max-width: initial;
             width: calc(100% - 40px);
             margin: 5px 20px;
-            color:$font-color;
+            color:white;
+            background: $main-color;
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             &.edit-form-button{
-            right: 0px;
-            font-weight: bold;
-            background: $main-color;
-            height: 40px;
-            width: 40px;
-            line-height: 40px;
-            border-radius: 20px;
-            cursor: pointer;
+                right: 0px;
+                font-weight: bold;
+                background: $main-color;
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                border-radius: 20px;
+                cursor: pointer;
             }
             &.edit-form-button{
             width: 40px;

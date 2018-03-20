@@ -1,10 +1,12 @@
 
 
-<div class="page-container list-park">
+<div class="page-container list-park reservation">
+        <div class="background"></div>
         <div class="left-content">
             <p>Le tue prenotazioni</p>
             <div class="park-container">
                 <div class="park" *ngFor="let res of reservations" >
+                        <img src="../../assets/imgs/logo.png" class="park-img">
                     <p class="title">{{res.parking}}</p>
                     <p class="subtitle">{{res.start_ts}}</p>
                     <p class="item descr">{{res.end_ts}}</p>
